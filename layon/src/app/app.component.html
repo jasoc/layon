@@ -32,20 +32,22 @@
     </div>
   </div>
 
-  <div class="big-picture">
-    <div class="games">
-      <div class="title">
-        <p>Your game / app</p>
-      </div>
-      <div class="content">
-        <div class="image">
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-            Inventore adipisci dolore ipsam aut dolor sequi tempore vitae
-            saepe illo cupiditate deleniti explicabo, blanditiis quidem nostrum magni, placeat quo? Nihil, obcaecati?</p>
+  <div class="games-list">
+    <div class="big-picture" *ngFor="let game of gameList">
+      <div class="games">
+        <div class="title">
+          <p>{{ game }}</p>
+        </div>
+        <div class="content">
+          <div class="image">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+              Inventore adipisci dolore ipsam aut dolor sequi tempore vitae
+              saepe illo cupiditate deleniti explicabo, blanditiis quidem nostrum magni, placeat quo? Nihil, obcaecati?</p>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
-
 </div>
 </body>
