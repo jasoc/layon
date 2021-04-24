@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'layon';
+
+  constructor() {
+    console.log("Test breakpoint");
+  }
+
+  ngAfterViewInit() {
+    console.log("After view");
+  }
 }
