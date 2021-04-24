@@ -3,11 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+
+import { MainComponent,
+  TopbarComponent,
+  UserBoxComponent
+} from 'components';
+
+import {
+  GamesListComponent,
+  GameBoxComponent,
+  GameFooterComponent
+} from 'components/games';
 
 @NgModule({
   declarations: [
-    AppComponent
+    MainComponent,
+    TopbarComponent,
+    UserBoxComponent,
+    GamesListComponent,
+    GameBoxComponent,
+    GameFooterComponent
   ],
   imports: [
     BrowserModule,
@@ -15,6 +30,6 @@ import { AppComponent } from './app.component';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [MainComponent]
 })
 export class AppModule { }
