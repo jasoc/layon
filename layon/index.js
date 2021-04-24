@@ -14,9 +14,10 @@ let mainWindow = () => {
         height: 1080,
         webPreferences: {
             nodeIntegration: true
-        }
+        },
+        frame: false, 
+        titleBarStyle: 'hidden' // This should remove the title bar
     });
-
 
     // win.loadURL(
     //     url.format({
@@ -53,5 +54,6 @@ app.on('activate', () => {
         mainWindow();
     }
 });
+
 
 // electron_reload()
