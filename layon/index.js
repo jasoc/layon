@@ -1,8 +1,11 @@
 const { app, BrowserWindow } = require('electron');
 const url = require("url");
 const path = require("path");
+// const { electron } = require('node:process');
+require('electron-reload')(__dirname);
 
 let win;
+
 
 let mainWindow = () => {
 
@@ -15,13 +18,15 @@ let mainWindow = () => {
     });
 
 
-    win.loadURL(
-        url.format({
-            pathname: path.join(__dirname, `/dist/index.html`),
-            protocol: "file:",
-            slashes: true
-        })
-    );
+    // win.loadURL(
+    //     url.format({
+    //         pathname: path.join(__dirname, `/dist/index.html`),
+    //         protocol: "file:",
+    //         slashes: true
+    //     })
+    // );
+
+    win.loadURL('http://localhost:4200');
 
     // DevTools
     // win.webContents.openDevTools()
@@ -48,3 +53,5 @@ app.on('activate', () => {
         mainWindow();
     }
 });
+
+// electron_reload()

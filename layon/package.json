@@ -1,15 +1,21 @@
 {
   "name": "layon",
   "version": "0.0.0",
-  "main": "main.js",
+  "main": "dist/electrong/index.js",
+  "build": {
+    "files": [
+      "dist/electrong"
+    ]
+  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "electron": "electron .",
+    "electron": "wait-on http://localhost:4200 && electron .",
+    "prestart": "npm run",
+    "start": "concurrently -k \"ng serve\" \"npm run electron\"",
     "electron-build": "ng build --prod && electron .",
     "start-electron": "ng build --base-href ./ && electron ."
   },
@@ -23,6 +29,7 @@
     "@angular/platform-browser": "~11.2.10",
     "@angular/platform-browser-dynamic": "~11.2.10",
     "@angular/router": "~11.2.10",
+    "electron-reload": "^1.5.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "yarn": "^1.22.10",
