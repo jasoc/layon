@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { MainComponent,
   TopbarComponent,
@@ -14,6 +16,7 @@ import {
   GameBoxComponent,
   GameFooterComponent
 } from 'components/games';
+import { TopbarButtonComponent } from './components/topbar-button/topbar-button.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +25,14 @@ import {
     UserBoxComponent,
     GamesListComponent,
     GameBoxComponent,
-    GameFooterComponent
+    GameFooterComponent,
+    TopbarButtonComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [MainComponent]
