@@ -7,14 +7,20 @@ import { Component, Input } from '@angular/core';
 })
 export class FlatButtonComponent {
 
-    @Input("background")
+    @Input()
     background: string = "royalblue";
 
-    @Input("color")
+    @Input()
     color: string = "white";
 
-    @Input("size")
+    @Input()
     size: string = "small" || "medium" || "big";
+
+    @Input()
+    border: string = "none" || "thin" || "thick";
+
+    @Input("border-color")
+    borderColor: string = "grey";
 
     constructor() { }
 }
