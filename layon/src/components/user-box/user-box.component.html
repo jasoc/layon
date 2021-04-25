@@ -1,25 +1,25 @@
 <div id="user-box">
 
     <div class="profile-picture" (click)="dropDown = !dropDown"
-    [style]="dropDown ? 'border: 3px solid #0e1112be' : '' ">
-        <img src="https://avatars.githubusercontent.com/u/29713081?v=4">
+    [style]="dropDown ? 'border: 3px solid #0e1112be;' : '' ">
+        <img src="https://s3-eu-west-1.amazonaws.com/static.screenweek.it/interpretation/original_low-80732.jpg?1456325533">
     </div>
 
     <div id="drop-down" *ngIf="dropDown">
         <div>
 
             <div>
-                <img src="https://avatars.githubusercontent.com/u/29713081?v=4"
+                <img src="https://s3-eu-west-1.amazonaws.com/static.screenweek.it/interpretation/original_low-80732.jpg?1456325533"
                 class="profile-picture-big">
             </div>
             
             <div class="info">
-                <p id="name">Jasoc</p>
-                <p>Jasoc@gmail.com</p>
+                <p id="name">Faraday</p>
+                <p>DanielFaraday@hotmail.it</p>
             </div>
 
         </div>
-        <flat-button background="transparent" border="thin" color="black">Esci</flat-button>
+        <flat-button background="transparent" border="thin" color="black">Quit</flat-button>
     </div>
 
 </div>

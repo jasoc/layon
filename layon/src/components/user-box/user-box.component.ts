@@ -13,6 +13,5 @@ export class UserBoxComponent implements OnInit {
   }
 
   public dropDown: boolean = true;
-  
 
 }

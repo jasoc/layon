@@ -5,16 +5,17 @@
     font-family: Roboto-medium;
 
     width: 100%;
-    height: 10vh;
-    background: #1e1e1e93;
+    height: 15vh;
+    background: transparent;
     display: flex;
     align-items: center;
+    position: absolute;
 
     topbar-button {
         margin: 5px;
     }
 
     user-box {
-        margin: 5px;
+        margin: 10px;
     }
 }
