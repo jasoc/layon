@@ -17,7 +17,7 @@ export class TopbarComponent implements OnInit {
     {name: "Home", value: true },
     {name: "Apps", value: false },
     {name: "Games", value: false },
-    {name: "Settings", value: false },
+    {name: "Settings", value: false }
   ]
 
   setActive(index: number): void {

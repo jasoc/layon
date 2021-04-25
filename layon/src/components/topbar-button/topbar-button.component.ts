@@ -36,7 +36,7 @@ export class TopbarButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input() public active: boolean = false;
+  @Input() public active!: boolean;
 
   
 
