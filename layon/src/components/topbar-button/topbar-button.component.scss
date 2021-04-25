@@ -1,7 +1,7 @@
 #topbar-button {
-    width: 170px;
-    height: 70px;
-    font-size: 21px;
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,8 +9,8 @@
     cursor: pointer;
     user-select: none;
     border-radius: 40px;
-    transition-duration: 350ms;
+    transition-duration: 200ms;
     &:hover {
-        font-size: 28px;
+        font-size: 20px;
     }
 }
