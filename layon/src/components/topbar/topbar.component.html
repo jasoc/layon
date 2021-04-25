@@ -1,4 +1,5 @@
 <div id="topbar">
+    <user-box></user-box>
     <topbar-button *ngFor="let button of navBar; let i = index"
     (click)="setActive(i)" [active]="navBar[i].value">
         {{ button.name }}

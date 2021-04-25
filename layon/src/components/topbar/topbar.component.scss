@@ -1,4 +1,9 @@
+@import 'styles/fonts';
+
 #topbar {
+    
+    font-family: Roboto-medium;
+
     width: 100%;
     height: 10vh;
     background: #1e1e1e93;
@@ -6,6 +11,10 @@
     align-items: center;
 
     topbar-button {
+        margin: 5px;
+    }
+
+    user-box {
         margin: 5px;
     }
 }
