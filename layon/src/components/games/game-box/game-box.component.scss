@@ -1,0 +1,21 @@
+#game-box {
+    #game-box__rounded {
+
+        background: red;
+        border-radius: 7px;
+        height: 300px;
+        width: 350px;
+        display: flex;
+        align-items: flex-end;
+
+        #title {
+            white-space: nowrap;
+            font-size: 45px;
+            overflow: hidden;
+
+            $MARGIN: 20px;
+            margin-bottom: $MARGIN;
+            margin-left: $MARGIN;
+        }
+    }
+}
