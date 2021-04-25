@@ -22,11 +22,10 @@ export class TopbarComponent implements OnInit {
     {name: "Settings", value: false }
   ]
 
-  // This function will set only one item/button 
+  // This function will set only one item/button
   // active(highlighted)
   setActive(index: number): void {
     for(let i of this.navBar) i.value = false;
     this.navBar[index].value = true;
   }
-
 }

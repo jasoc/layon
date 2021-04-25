@@ -1,0 +1,7 @@
+<div id="topbar-button" 
+    [@stayFocus]="active ? 'open' : 'closed' " (click)="active = true"
+    [style]="active ? 'font-size: 24px;' : '' ">
+    <ng-content>
+        
+    </ng-content>
+</div>
