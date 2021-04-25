@@ -1,11 +1,21 @@
+@import 'styles/fonts';
+
 #topbar {
+    
+    font-family: Roboto-medium;
+
     width: 100%;
     height: 10vh;
-    background: #1e1e1e93;
+    background: transparent;
     display: flex;
     align-items: center;
+    position: absolute;
 
     topbar-button {
         margin: 5px;
+    }
+
+    user-box {
+        margin: 10px;
     }
 }
