@@ -1,0 +1,9 @@
+#games-list {
+    #games-list__flexbox {
+        display: flex;
+
+        app-game-box {
+            margin: 15px;
+        }
+    }
+}
