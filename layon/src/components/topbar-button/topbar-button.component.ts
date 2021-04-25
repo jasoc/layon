@@ -15,10 +15,12 @@ import {
   animations: [
     trigger('stayFocus', [
       state('open', style({
-        background: '#0e1112be'
+        background: '#0e1112be',
+        margin: '0px 10px 0px 10px'
       })),
       state('closed', style({
-        background: 'transparent'
+        background: 'transparent',
+        margin: '0px'
       })),
       transition('open => closed', [
         animate('0.3s')
