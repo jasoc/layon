@@ -4,15 +4,17 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { MainComponent,
-  TopbarComponent,
-  UserBoxComponent
+import {
+    MainComponent,
+    TopbarComponent,
+    UserBoxComponent,
+    FlatButtonComponent
 } from 'components';
 
 import {
-  GamesListComponent,
-  GameBoxComponent,
-  GameFooterComponent
+    GamesListComponent,
+    GameBoxComponent,
+    GameFooterComponent
 } from 'components/games';
 
 @NgModule({
@@ -22,7 +24,8 @@ import {
     UserBoxComponent,
     GamesListComponent,
     GameBoxComponent,
-    GameFooterComponent
+    GameFooterComponent,
+    FlatButtonComponent
   ],
   imports: [
     BrowserModule,
