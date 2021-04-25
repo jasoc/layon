@@ -12,6 +12,6 @@ export class UserBoxComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public dropDown: boolean = true;
+  public dropDown: boolean = false;
 
 }

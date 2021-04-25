@@ -1,0 +1,42 @@
+@import 'styles/fonts';
+
+#game-footer {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    background: black;
+    height: 250px;
+    width: 100%;
+
+    #text {
+        height: 100%;
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        margin-left: 50px;
+        color: white;
+
+        label {
+            font-family: Roboto-medium;
+            font-size: 30px;
+        }
+
+        p {
+            font-family: Roboto;
+            font-size: 17px;
+        }
+    }
+
+    #buttons {
+        margin-right: 50px;
+
+        flat-button {
+            margin: 7px;
+        }
+    }
+}
