@@ -1,3 +1,5 @@
+@import url();
+
 #game-box {
     #game-box__rounded {
 
@@ -9,8 +11,7 @@
         align-items: flex-end;
 
         #title {
-            white-space: nowrap;
-            font-size: 45px;
+            font-size: 35px;
             overflow: hidden;
 
             $MARGIN: 20px;

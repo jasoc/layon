@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/co
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
-  selector: 'app-game-box',
+  selector: 'game-box',
   templateUrl: './game-box.component.html',
   styleUrls: ['./game-box.component.scss']
 })
