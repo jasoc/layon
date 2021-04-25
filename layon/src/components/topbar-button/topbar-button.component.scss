@@ -6,8 +6,9 @@
     align-items: center;
     justify-content: center;
     color: white;
-    border-radius: 25px;
     cursor: pointer;
+    user-select: none;
+    border-radius: 25px;
     transition-duration: 350ms;
     &:hover {
         font-size: 24px;
