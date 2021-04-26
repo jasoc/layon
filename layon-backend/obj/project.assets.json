@@ -8,31 +8,24 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\frday_\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Erison\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\frday_\\Desktop\\Layon\\layon-backend\\layon-backend.csproj",
+      "projectUniqueName": "C:\\Users\\Erison\\Desktop\\layon\\layon-backend\\layon-backend.csproj",
       "projectName": "layon-backend",
-      "projectPath": "C:\\Users\\frday_\\Desktop\\Layon\\layon-backend\\layon-backend.csproj",
-      "packagesPath": "C:\\Users\\frday_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\frday_\\Desktop\\Layon\\layon-backend\\obj\\",
+      "projectPath": "C:\\Users\\Erison\\Desktop\\layon\\layon-backend\\layon-backend.csproj",
+      "packagesPath": "C:\\Users\\Erison\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Erison\\Desktop\\layon\\layon-backend\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\frday_\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Erison\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -68,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

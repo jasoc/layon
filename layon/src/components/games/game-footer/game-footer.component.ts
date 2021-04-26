@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'game-footer',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameFooterComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit(): void {
   }
+
+  @Input() public currentTitle!: string;
+
+  // BUG GRAVE, ANY DA TOGLIERE
+  @Input() public genres!: any;
+
 
 }

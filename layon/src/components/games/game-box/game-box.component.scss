@@ -3,14 +3,13 @@
 #game-box {
     #game-box__rounded {
 
-        background: red;
+        background: transparent;
         border-radius: 7px;
         height: 250px;
         width: 450px;
         display: flex;
         align-items: flex-end;
         box-shadow: inset 0px 0px rgba(0,0,0,0.5);
-        background-image: url(https://store-images.s-microsoft.com/image/apps.58752.68182501197884443.ac728a87-7bc1-4a0d-8bc6-0712072da93c.0cf58754-9802-46f8-8557-8d3ff32a627a?mode=scale&q=90&h=720&w=1280&format=jpg);
         background-size: cover;
         background-position: center;
 

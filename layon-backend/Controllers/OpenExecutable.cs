@@ -9,8 +9,6 @@ using System.Linq;
 
 using System.Diagnostics;
 
-using Launcher.Models;
-
 
 
 namespace aspnetcoreapp.Controllers
@@ -28,17 +26,27 @@ namespace aspnetcoreapp.Controllers
         }
 
         [HttpGet]
-        public FileInfo[] SearchForGames() {
+        public dynamic SearchForGames() {
             // Folders that should be found: Steam[DONE], Origin Games[TO BE DONE]
-            Launchers Launcher = new Launchers();
-
 
             // Drives name
             DriveInfo[] Drives = DriveInfo.GetDrives();
             // All the Games directories each drive will have
-            List<string> Games = new List<string>();
+            // ListDictionary Games = new ListDictionary();
+            Dictionary<string, string> Games = new Dictionary<string, string>();
 
-            int index = 0;
+            // List<Dictionary<string, string>> Games = new List<Dictionary<string, string>>();
+
+            // List that contains all the folders that SHOULD contain games
+            List<string> LauncherList = new List<string>() {
+                "Steam",
+                "Steam Library",
+                "Origin Games",
+                "Epic Games",
+                "Rockstar Games",
+                "Games"
+            };
+
             foreach(DriveInfo i in Drives) {
                 // Check the first drive
                 string[] temp = Directory.GetDirectories(i.ToString());
@@ -50,25 +58,39 @@ namespace aspnetcoreapp.Controllers
                         string[] _ = Directory.GetDirectories(temp[j]);
                         for(int k = 0; k < _.Length; k++) {
                             Console.WriteLine(_[k]);
-                            if(_[k].Contains("Steam")) {
-                                path = _[k].ToString() + @"\steamapps\common";
-                                Launcher.Steam = Directory.GetDirectories(path);
+                            for(int l = 0; l < LauncherList.Count(); l++) {
+                                if(_[k].Contains(LauncherList[l])) {
+                                    Console.WriteLine($"----------------> E' STATA TROVATA LA CARTELLA {_[k]}");
+                                    path = _[k].ToString() + @"\steamapps\common";
+                                    return Games;
+                                    Directory.GetDirectories(path);
+                                    Games.Add("path", path);
+                                }
                             }
                         }
                     }
                     catch(Exception e) {
-                        Console.WriteLine($"In catch 54 {e}");
+                        Console.WriteLine($"In catch 71 {e}");
                     }
                 }
-                index++;
             }
 
             Console.WriteLine("----------------><-----------------");
 
-            DirectoryInfo d = new DirectoryInfo(Launcher.Steam[0]);
-            FileInfo[] Files = d.GetFiles("*.exe");
-            Console.WriteLine(Files[0]);
-            return Files;
+            foreach(var path in Games) {
+                Console.WriteLine($"THE PATH IN GAMES IS -----------> {path}");
+            }
+            return Games;
+
+            // int t_index = 0;
+            // DirectoryInfo d = new DirectoryInfo(Launcher.Steam[0]);
+            // FileInfo[] Files = d.GetFiles("*.exe");
+            // foreach(var exe in Files) {
+            //     Console.WriteLine(Files[t_index]);
+            //     t_index++;
+            // }
+            // return Files;
+            // return null;
 
             // Note per domani
             // DEVO TORNARE UNA LISTA DI STRINGHE, OGNUNA CORRISPONDENTE AL GIOCO DA AVVIARE

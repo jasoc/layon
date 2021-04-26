@@ -6,10 +6,12 @@
     align-items: center;
     justify-content: space-between;
     position: absolute;
+    user-select: none;
     bottom: 0;
     background: black;
     height: 250px;
     width: 100%;
+    font-family: Roboto-medium;
 
     #text {
         height: 100%;
@@ -22,13 +24,36 @@
         color: white;
 
         label {
-            font-family: Roboto-medium;
             font-size: 30px;
         }
 
         p {
             font-family: Roboto;
             font-size: 17px;
+        }
+    }
+
+    #genres {
+        height: 100%;
+        width: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        #center {
+            display: flex;
+        }
+
+        .genre {
+            width: 100px;
+            height: 30px;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            background: #bfc2ebc7;
+            color: #3a41bb;
         }
     }
 

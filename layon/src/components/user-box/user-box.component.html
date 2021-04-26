@@ -13,8 +13,8 @@
                 class="profile-picture-big">
             </div>
             
-            <div class="info">
-                <p id="name">Faraday</p>
+            <div class="info" *ngIf="name">
+                <p id="name">{{ name }}</p>
                 <p>DanielFaraday@hotmail.it</p>
             </div>
 

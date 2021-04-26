@@ -1,12 +1,17 @@
 <div id="game-footer">
     <div id="text">
-        <label>Assassin's Creed Valhalla</label>
+        <label>{{ currentTitle }}</label>
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia repudiandae provident id nostrum distinctio ut, doloremque ad, incidunt numquam deleniti modi laudantium autem saepe exercitationem libero possimus, tempora nisi error?
         </p>
     </div>
+    <div id="genres">
+        <div id="center">
+            <div class="genre" *ngFor="let genre of genres">{{ genre.name }}</div>
+        </div>
+    </div>
     <div id="buttons">
-        <flat-button background="transparent">Scopri</flat-button>
-        <flat-button background="red">Gioca</flat-button>
+        <flat-button background="transparent">Discover</flat-button>
+        <flat-button background="red">Play</flat-button>
     </div>
 </div>
