@@ -1,27 +1,23 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Collections;
+
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Microsoft.Extensions.Configuration;
-using System.Linq;
-using System.Diagnostics;
+using Microsoft.AspNetCore.Cors;
 
+using layon.Models;
 
-
-namespace aspnetcoreapp.Controllers
+namespace layon.Controllers
 {
     [ApiController]
+    [EnableCors("defaultLayonPolicy")]
     [Route("[controller]/[action]")]
     public class GetInfo : Controller
     {
-        // Cercare i giochi partendo da quelli di steam
         [HttpGet]
-        public string GetUserInfo() {
-            Console.WriteLine("INFO");
-            string WinName = Environment.UserName;
-            return WinName;
+        public ApiResult GetUserInfo() {
+            return new ApiResult {
+                Success = true,
+                Data = Environment.UserName
+            };
         }
     }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { LayonService } from 'services';
 
 @Component({
   selector: 'user-box',
@@ -8,19 +8,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserBoxComponent implements OnInit {
 
-  constructor(public http: HttpClient) {
-    this.http.get<string>("https://localhost:5001/getinfo/getuserinfo")
-      .subscribe( (fromWinName: string) => {
-        console.log("tornato", fromWinName);
-        this.name = fromWinName;
-      });
-  }
-  
+  constructor(public _layon: LayonService) { }
+
   ngOnInit(): void {
   }
 
-  public name!: string;
-
   public dropDown: boolean = false;
-
 }

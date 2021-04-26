@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { GamesService, LayonBackendService, LayonService } from 'services';
+import { apiResult } from 'models';
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+    constructor(
+        public _games: GamesService,
+        public _layonBackend: LayonBackendService,
+        public _layon: LayonService
+    ) { }
 
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {
+        this._layonBackend.getLocalUserName()
+            .subscribe((result: apiResult) => {
+                this._layon.userName = result.data;
+            });
+    }
 }

@@ -1,15 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace layon_backend
+namespace layon
 {
     public class Startup
     {
@@ -24,7 +19,15 @@ namespace layon_backend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddCors();
+            services.AddCors(options => {
+                options.AddPolicy(name: "defaultLayonPolicy",
+                    builder => {
+                        builder
+                            .WithOrigins("http://localhost:4200")
+                            .WithMethods("POST", "GET");
+                    }
+                );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,11 +49,7 @@ namespace layon_backend
 
             app.UseRouting();
 
-            app.UseCors(x => x
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .SetIsOriginAllowed(origin => true) // allow any origin
-                .AllowCredentials()); // allow credentials
+            app.UseCors();
 
             app.UseAuthentication();
             app.UseAuthorization();

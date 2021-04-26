@@ -1,17 +1,12 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Collections;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Microsoft.Extensions.Configuration;
 using System.Linq;
-
 using System.Diagnostics;
+using System.Collections.Generic;
 
+using Microsoft.AspNetCore.Mvc;
 
-
-namespace aspnetcoreapp.Controllers
+namespace layon.Controllers
 {
     [ApiController]
     [Route("[controller]/[action]")]
@@ -31,21 +26,23 @@ namespace aspnetcoreapp.Controllers
 
             // Drives name
             DriveInfo[] Drives = DriveInfo.GetDrives();
-            // All the Games directories each drive will have
-            // ListDictionary Games = new ListDictionary();
-            Dictionary<string, string> Games = new Dictionary<string, string>();
 
-            // List<Dictionary<string, string>> Games = new List<Dictionary<string, string>>();
+            /*
+             * All the Games directories each drive will have
+             * ListDictionary Games = new ListDictionary();
+             */
+            //Dictionary<string, string> Games = new Dictionary<string, string>();
+            List<string> Games = new List<string>();
 
             // List that contains all the folders that SHOULD contain games
-            List<string> LauncherList = new List<string>() {
-                "Steam",
-                "Steam Library",
-                "Origin Games",
-                "Epic Games",
-                "Rockstar Games",
-                "Games"
-            };
+            Dictionary<string, Func<string, bool>> LauncherList = new Dictionary<string, Func<string, bool>>();
+
+            LauncherList.Add("Steam", (string path) => { return path == @"\steamapps\common"; });
+            LauncherList.Add("Steam Library", (string path) => { return path == @"\steamapps\common"; });
+            LauncherList.Add("Epic Games", (string path) => { return (path != "DirectXRedist" && path != "Launcher"); });
+            LauncherList.Add("Origin Games", null);
+            LauncherList.Add("Rockstar Games", null);
+            LauncherList.Add("Games", null);
 
             foreach(DriveInfo i in Drives) {
                 // Check the first drive
@@ -56,30 +53,23 @@ namespace aspnetcoreapp.Controllers
                 for(int j = 0; j < temp.Length; j++) {
                     try {
                         string[] _ = Directory.GetDirectories(temp[j]);
-                        for(int k = 0; k < _.Length; k++) {
-                            Console.WriteLine(_[k]);
-                            for(int l = 0; l < LauncherList.Count(); l++) {
-                                if(_[k].Contains(LauncherList[l])) {
-                                    Console.WriteLine($"----------------> E' STATA TROVATA LA CARTELLA {_[k]}");
-                                    path = _[k].ToString() + @"\steamapps\common";
-                                    return Games;
-                                    Directory.GetDirectories(path);
-                                    Games.Add("path", path);
-                                }
-                            }
-                        }
+                        for(int k = 0; k < _.Length; k++)
+                            foreach (var launcher in LauncherList)
+                                if(_[k].Contains(launcher.Key))
+                                    if (launcher.Value is not null)
+                                        foreach (var p in Directory.GetFiles(_[k], "*.exe").Where(launcher.Value))
+                                            Games.Add(p);
+                                    else
+                                        foreach (var p in Directory.GetFiles(_[k], "*.exe"))
+                                            Games.Add(p);
                     }
-                    catch(Exception e) {
-                        Console.WriteLine($"In catch 71 {e}");
-                    }
+                    catch(Exception) { }
                 }
             }
 
-            Console.WriteLine("----------------><-----------------");
-
-            foreach(var path in Games) {
+            foreach(var path in Games)
                 Console.WriteLine($"THE PATH IN GAMES IS -----------> {path}");
-            }
+
             return Games;
 
             // int t_index = 0;

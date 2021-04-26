@@ -8,10 +8,7 @@
             <mat-icon>chevron_right</mat-icon>
         </div>
     </div>
-    <div id="games-list__flexbox" *ngIf="fetched">
-        <game-box *ngFor="let game of gameList; let i = index" [img]="gameList[i].url"></game-box>
+    <div id="games-list__flexbox">
+        <game-box *ngFor="let game of gameList; let i = index"></game-box>
     </div>
 </div>
-<game-footer *ngIf="gameList" [currentTitle]="gameList[index].name" 
-    [genres]="gameList[index].genres">
-</game-footer>
