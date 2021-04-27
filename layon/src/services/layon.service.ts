@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LayonBackendService } from 'services';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,16 @@ export class LayonService {
 
     public userName?: string;
 
-    constructor() { }
+    public userEmail?: string;
+
+    constructor(public LayonBackend: LayonBackendService) { 
+      
+      LayonBackend.getLocalUserName().subscribe(
+        (response) => {
+          this.userName = response.data.name;
+          this.userEmail = response.data.email;
+        }
+      )
+    }
 
 }

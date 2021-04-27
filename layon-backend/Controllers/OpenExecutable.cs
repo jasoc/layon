@@ -12,81 +12,78 @@ namespace layon.Controllers
     [Route("[controller]/[action]")]
     public class OpenExecutable : Controller
     {
-        // Cercare i giochi partendo da quelli di steam
-        [HttpGet]
-        public int OpenFile() {
-
-            Process.Start(@"C:\Users\frday_\Desktop\BambooMT2\Beekeeper.exe", "admin");
+        [HttpPost]
+        public int OpenFile([FromBody] string path) {
+            // This one works, already tested using Postman
+            Process.Start(path, "admin");
             return 0;
         }
 
         [HttpGet]
         public dynamic SearchForGames() {
-            // Folders that should be found: Steam[DONE], Origin Games[TO BE DONE]
+            // Riguardo le complicazioni con questo codice, quest'ultimo deve restare commentato in lingua ITALIANA.
 
-            // Drives name
+            
+            // Ogni singolo Drive, quindi C, D, E
             DriveInfo[] Drives = DriveInfo.GetDrives();
 
-            /*
-             * All the Games directories each drive will have
-             * ListDictionary Games = new ListDictionary();
-             */
-            //Dictionary<string, string> Games = new Dictionary<string, string>();
+            // La lista dei giochi deve essere tornata in path
             List<string> Games = new List<string>();
 
-            // List that contains all the folders that SHOULD contain games
-            Dictionary<string, Func<string, bool>> LauncherList = new Dictionary<string, Func<string, bool>>();
+            // La lista dei launcher che deve essere controllata
+            Dictionary<string, string> LauncherList = new Dictionary<string, string>()
+            {
+                {"Steam", @"\steamapps\common"},
+                {"Steam Library", @"\steamapps\common"},
+                {"Games", ""}
+            };
 
-            LauncherList.Add("Steam", (string path) => { return path == @"\steamapps\common"; });
-            LauncherList.Add("Steam Library", (string path) => { return path == @"\steamapps\common"; });
-            LauncherList.Add("Epic Games", (string path) => { return (path != "DirectXRedist" && path != "Launcher"); });
-            LauncherList.Add("Origin Games", null);
-            LauncherList.Add("Rockstar Games", null);
-            LauncherList.Add("Games", null);
+            foreach(DriveInfo DriveLetter in Drives) {
 
-            foreach(DriveInfo i in Drives) {
-                // Check the first drive
-                string[] temp = Directory.GetDirectories(i.ToString());
-                string path = "";
+                try {      
+                    /*
+                     * Questo array di stringhe non sarà altro che sovrascritto ogni volta.
+                     * Ad ogni iterazione di un nuovo HardDisk o SSD questo array conterrà
+                     * tutte le directory principali del singolo Drive(Per ogni iterazione)
+                     */
+                    string[] DriveDirectories = Directory.GetDirectories(DriveLetter.ToString());
 
-                // All the MAIN directories on each drive contained by temp
-                for(int j = 0; j < temp.Length; j++) {
-                    try {
-                        string[] _ = Directory.GetDirectories(temp[j]);
-                        for(int k = 0; k < _.Length; k++)
-                            foreach (var launcher in LauncherList)
-                                if(_[k].Contains(launcher.Key))
-                                    if (launcher.Value is not null)
-                                        foreach (var p in Directory.GetFiles(_[k], "*.exe").Where(launcher.Value))
-                                            Games.Add(p);
-                                    else
-                                        foreach (var p in Directory.GetFiles(_[k], "*.exe"))
-                                            Games.Add(p);
+                    foreach (string SingleDirectory in DriveDirectories) {
+                        /*
+                         * Come da nome, SingleDirectory è una stringa che conterra una 
+                         * SINGOLA cartella per volta di ogni drive, quindi alla prima
+                         * iterazione si tratterà delle singole cartelle del drive C
+                         */
+                        
+                        /* 
+                         * Dentro questo array ci saranno le SubDirectories delle SingleDirectory
+                         * ciò significa che se nella sua iterazione si trova nel DriveLetter C:\
+                         * DriveDirectories avrà tutte le cartelle di questo Drive, e di conseguenza
+                         * DriveDirectories__SubDirectories dato che siamo in un foreach avrà tutte le
+                         * cartelle di di ogni singola cartella contenuta su SingleDirectory.
+                         * ESEMPIO: C:\Program Files (x86) Avrà tutte le cartelle di questo path.
+                         */
+                        // Console.WriteLine(SingleDirectory);
+                        try {
+                            string[] DriveDirectories__SubDirectories = Directory.GetDirectories(SingleDirectory);
+
+                            // Mi scuso per i nomi lunghi ma devono essere rappresentativi.
+                            foreach(string SingleDirectory__SubDirectories in DriveDirectories__SubDirectories) {
+
+                                foreach(var Launcher in LauncherList) {
+
+                                    if(SingleDirectory__SubDirectories.Contains(Launcher.Key)) {
+                                        Games.Add(SingleDirectory__SubDirectories + Launcher.Value);
+                                    }
+                                }
+
+                            }
+                        } catch(Exception) { }
                     }
-                    catch(Exception) { }
-                }
+                } catch(Exception) { }
             }
 
-            foreach(var path in Games)
-                Console.WriteLine($"THE PATH IN GAMES IS -----------> {path}");
-
             return Games;
-
-            // int t_index = 0;
-            // DirectoryInfo d = new DirectoryInfo(Launcher.Steam[0]);
-            // FileInfo[] Files = d.GetFiles("*.exe");
-            // foreach(var exe in Files) {
-            //     Console.WriteLine(Files[t_index]);
-            //     t_index++;
-            // }
-            // return Files;
-            // return null;
-
-            // Note per domani
-            // DEVO TORNARE UNA LISTA DI STRINGHE, OGNUNA CORRISPONDENTE AL GIOCO DA AVVIARE
-            // QUANDO DAL FRONTEND AVVIERO` L'APP L'INDEX DELL'ARRAY SARA` IL PATH DEL GIOCO
-            // DA MANDARE AL METODO PROCESS.START CHE AVVIERA` IL GIOCO.
-
         }
     }
 }

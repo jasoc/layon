@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\frday_\\Desktop\\Layon\\layon-backend\\layon-backend.csproj",
+  "FilePath": "c:\\Users\\Erison\\Desktop\\layon\\layon-backend\\layon-backend.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15619,38 +15619,38 @@
   "RootNamespace": "layon_backend",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\frday_\\Desktop\\Layon\\layon-backend\\Pages\\Shared\\_Layout.cshtml",
-      "TargetPath": "Pages\\Shared\\_Layout.cshtml",
+      "FilePath": "c:\\Users\\Erison\\Desktop\\layon\\layon-backend\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\frday_\\Desktop\\Layon\\layon-backend\\Pages\\Error.cshtml",
+      "FilePath": "c:\\Users\\Erison\\Desktop\\layon\\layon-backend\\Pages\\Error.cshtml",
       "TargetPath": "Pages\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\frday_\\Desktop\\Layon\\layon-backend\\Pages\\_ViewImports.cshtml",
+      "FilePath": "c:\\Users\\Erison\\Desktop\\layon\\layon-backend\\Pages\\_ViewImports.cshtml",
       "TargetPath": "Pages\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\frday_\\Desktop\\Layon\\layon-backend\\Pages\\Privacy.cshtml",
-      "TargetPath": "Pages\\Privacy.cshtml",
+      "FilePath": "c:\\Users\\Erison\\Desktop\\layon\\layon-backend\\Pages\\Shared\\_Layout.cshtml",
+      "TargetPath": "Pages\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\frday_\\Desktop\\Layon\\layon-backend\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\frday_\\Desktop\\Layon\\layon-backend\\Pages\\Index.cshtml",
+      "FilePath": "c:\\Users\\Erison\\Desktop\\layon\\layon-backend\\Pages\\Index.cshtml",
       "TargetPath": "Pages\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\frday_\\Desktop\\Layon\\layon-backend\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Pages\\_ViewStart.cshtml",
+      "FilePath": "c:\\Users\\Erison\\Desktop\\layon\\layon-backend\\Pages\\Privacy.cshtml",
+      "TargetPath": "Pages\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Erison\\Desktop\\layon\\layon-backend\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     }
   ],

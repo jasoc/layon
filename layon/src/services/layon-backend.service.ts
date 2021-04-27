@@ -16,4 +16,10 @@ export class LayonBackendService {
             `${this.BASE_URL}/getinfo/getuserinfo`
         );
     }
+
+    public getGamesFromMachine() {
+        return this.http.get<apiResult>(
+            `${this.BASE_URL}/openexecutable/searchforgames`
+        );
+    }
 }
