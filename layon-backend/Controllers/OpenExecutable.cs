@@ -1,6 +1,8 @@
 using System;
 using System.IO;
 using System.Linq;
+
+using Microsoft.AspNetCore.Cors;
 using System.Diagnostics;
 using System.Collections.Generic;
 
@@ -9,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace layon.Controllers
 {
     [ApiController]
+    [EnableCors("defaultLayonPolicy")]
     [Route("[controller]/[action]")]
     public class OpenExecutable : Controller
     {
@@ -20,6 +23,7 @@ namespace layon.Controllers
         }
 
         [HttpGet]
+        [DisableCors]
         public dynamic SearchForGames() {
             // Riguardo le complicazioni con questo codice, quest'ultimo deve restare commentato in lingua ITALIANA.
 
@@ -28,13 +32,15 @@ namespace layon.Controllers
             DriveInfo[] Drives = DriveInfo.GetDrives();
 
             // La lista dei giochi deve essere tornata in path
+            List<string> GamesPaths = new List<string>();
             List<string> Games = new List<string>();
 
             // La lista dei launcher che deve essere controllata
             Dictionary<string, string> LauncherList = new Dictionary<string, string>()
             {
-                {"Steam", @"\steamapps\common"},
-                {"Steam Library", @"\steamapps\common"},
+                {"Steam", @"steamapps\common"},
+                {"Steam Library", @"steamapps\common"},
+                {"SteamLibrary", @"steamapps\common"},
                 {"Games", ""}
             };
 
@@ -63,9 +69,9 @@ namespace layon.Controllers
                          * cartelle di di ogni singola cartella contenuta su SingleDirectory.
                          * ESEMPIO: C:\Program Files (x86) Avrà tutte le cartelle di questo path.
                          */
-                        // Console.WriteLine(SingleDirectory);
                         try {
-                            string[] DriveDirectories__SubDirectories = Directory.GetDirectories(SingleDirectory);
+                            IEnumerable<string> DriveDirectories__SubDirectories = from dir in Directory.GetDirectories(SingleDirectory)
+                                                                                   select dir;
 
                             // Mi scuso per i nomi lunghi ma devono essere rappresentativi.
                             foreach(string SingleDirectory__SubDirectories in DriveDirectories__SubDirectories) {
@@ -73,17 +79,30 @@ namespace layon.Controllers
                                 foreach(var Launcher in LauncherList) {
 
                                     if(SingleDirectory__SubDirectories.Contains(Launcher.Key)) {
-                                        Games.Add(SingleDirectory__SubDirectories + Launcher.Value);
+                                        
+                                        foreach (string gamePath in Directory.GetFiles(Path.Combine(SingleDirectory__SubDirectories, Launcher.Value), "*.exe", SearchOption.)) {
+                                            Games.Add(gamePath);
+                                        }
                                     }
                                 }
-
                             }
                         } catch(Exception) { }
                     }
                 } catch(Exception) { }
             }
 
-            return Games;
+            return Games
+            .Where((game) => {
+                return (
+                    !game.Contains("000") &&
+                    !game.Contains("uninstall") &&
+                    !game.Contains("x86") &&
+                    !game.Contains("x64") &&
+                    !game.Contains("redist") &&
+                    !game.Contains("setup") &&
+                    !game.Contains("Setup")
+                );
+            });
         }
     }
 }

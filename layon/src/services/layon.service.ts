@@ -6,18 +6,10 @@ import { LayonBackendService } from 'services';
 })
 export class LayonService {
 
-    public userName?: string;
+    public userName?: string = "cazzi";
 
     public userEmail?: string;
 
-    constructor(public LayonBackend: LayonBackendService) { 
-      
-      LayonBackend.getLocalUserName().subscribe(
-        (response) => {
-          this.userName = response.data.name;
-          this.userEmail = response.data.email;
-        }
-      )
-    }
+    constructor(public LayonBackend: LayonBackendService) { }
 
 }

@@ -17,9 +17,10 @@ export class MainComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this._layonBackend.getLocalUserName()
-            .subscribe((result: apiResult) => {
-                this._layon.userName = result.data;
-            });
+        this._layonBackend.getLocalUserName().subscribe(
+            (response: apiResult) => {
+                this._layon.userName = response.data;
+            }
+        );
     }
 }

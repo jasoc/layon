@@ -1,17 +1,24 @@
 {
     "version": "0.2.0",
     "configurations": [
-      // Based on: https://github.com/microsoft/vscode-recipes/tree/master/Angular-CLI
+      {
+        "name": ".NET Core Launch (console)",
+        "type": "coreclr",
+        "request": "launch",
+        "preLaunchTask": "build",
+        "program": "${workspaceFolder}/layon-backend/bin/Debug/net5.0/layon-backend.dll",
+        "args": [],
+        "cwd": "${workspaceFolder}",
+        "stopAtEntry": false,
+        "console": "internalConsole"
+      },
       {
         "name": "Launch ng serve & Chrome",
         "type": "chrome",
         "request": "launch",
         "preLaunchTask": "npm: start",
-        "url": "http://localhost:4200/#",
-  
-        // Note: The ./client directory
+        "url": "https://localhost:4200/#",
         "webRoot": "${workspaceFolder}/layon",
-        
         "sourceMaps": true,
         "sourceMapPathOverrides": {
           "webpack:/*": "${webRoot}/*",
