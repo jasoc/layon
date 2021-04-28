@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { GamesService } from 'services';
 
 @Component({
   selector: 'topbar',
@@ -7,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _gamesService: GamesService) { }
 
   ngOnInit(): void {
   }
+
+  public name: string = "";
+
+  public path: string = "";
 
   // This is the header/navbar, when its value is true
   // the specific button corresponding on its index will
@@ -27,5 +33,15 @@ export class TopbarComponent implements OnInit {
   setActive(index: number): void {
     for(let i of this.navBar) i.value = false;
     this.navBar[index].value = true;
+  }
+
+  addGame(): void {
+    console.log(this.name, this.path);
+    this._gamesService.games?.push(
+      {
+        name: this.name,
+        link: this.path
+      }
+    );
   }
 }

@@ -80,7 +80,7 @@ namespace layon.Controllers
 
                                     if(SingleDirectory__SubDirectories.Contains(Launcher.Key)) {
                                         
-                                        foreach (string gamePath in Directory.GetFiles(Path.Combine(SingleDirectory__SubDirectories, Launcher.Value), "*.exe", SearchOption.)) {
+                                        foreach (string gamePath in Directory.GetFiles(Path.Combine(SingleDirectory__SubDirectories, Launcher.Value), "*.exe")) {
                                             Games.Add(gamePath);
                                         }
                                     }

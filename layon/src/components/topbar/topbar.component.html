@@ -4,4 +4,10 @@
     (click)="setActive(i)" [active]="navBar[i].value">
         {{ button.name }}
     </topbar-button>
+    <input type="text" [(ngModel)]="name" placeholder="Game name">
+    <flat-button>
+        <input type="file" [(ngModel)]="path" placeholder="Game path">
+    </flat-button>
+    <flat-button (click)="addGame()">Add</flat-button>
+
 </div>

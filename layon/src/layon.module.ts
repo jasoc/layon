@@ -7,6 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatIconModule } from '@angular/material/icon';
 
+import { FormsModule } from '@angular/forms';
+
+
+
 import {
     MainComponent,
     TopbarComponent,
@@ -37,7 +41,8 @@ import {
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [MainComponent]

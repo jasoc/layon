@@ -6,7 +6,7 @@ import { LayonBackendService } from 'services';
 })
 export class LayonService {
 
-    public userName?: string = "cazzi";
+    public userName?: string;
 
     public userEmail?: string;
 

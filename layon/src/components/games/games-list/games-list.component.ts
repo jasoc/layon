@@ -41,6 +41,7 @@ export class GamesListComponent {
     }
 
     highlightPreviousGame(): void {
+        
         if (!this.games) return;
         if(this.index > this.games.length) return;
 
