@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { GamesService } from 'services';
+import { LayonBackendService } from 'services';
 
 @Component({
   selector: 'topbar',
@@ -9,7 +10,8 @@ import { GamesService } from 'services';
 })
 export class TopbarComponent implements OnInit {
 
-  constructor(public _gamesService: GamesService) { }
+  constructor(public _gamesService: GamesService, 
+    public _layonBackend: LayonBackendService) { }
 
   ngOnInit(): void {
   }
@@ -36,12 +38,16 @@ export class TopbarComponent implements OnInit {
   }
 
   addGame(): void {
-    console.log(this.name, this.path);
+
     this._gamesService.games?.push(
       {
         name: this.name,
         link: this.path
       }
     );
+
+    this._layonBackend.writeGamesIntoJson(
+      this.name, this.path
+    ).subscribe();
   }
 }

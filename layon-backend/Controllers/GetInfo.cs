@@ -22,18 +22,55 @@ namespace layon.Controllers
         [HttpGet]
         [SupportedOSPlatform("windows")]
         public ApiResult GetUserInfo() {
+
+            string DisplayName;
+
+            if(UserPrincipal.Current.DisplayName == "") {
+                DisplayName = UserPrincipal.Current.DisplayName;
+            }
+            else {
+                DisplayName = Environment.UserName;
+            }
+
             return new ApiResult {
                 Success = true,
-                Data = UserPrincipal.Current.DisplayName
+                Data = DisplayName
             };
+        }
+
+        [HttpGet]
+        public ApiResult ReturnGames() {
+
+            string Documents = $@"C:\Users\{Environment.UserName}\Documents\Layon";
+
+            if(Directory.Exists(Documents)) {
+                
+                string JsonFile = System.IO.File.ReadAllText(Documents + @"\games.json");
+
+                List<Dictionary<string, string>> List = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(JsonFile);
+
+                return new ApiResult {
+                    Success = true,
+                    Data = List
+                };
+            }
+            else {
+                return new ApiResult {
+                    Success = false,
+                    Data = "No games was found, did you add any game?"
+                };
+            }
         }
 
 
         [HttpPost] 
         public int InsertPath([FromBody] string GameName, string GamePath) {
-
+            // [FromBody] string GameName, string GamePath
             // This is the global path to Documents
             string Documents = $@"C:\Users\{Environment.UserName}\Documents\Layon";
+
+            Console.WriteLine($"-------------->{GameName}");
+            Console.WriteLine($"-------------->{GamePath}");
 
             try {
 

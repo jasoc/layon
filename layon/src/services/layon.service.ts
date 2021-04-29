@@ -10,6 +10,11 @@ export class LayonService {
 
     public userEmail?: string;
 
-    constructor(public LayonBackend: LayonBackendService) { }
-
+    constructor(public _LayonBackend: LayonBackendService) {
+      _LayonBackend.getLocalUserName().subscribe(
+        (response) => {
+          this.userName = response.data;
+        }
+      )
+    }
 }

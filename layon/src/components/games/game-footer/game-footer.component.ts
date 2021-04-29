@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { LayonBackendService } from 'services';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'game-footer',
@@ -10,5 +13,10 @@ export class GameFooterComponent {
     @Input() public title?: string;
     @Input() public genres?: string[];
 
-    constructor() { }
+    constructor(public _layonBackend: LayonBackendService, public http: HttpClient) { }
+
+    openGame() {
+      this._layonBackend.openGame("C:/Program Files/Process Lasso").subscribe();
+    }
+
 }

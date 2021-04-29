@@ -19,7 +19,20 @@ export class LayonBackendService {
 
     public getGamesFromMachine() {
         return this.http.get<apiResult>(
-            `${this.BASE_URL}/openexecutable/searchforgames`
+            `${this.BASE_URL}/getinfo/returngames`
+        );
+    }
+
+    public openGame(path: string) {
+        return this.http.post(
+            `${this.BASE_URL}/openexecutable/openfile`, path
+        );
+    }
+
+    public writeGamesIntoJson(name: string, path: any) {  
+        // No return, this function is made to overwrite
+        return this.http.post(
+            `${this.BASE_URL}/getinfo/insertpath`, name, path // <-- Ma perché path vuole il tipo any? Porca madonna.
         );
     }
 }
