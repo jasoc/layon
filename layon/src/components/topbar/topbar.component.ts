@@ -10,16 +10,10 @@ import { LayonBackendService } from 'services';
 })
 export class TopbarComponent implements OnInit {
 
-  constructor(public _gamesService: GamesService, 
-    public _layonBackend: LayonBackendService) { }
+  constructor(public _gamesService: GamesService) { }
 
   ngOnInit(): void {
   }
-
-  public name: string = "";
-
-  public path: string = "";
-
   // This is the header/navbar, when its value is true
   // the specific button corresponding on its index will
   // be highlighted, only one value should be true.
@@ -37,17 +31,4 @@ export class TopbarComponent implements OnInit {
     this.navBar[index].value = true;
   }
 
-  addGame(): void {
-
-    this._gamesService.games?.push(
-      {
-        name: this.name,
-        link: this.path
-      }
-    );
-
-    this._layonBackend.writeGamesIntoJson(
-      this.name, this.path
-    ).subscribe();
-  }
 }

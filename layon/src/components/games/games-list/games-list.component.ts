@@ -1,5 +1,6 @@
 import { Component, ViewChildren, QueryList, ElementRef, Input } from '@angular/core';
 import { GameBoxComponent } from 'components/games/game-box/game-box.component';
+import { game } from 'models';
 
 @Component({
   selector: 'games-list',
@@ -9,7 +10,7 @@ import { GameBoxComponent } from 'components/games/game-box/game-box.component';
 export class GamesListComponent {
 
     @Input("game-list")
-    gameList?: string[];
+    gameList: game[] = [];
 
     @ViewChildren(GameBoxComponent, { read: ElementRef }) gamesNative?: QueryList<ElementRef>;
     @ViewChildren(GameBoxComponent) games?: QueryList<GameBoxComponent>;

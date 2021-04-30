@@ -56,8 +56,7 @@ namespace layon.Controllers
             }
             else {
                 return new ApiResult {
-                    Success = false,
-                    Data = "No games was found, did you add any game?"
+                    Success = false
                 };
             }
         }

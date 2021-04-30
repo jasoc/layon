@@ -10,13 +10,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 
 
-
 import {
     MainComponent,
     TopbarComponent,
     UserBoxComponent,
     FlatButtonComponent,
-    TopbarButtonComponent
+    TopbarButtonComponent,
+    CircularButtonComponent
 } from 'components';
 
 import {
@@ -34,7 +34,8 @@ import {
     GameBoxComponent,
     GameFooterComponent,
     TopbarButtonComponent,
-    FlatButtonComponent
+    FlatButtonComponent,
+    CircularButtonComponent
   ],
   imports: [
     BrowserModule,

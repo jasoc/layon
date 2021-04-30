@@ -23,7 +23,9 @@ namespace layon
                 options.AddPolicy(name: "defaultLayonPolicy",
                     builder => {
                         builder
-                            .WithOrigins("https://localhost:4200")
+                            .WithOrigins("https://localhost:4200",
+                                         "http://localhost:4200",
+                                         "localhost:4200")
                             .WithMethods("POST", "GET");
                     }
                 );

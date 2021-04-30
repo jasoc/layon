@@ -1,67 +1,105 @@
 @import 'styles/fonts';
 
 #game-footer {
-
-    display: flex;
+    display: grid;
     align-items: center;
-    justify-content: space-between;
     position: absolute;
     user-select: none;
     bottom: 0;
-    background: black;
-    height: 250px;
+    height: 350px;
     width: 100%;
     font-family: Roboto-medium;
 
-    #text {
-        height: 100%;
-        width: 500px;
+    #add {
+        width: 100%;
+        height: 5px;
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+        background: transparent;
 
-        margin-left: 50px;
-        color: white;
-
-        label {
-            font-size: 30px;
+        circular-button {
+            margin: 5px;
+            left: 0;
         }
 
-        p {
-            font-family: Roboto;
-            font-size: 17px;
+        flat-button {
+            margin-left: 5px;
+        }
+
+        #hidden {
+            width: 0px;
+            height: 0px;
+        }
+
+        #name {
+            background: rgba(255, 255, 255, 0.719);
+            font-size: 18px;
+            margin: 15px;
+            padding: 2px;
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
         }
     }
-
-    #genres {
+    #game-footer__container {
+        width: 100%;
         height: 100%;
-        width: 500px;
         display: flex;
-        justify-content: center;
+        background: black;
         align-items: center;
+        justify-content: space-between;
 
-        #center {
+        #text {
+            height: 100%;
+            width: 500px;
             display: flex;
+            justify-content: space-evenly;
+            flex-direction: column;
+    
+            margin-left: 50px;
+            color: white;
+    
+            label {
+                font-size: 30px;
+            }
+    
+            p {
+                font-family: Roboto;
+                font-size: 17px;
+            }
         }
-
-        .genre {
-            width: 100px;
-            height: 30px;
-            margin: 10px;
+    
+        #genres {
+            height: 100%;
+            width: 400px;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 20px;
-            background: #bfc2ebc7;
-            color: #3a41bb;
+    
+            #center {
+                display: flex;
+            }
+    
+            .genre {
+                width: 100px;
+                height: 30px;
+                margin: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 20px;
+                background: #bfc2ebc7;
+                color: #3a41bb;
+            }
         }
-    }
-
-    #buttons {
-        margin-right: 50px;
-
-        flat-button {
-            margin: 7px;
+    
+        #buttons {
+            margin-right: 50px;
+    
+            flat-button {
+                margin: 7px;
+            }
         }
     }
 }

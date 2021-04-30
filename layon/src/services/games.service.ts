@@ -6,7 +6,8 @@ import { game } from 'models';
 })
 export class GamesService {
 
-    public games?: game[];
+    public games: game[] = [];
 
-    constructor() { }
+    constructor() {
+     }
 }
