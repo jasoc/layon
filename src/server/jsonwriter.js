@@ -27,6 +27,13 @@ class JsonWriter {
         fs.writeFileSync(this.folder + this.file, JSON.stringify(data, null, 4));
     }
 
+    readData() {
+        
+        let data = JSON.parse(fs.readFileSync(this.folder + this.file));
+
+        return data;
+    }
+
 }
 
 module.exports = JsonWriter;
