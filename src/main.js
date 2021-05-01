@@ -3,6 +3,7 @@ const url = require("url");
 const path = require("path");
 
 require('dotenv').config();
+require('electron-reload')(__dirname);
 
 require('./server/index');
 
