@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "serve",
+      "name": "server",
       "port": 9229,
       "request": "attach",
       "skipFiles": [
