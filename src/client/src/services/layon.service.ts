@@ -15,7 +15,7 @@ export class LayonService {
         (response) => {
           this.userName = response.data;
         }
-      )
+      );
     }
 
 }

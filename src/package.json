@@ -24,5 +24,11 @@
     "express": "^4.17.1",
     "nodemon": "^2.0.7",
     "typescript": "^4.2.4"
+  },
+  "build": {
+    "win": {
+      "target": "nsis",
+      "requestedExecutionLevel": "requireAdministrator"
+    }
   }
 }

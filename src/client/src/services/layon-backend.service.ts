@@ -25,14 +25,14 @@ export class LayonBackendService {
 
     public openGame(path: string) {
         return this.http.post(
-            `${this.BASE_URL}/OpenExecutable/OpenFile`,
+            `${this.BASE_URL}/exec/openexecutable`,
             <apiResult> { data: path }
         );
     }
 
     public writeGamesIntoJson(name: string, path: string) {  
         return this.http.post(
-            `${this.BASE_URL}/tests/dio`, { data: {name: name, path: path } }
+            `${this.BASE_URL}/exec/writejson`, { data: {name: name, path: path } }
         );
     }
 }

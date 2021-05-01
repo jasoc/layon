@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, NgModule } from '@angular/core';
 import { LayonBackendService } from 'services';
 import { HttpClient } from '@angular/common/http';
 
@@ -36,17 +36,20 @@ export class GameFooterComponent {
 
     public add: boolean = false;
 
+    public gameName: string = "";
+
+    public gamePath: string = "";
+
     openGame() {
-      this._layonBackend.openGame("C:\\Program Files (x86)\\Minecraft Launcher\\MinecraftLauncher.exe").subscribe();
+      this._layonBackend.openGame("C:\\Program Files\\Process Lasso\\ProcessLasso.exe").subscribe();
     }
 
     openFileExplorer(): void {
       document.getElementById('hidden')?.click();
     }
 
-    onCazziClick() {
-      this.add = !this.add;
-      this._layonBackend.writeGamesIntoJson("cazzi", "maledetto gesu").subscribe((res) => { console.log(res); });
+    addGame() {
+      this._layonBackend.writeGamesIntoJson(this.gameName, this.gamePath).subscribe();
     }
 
 }

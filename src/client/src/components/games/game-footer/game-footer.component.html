@@ -1,14 +1,14 @@
 <div id="game-footer">
 
     <div id="add">
-        <circular-button (click)="onCazziClick()"></circular-button>
+        <circular-button (click)="add = !add"></circular-button>
         <div *ngIf="add" [@open]>
-            <input type="text" id="name" autocomplete="off">
+            <input type="text" id="name" autocomplete="off" [(ngModel)]="gameName">
             <flat-button size="small" background="red" (click)="openFileExplorer()">
-                <input type="file" id="hidden">
+                <input type="file" id="hidden" [(ngModel)]="gamePath">
                 <mat-icon>folder_open</mat-icon>
             </flat-button>
-            <flat-button background="red">
+            <flat-button background="red" (click)="addGame()">
                 <mat-icon>add</mat-icon>
             </flat-button>
         </div>

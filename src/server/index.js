@@ -14,6 +14,9 @@ appl.use(Express.json());
 
 appl.use('/tests', cors(corsOptions), require('./test'));
 
+appl.use('/exec', cors(corsOptions), require('./exec'));
+
+appl.use('/getinfo', cors(corsOptions), require('./getinfo'));
+
 appl.listen(PORT, () => {
-    console.log("onesto");
 });
