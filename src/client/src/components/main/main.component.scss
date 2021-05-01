@@ -1,0 +1,21 @@
+#main {
+
+    position: absolute;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+
+    -webkit-box-shadow: inset 0px 50px 50px -30px rgb(0,0,0,0.5);
+    box-shadow: inset 0px 50px 1000px rgb(0,0,0,0.5);
+
+    background: url(https://wallpapercave.com/wp/wp6200922.jpg) no-repeat center/cover;
+
+    topbar {
+        position: absolute;
+        z-index: 10;
+    }
+
+    .g {
+        margin-top: 200px;
+    }
+}

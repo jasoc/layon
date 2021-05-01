@@ -1,0 +1,55 @@
+@import 'styles/fonts';
+
+#flat-button {
+
+    cursor: pointer;
+    display: inline-block;
+
+    button {
+
+        $PADDING-H: 10px;
+        $PADDING-V: 25px;
+
+        padding: $PADDING-H $PADDING-V $PADDING-H $PADDING-V;
+
+        font-size: 18px;
+        font-family: Roboto-medium;
+
+        border: none;
+        color: white;
+        user-select: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .small {
+        $PADDING-H: 10px;
+        $PADDING-V: 25px;
+
+        padding: $PADDING-H $PADDING-V $PADDING-H $PADDING-V;
+    }
+
+    .medium {
+        $PADDING-H: 13px;
+        $PADDING-V: 30px;
+        font-size: 20px;
+
+        padding: $PADDING-H $PADDING-V $PADDING-H $PADDING-V;
+    }
+
+    .big {
+        $PADDING-H: 17px;
+        $PADDING-V: 35px;
+        font-size: 23px;
+
+        padding: $PADDING-H $PADDING-V $PADDING-H $PADDING-V;
+    }
+
+    .border-thin {
+        border: 1px solid;
+    }
+
+    .border-thick {
+        border: 2px solid;
+    }
+}

@@ -1,0 +1,16 @@
+<div id="flat-button">
+    <button [ngStyle]="{
+                'background': background,
+                'color': color,
+                'border-color': borderColor
+            }"
+            [ngClass]="{
+                'small': size == 'small',
+                'medium': size == 'medium',
+                'big': size == 'big',
+                'border-thick': border == 'thick',
+                'border-thin': border == 'thin'
+            }">
+        <ng-content></ng-content>
+    </button>
+</div>

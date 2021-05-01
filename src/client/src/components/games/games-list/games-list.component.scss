@@ -1,0 +1,81 @@
+#games-list {
+    position: relative;
+
+    #controls {
+        display: flex;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        justify-content: space-between;
+
+        #left, #right {
+            display: flex;
+            align-items: center;
+            width: 400px;
+            cursor: pointer;
+            transition-duration: 200ms;
+
+            mat-icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-size: 100px;
+                user-select: none;
+                transition-duration: 200ms;
+            }
+        }
+
+        $MARGIN: 50px;
+
+        #right {
+            justify-content: flex-end;
+
+            mat-icon {
+                margin-right: -$MARGIN;
+            }
+
+            &:hover {
+                -webkit-box-shadow: inset -200px 0px 153px -172px rgba(0,0,0,1);
+                -moz-box-shadow: inset -200px 0px 153px -172px rgba(0,0,0,1);
+                box-shadow: inset -200px 0px 153px -172px rgba(0,0,0,1);
+
+                mat-icon {
+                    margin-right: $MARGIN;
+                }
+
+            }
+
+        }
+
+        #left {
+            justify-content: flex-start;
+
+            mat-icon {
+                margin-left: -$MARGIN;
+            }
+
+            &:hover {
+                -webkit-box-shadow: inset 200px 0px 153px -172px rgba(0,0,0,1);
+                -moz-box-shadow: inset 200px 0px 153px -172px rgba(0,0,0,1);
+                box-shadow: inset 200px 0px 153px -172px rgba(0,0,0,1);
+
+                mat-icon {
+                    margin-left: $MARGIN;
+                }
+            }
+        }
+    }
+
+    #games-list__flexbox {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        scroll-behavior: smooth;
+
+        game-box {
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+    }
+}

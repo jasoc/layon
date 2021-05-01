@@ -1,0 +1,14 @@
+<div id="games-list">
+    <div id="controls">
+        <div id="left" (click)="highlightPreviousGame()">
+            <mat-icon>chevron_left</mat-icon>
+        </div>
+
+        <div id="right" (click)="highlightNextGame()">
+            <mat-icon>chevron_right</mat-icon>
+        </div>
+    </div>
+    <div id="games-list__flexbox">
+        <game-box *ngFor="let game of gameList; let i = index"></game-box>
+    </div>
+</div>
