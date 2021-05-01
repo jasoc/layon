@@ -9,6 +9,6 @@
         </div>
     </div>
     <div id="games-list__flexbox">
-        <game-box *ngFor="let game of gameList; let i = index"></game-box>
+        <game-box *ngFor="let game of gameList; let i = index" [img]="game.mainPicture"></game-box>
     </div>
 </div>

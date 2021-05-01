@@ -1,5 +1,6 @@
 import { Component, ViewChildren, QueryList, ElementRef, Input } from '@angular/core';
 import { GameBoxComponent } from 'components/games/game-box/game-box.component';
+import { GamesService } from 'services';
 import { game } from 'models';
 
 @Component({
@@ -17,7 +18,9 @@ export class GamesListComponent {
 
     public index: number = 0;
 
-    constructor() { }
+    constructor(
+        public _games: GamesService
+    ) { }
 
     private highlightAtIndex(index: number): void {
         this.gamesNative?.toArray()[index].nativeElement.scrollIntoView({ behavior: "smooth", block: "end", inline: "center" });
@@ -29,6 +32,7 @@ export class GamesListComponent {
             });
 
             this.games.toArray()[index].isSelected = true;
+            this._games.currentGame = this._games.games[this.index];
         }
     }
 

@@ -35,4 +35,9 @@ export class LayonBackendService {
             `${this.BASE_URL}/exec/writejson`, { data: {name: name, path: path } }
         );
     }
+
+    public getLocalGames() {  
+        return this.http.get<apiResult>(
+            `${this.BASE_URL}/getinfo/returngames`);
+    }
 }

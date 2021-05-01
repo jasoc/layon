@@ -1,4 +1,4 @@
-<div id="main">
+<div id="main" [ngStyle]="{ 'background': getMainBackground() }">
     <topbar></topbar>
     <div class="g">
         <games-list [game-list]="_games.games"></games-list>

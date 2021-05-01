@@ -18,9 +18,9 @@ export class TopbarComponent implements OnInit {
   // the specific button corresponding on its index will
   // be highlighted, only one value should be true.
   public navBar: {name: string, value: boolean}[] = [
-    {name: "Home", value: true },
+    {name: "Home", value: false },
     {name: "Apps", value: false },
-    {name: "Games", value: false },
+    {name: "Games", value: true },
     {name: "Settings", value: false }
   ]
 
