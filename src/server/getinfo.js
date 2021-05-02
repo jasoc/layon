@@ -8,6 +8,10 @@ const jw = require('./jsonwriter');
 
 const sp = require('child_process');
 
+const { readdirSync } = require('fs')
+
+const nodeDiskInfo = require('node-disk-info');
+
 
 router.get('/getuserinfo', (req, res) => {
     res.json({
@@ -32,19 +36,30 @@ router.get('/returngames', (req, res) => {
 
 router.get('/bruteforce', (req, res) => {
 
-    let drives = '';
-    let list = sp.spawn("cmd");
+    const disks = nodeDiskInfo.getDiskInfoSync();
 
-    list.stdout.on('wmic logicaldisk get caption', (data) => {
-        drives += data;
-    });
+    let drives = [];
+    
+    for (let disk of disks) {
+        drives.push(disk.mounted);
+    }
 
-    console.log(drives);
 
-    // console.log(list.stdin.write('wmic logicaldisk get caption'));
-    // console.log("finito");
+    const getDirectories = source =>
+        readdirSync(source, { withFileTypes: true })
+            .filter(dirent => dirent.isDirectory())
+            .map(dirent => dirent.name)
+
+    drives.forEach( (drive) => {
+        
+        let test = getDirectories(drive);
+
+        console.log(test);
+
+
+    })
+
 });
-
 
 
 module.exports = router;
