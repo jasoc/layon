@@ -17,11 +17,11 @@ export class LayonBackendService {
         );
     }
 
-    public getGamesFromMachine() {
-        return this.http.get<apiResult>(
-            `${this.BASE_URL}/getinfo/returngames`
-        );
-    }
+    // public getGamesFromMachine() {
+    //     return this.http.get<apiResult>(
+    //         `${this.BASE_URL}/getinfo/returngames`
+    //     );
+    // }
 
     public openGame(path: string) {
         return this.http.post(
@@ -40,4 +40,11 @@ export class LayonBackendService {
         return this.http.get<apiResult>(
             `${this.BASE_URL}/getinfo/returngames`);
     }
+
+    public bruteforce() {  
+        return this.http.get<apiResult>(
+            `${this.BASE_URL}/getinfo/bruteforce`);
+    }
+
+    
 }
