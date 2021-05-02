@@ -19,6 +19,8 @@ app.on('ready', () => {
             nodeIntegration: true
         }
     });
+
+    mainWindow.maximize();
     
     if (development) {
         mainWindow.loadURL('http://localhost:4200');
