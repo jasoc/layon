@@ -8,7 +8,7 @@ const jw = require('./jsonwriter');
 
 const sp = require('child_process');
 
-const { readdirSync } = require('fs')
+const fs = require('fs')
 
 const nodeDiskInfo = require('node-disk-info');
 
@@ -36,29 +36,51 @@ router.get('/returngames', (req, res) => {
 
 router.get('/bruteforce', (req, res) => {
 
+    console.log("In function");
+
     const disks = nodeDiskInfo.getDiskInfoSync();
 
     let drives = [];
-    
+        
     for (let disk of disks) {
         drives.push(disk.mounted);
     }
 
+    let launcherList = [
+        "Steam",
+        "SteamLibrary",
+        "Steam Library",
+        "Games"
+    ];
 
-    const getDirectories = source =>
-        readdirSync(source, { withFileTypes: true })
-            .filter(dirent => dirent.isDirectory())
-            .map(dirent => dirent.name)
+    let launcherPath =  [];
+
+    console.log(`I drives sono ${drives}`);
+
+    let masterDirectories = [];
 
     drives.forEach( (drive) => {
-        
-        let test = getDirectories(drive);
+        drive = drive + "/";
 
-        console.log(test);
+        masterDirectories = fs.readdirSync(drive);
+
+        masterDirectories.forEach( (subDirectories) => {
+
+            for(var i = 0; i < launcherList.length; i++) {
+                if(subDirectories.includes(launcherList[i])) {
+                    launcherPath.push(subDirectories);
+                }
+            }
+
+            let subSubDirectories = fs.readdirSync(subDirectories);
 
 
-    })
 
+        })
+
+    });
+
+    // console.log(result);
 });
 
 
