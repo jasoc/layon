@@ -41,10 +41,11 @@ export class LayonBackendService {
             `${this.BASE_URL}/getinfo/returngames`);
     }
 
-    public bruteforce() {  
-        return this.http.get<apiResult>(
-            `${this.BASE_URL}/getinfo/bruteforce`);
+    public getPathLogoOfGame(name: string) {  
+        return this.http
+        .get(`${this.BASE_URL}/games/icon`, {
+            params: { name: name },
+            responseType: 'blob'
+        });
     }
-
-    
 }

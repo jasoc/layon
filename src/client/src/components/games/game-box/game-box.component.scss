@@ -1,22 +1,58 @@
 @import 'styles/fonts';
 
 #game-box {
-    #game-box__rounded {
+    position: relative;
+    border-radius: 7px;
+    background: black;
 
-        background-color: #b7c1c5;
-        background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
+    .background {
         border-radius: 7px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #game-box__rounded {
         height: 250px;
         width: 450px;
         display: flex;
-        align-items: flex-end;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         box-shadow: inset 0px 0px rgba(0,0,0,0.5);
         background-size: cover;
         background-position: center;
+        z-index: 20;
+        position: relative;
 
         $MARGIN: 25px;
         margin-bottom: $MARGIN;
         margin-top: $MARGIN;
+
+        * {
+            position: absolute;
+        }
+
+        img {
+            height: 120px;
+            z-index: 2;
+        }
+
+        label {
+            margin: 0px;
+            font-family: Roboto-medium;
+            color: white;
+            font-size: 35px;
+            z-index: 2;
+            max-width: 50%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            padding-left: 50px;
+        }
     }
 
     #title {

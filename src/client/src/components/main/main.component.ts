@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { GamesService, LayonBackendService, LayonService } from 'services';
 import { apiResult, game, rawgGame } from 'models';
+import { GamesListComponent } from 'components/games';
 
 @Component({
   selector: 'app-main',
@@ -8,6 +9,8 @@ import { apiResult, game, rawgGame } from 'models';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
+
+    @ViewChild(GamesListComponent) gamesList?: GamesListComponent;
 
     constructor(
         public _games: GamesService,
@@ -24,16 +27,24 @@ export class MainComponent implements OnInit {
 
         this._layonBackend.getLocalGames().subscribe((games) => {
             games.data.forEach((game: game) => {
+
                 
                 this._games.getAllGameInfo(game.name).subscribe((res: rawgGame) => {
-                    console.log(res);
                     game.mainPicture = res.background_image;
                     game.background = res.background_image;
-                    this._games.games.push(game);
+                    this._layonBackend.getPathLogoOfGame(game.name)
+                        .subscribe(data => {
+                            game.icon = data;
+                            this._games.games.push(game);
+                            this.gamesList?.highlightAtIndex(0);
+                        });
                 });
 
             });
+
+
         });
+
     }
 
     public getMainBackground() {

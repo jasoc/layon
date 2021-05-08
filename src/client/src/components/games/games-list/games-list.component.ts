@@ -1,4 +1,4 @@
-import { Component, ViewChildren, QueryList, ElementRef, Input } from '@angular/core';
+import { Component, ViewChildren, QueryList, ElementRef, Input, AfterViewInit } from '@angular/core';
 import { GameBoxComponent } from 'components/games/game-box/game-box.component';
 import { GamesService } from 'services';
 import { game } from 'models';
@@ -22,8 +22,10 @@ export class GamesListComponent {
         public _games: GamesService
     ) { }
 
-    private highlightAtIndex(index: number): void {
-        this.gamesNative?.toArray()[index].nativeElement.scrollIntoView({ behavior: "smooth", block: "end", inline: "center" });
+    public highlightAtIndex(index: number): void {
+        this.gamesNative?.toArray()[index]
+            .nativeElement
+            .scrollIntoView({ behavior: "smooth", block: "end", inline: "center" });
 
         if (this.games) {
             this.gamesNative?.forEach((_, j) => {
@@ -39,16 +41,19 @@ export class GamesListComponent {
     highlightNextGame(): void {
 
         if (!this.games) return;
-        if(this.index > this.games.length) return;
-
         this.index++;
+    
+        if(this.index > this.games.length - 1)
+            this.index = 0;
+
         this.highlightAtIndex(this.index);
     }
 
     highlightPreviousGame(): void {
         
         if (!this.games) return;
-        if(this.index > this.games.length) return;
+        if(this.index < 1) 
+        this.index = this.games.length;
 
         this.index--;
         this.highlightAtIndex(this.index);

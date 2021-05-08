@@ -1,6 +1,7 @@
-<div id="game-box">
-    <div id="game-box__rounded" 
-    [@select]="isSelected ? 'selected' : 'unselected'"
-    [ngStyle]="{ 'background-image': 'url(' + img + ')' }">
+<div id="game-box" [@select]="isSelected ? 'selected' : 'unselected'">
+    <div id="game-box__rounded">
+        <img [@icon]="isSelected ? 'side' : 'centered'" [src]="icon()" alt="">
+        <label [@title]="isSelected ? 'visible' : 'hide'" for="">{{ name() }}</label>
     </div>
+    <span [@background]="isSelected ? 'black' : 'lucid'" class="background" [ngStyle]="{ 'background-image': 'url(' + background() + ')'}"></span>
 </div>

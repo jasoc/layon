@@ -1,3 +1,4 @@
+const path = require('path');
 const fs = require('fs');
 
 class JsonWriter {
@@ -29,7 +30,7 @@ class JsonWriter {
 
     readData() {
         
-        let data = JSON.parse(fs.readFileSync(this.folder + this.file));
+        let data = JSON.parse(fs.readFileSync(path.join(this.folder, this.file)));
 
         return data;
     }

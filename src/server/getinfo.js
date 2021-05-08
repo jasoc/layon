@@ -3,17 +3,10 @@ const Express = require('express');
 let router = Express.Router();
 
 const os = require('os');
-
 const jw = require('./jsonwriter');
-
-const sp = require('child_process');
-
-const path = require('path');
-
 const fs = require('fs')
-
+const path = require('path');
 const nodeDiskInfo = require('node-disk-info');
-
 
 router.get('/getuserinfo', (req, res) => {
     res.json({
@@ -38,8 +31,6 @@ router.get('/returngames', (req, res) => {
 
 router.get('/bruteforce', (req, res) => {
 
-    console.log("In function");
-
     const disks = nodeDiskInfo.getDiskInfoSync();
 
     let drives = [];
@@ -49,7 +40,7 @@ router.get('/bruteforce', (req, res) => {
     }
 
     let launcherList = [
-        "Steam",
+        "Steam", //      /steamapps/common
         "Games"
     ];
 
@@ -59,38 +50,77 @@ router.get('/bruteforce', (req, res) => {
 
     let masterDirectories = [];
 
-    drives = ["C:"];
+    let games = [];
+
+    // drives = ["C:"];
 
     drives.forEach( (drive) => {
         drive = drive + "/";
 
-        masterDirectories = fs.readdirSync(drive);
+        let InitialDriveDirectories = fs.readdirSync(drive);
 
-        masterDirectories.forEach( (subMaster) => {
-            subMaster = path.resolve(drive, subMaster);
-            launcherList.forEach( (launcher) => {
-                if(subMaster.includes(launcher)) {
-                    launcherPath.push(subMaster);
-                }
-            });
+        InitialDriveDirectories.forEach( (folderOfInitialDriveDirectories) => {
 
-            // console.log(subMaster);
-            let subSubMaster = fs.readdirSync(subMaster);
+            // Torna il path
+            folderOfInitialDriveDirectories = path.resolve(drive, folderOfInitialDriveDirectories);
 
-            subSubMaster.forEach( (fn) => {
-                
+            console.log(`SI TROVA SU --------> ${folderOfInitialDriveDirectories}`);
+            try {
+                let subDirectories = fs.readdirSync(folderOfInitialDriveDirectories);
 
-                console.log(fn);
-                // subSubMaster.forEach( (finalFolder) => {
-                //     // finalFolder = path.resolve()
-                //     console.log(finalFolder);
-                // });
-            });
+                subDirectories.forEach( (finalFolder) => {
+
+                    finalFolder = path.resolve(folderOfInitialDriveDirectories, finalFolder);
+
+                    launcherList.forEach( (launcher) => {
+                        if(finalFolder.includes(launcher)) {
+                            launcherPath.push(finalFolder);
+                        }
+                    });
+                });
+            } catch { }
         });
     });
 
-    // console.log(launcherPath);
-});
+    var walk = function(dir, done) {
+        var results = [];
+        fs.readdir(dir, function(err, list) {
+          if (err) return done(err);
+          var pending = list.length;
+          if (!pending) return done(null, results);
+          list.forEach(function(file) {
+            file = path.resolve(dir, file);
+            fs.stat(file, function(err, stat) {
+              if (stat && stat.isDirectory()) {
+                walk(file, function(err, res) {
+                  results = results.concat(res);
+                  if (!--pending) done(null, results);
+                });
+              } else {
+                results.push(file);
+                if (!--pending) done(null, results);
+              }
+            });
+          });
+        });
+    };
 
+    console.log(launcherPath);
+
+    launcherPath.forEach( (launcher) => {
+        walk(launcher, (err, results) => {
+            try {
+                results.forEach( (exe) => {
+                    let _ = exe.split(".")[exe.split(".").length-1];
+                    if(_ == "exe") {
+                        games.push(exe);
+                        console.log(games);
+                    }
+                });
+            } catch { }
+        });
+    });
+    // console.log(games);
+});
 
 module.exports = router;
