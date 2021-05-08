@@ -8,6 +8,8 @@ const jw = require('./jsonwriter');
 
 const sp = require('child_process');
 
+const path = require('path');
+
 const fs = require('fs')
 
 const nodeDiskInfo = require('node-disk-info');
@@ -48,8 +50,6 @@ router.get('/bruteforce', (req, res) => {
 
     let launcherList = [
         "Steam",
-        "SteamLibrary",
-        "Steam Library",
         "Games"
     ];
 
@@ -59,28 +59,37 @@ router.get('/bruteforce', (req, res) => {
 
     let masterDirectories = [];
 
+    drives = ["C:"];
+
     drives.forEach( (drive) => {
         drive = drive + "/";
 
         masterDirectories = fs.readdirSync(drive);
 
-        masterDirectories.forEach( (subDirectories) => {
-
-            for(var i = 0; i < launcherList.length; i++) {
-                if(subDirectories.includes(launcherList[i])) {
-                    launcherPath.push(subDirectories);
+        masterDirectories.forEach( (subMaster) => {
+            subMaster = path.resolve(drive, subMaster);
+            launcherList.forEach( (launcher) => {
+                if(subMaster.includes(launcher)) {
+                    launcherPath.push(subMaster);
                 }
-            }
+            });
 
-            let subSubDirectories = fs.readdirSync(subDirectories);
+            // console.log(subMaster);
+            let subSubMaster = fs.readdirSync(subMaster);
 
+            subSubMaster.forEach( (fn) => {
+                
 
-
-        })
-
+                console.log(fn);
+                // subSubMaster.forEach( (finalFolder) => {
+                //     // finalFolder = path.resolve()
+                //     console.log(finalFolder);
+                // });
+            });
+        });
     });
 
-    // console.log(result);
+    // console.log(launcherPath);
 });
 
 
