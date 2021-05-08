@@ -3,7 +3,7 @@ const url = require("url");
 const path = require("path");
 
 require('dotenv').config();
-require('electron-reload')(__dirname);
+//require('electron-reload')(__dirname);
 
 require('./server/index');
 
@@ -22,7 +22,7 @@ app.on('ready', () => {
     
     if (development) {
         mainWindow.loadURL('http://localhost:4200');
-        mainWindow.webContents.openDevTools();
+        //mainWindow.webContents.openDevTools();
         
     } else {
         mainWindow.loadURL(url.format({

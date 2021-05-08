@@ -5,7 +5,7 @@ let router = Express.Router();
 const os = require('os');
 
 const jw = require('./jsonwriter');
-
+const executables = require('./local/executables');
 
 router.get('/getuserinfo', (req, res) => {
     res.json({
@@ -26,6 +26,10 @@ router.get('/returngames', (req, res) => {
         data: JS.readData()
     });
 
+});
+
+router.get('/getexepathof', (req, res) => {
+    let execs = new Executables(req.params.path);
 });
 
 module.exports = router;

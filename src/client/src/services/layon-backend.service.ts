@@ -40,4 +40,12 @@ export class LayonBackendService {
         return this.http.get<apiResult>(
             `${this.BASE_URL}/getinfo/returngames`);
     }
+
+    public getPathLogoOfGame(name: string) {  
+        return this.http
+        .get(`${this.BASE_URL}/games/icon`, {
+            params: { name: name },
+            responseType: 'blob'
+        });
+    }
 }

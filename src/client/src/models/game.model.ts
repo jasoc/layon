@@ -5,4 +5,5 @@ export interface game {
     url?: string;            // url is the background image of the game
     mainPicture?: string;
     background?: string;
+    icon?: Blob;
 }
