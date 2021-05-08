@@ -52,4 +52,8 @@ export class GameFooterComponent {
       this._layonBackend.writeGamesIntoJson(this.gameName, this.gamePath).subscribe();
     }
 
+    bruteforce() {
+      this._layonBackend.bruteforce().subscribe();
+    }
+
 }

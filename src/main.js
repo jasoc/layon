@@ -3,8 +3,6 @@ const url = require("url");
 const path = require("path");
 
 require('dotenv').config();
-//require('electron-reload')(__dirname);
-
 require('./server/index');
 
 const development = process.env.IS_DEV === 'true';
@@ -19,6 +17,8 @@ app.on('ready', () => {
             nodeIntegration: true
         }
     });
+
+    mainWindow.maximize();
     
     if (development) {
         mainWindow.loadURL('http://localhost:4200');
