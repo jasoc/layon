@@ -9,6 +9,8 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { FormsModule } from '@angular/forms';
 
+import { GamesMainComponent } from './modules/games/pages/games-main/games-main.component';
+import { SpotifyComponent } from './modules/spotify/spotify.component';
 
 import {
     MainComponent,
@@ -23,7 +25,9 @@ import {
     GamesListComponent,
     GameBoxComponent,
     GameFooterComponent
-} from 'components/games';
+} from 'modules/games';
+
+
 
 @NgModule({
   declarations: [
@@ -35,7 +39,9 @@ import {
     GameFooterComponent,
     TopbarButtonComponent,
     FlatButtonComponent,
-    CircularButtonComponent
+    CircularButtonComponent,
+    GamesMainComponent,
+    SpotifyComponent
   ],
   imports: [
     BrowserModule,

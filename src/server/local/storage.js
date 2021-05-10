@@ -1,10 +1,12 @@
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
+const checkData = require('../jsonwriter');
 
 class storage {
 
     constructor() {
+        let chk = new checkData(`C:/Users/${os.userInfo().username}/Documents/Layon/icons`, '');
         this.layonPath = `Layon`;
         this.basePath = path.join(`${os.homedir()}`, 'Documents');
         this.fullPath = path.join(this.basePath, this.layonPath);

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { GamesService } from 'services';
 import { LayonBackendService } from 'services';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'topbar',
@@ -10,7 +11,8 @@ import { LayonBackendService } from 'services';
 })
 export class TopbarComponent implements OnInit {
 
-  constructor(public _gamesService: GamesService) { }
+  constructor(public _gamesService: GamesService, 
+    public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,10 +20,11 @@ export class TopbarComponent implements OnInit {
   // the specific button corresponding on its index will
   // be highlighted, only one value should be true.
   public navBar: {name: string, value: boolean}[] = [
-    {name: "Home", value: false },
-    {name: "Apps", value: false },
-    {name: "Games", value: true },
-    {name: "Settings", value: false }
+    { name: "Home", value: false },
+    { name: "Apps", value: false },
+    { name: "Games", value: true },
+    { name: "Settings", value: false },
+    { name: "Spotify", value: false }
   ]
 
   // This function will set only one item/button
@@ -29,6 +32,10 @@ export class TopbarComponent implements OnInit {
   setActive(index: number): void {
     for(let i of this.navBar) i.value = false;
     this.navBar[index].value = true;
+  }
+
+  route(index: number) {
+    this.router.navigate([this.navBar[index].name.toLocaleLowerCase()]);
   }
 
 }

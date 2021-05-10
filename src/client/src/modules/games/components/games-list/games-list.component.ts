@@ -1,5 +1,5 @@
 import { Component, ViewChildren, QueryList, ElementRef, Input, AfterViewInit } from '@angular/core';
-import { GameBoxComponent } from 'components/games/game-box/game-box.component';
+import { GameBoxComponent } from 'modules/games/components/game-box/game-box.component';
 import { GamesService } from 'services';
 import { game } from 'models';
 

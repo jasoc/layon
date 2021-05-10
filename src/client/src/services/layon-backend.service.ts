@@ -48,4 +48,9 @@ export class LayonBackendService {
             responseType: 'blob'
         });
     }
+
+    public bruteforce() {
+        return this.http
+        .get(`${this.BASE_URL}/getinfo/bruteforce`);
+    }
 }

@@ -1,0 +1,7 @@
+<div id="main" [ngStyle]="{ 'background': getMainBackground() }">
+    <div class="g">
+        <games-list [game-list]="_games.games"></games-list>
+    </div>
+    <game-footer *ngIf="_games.currentGame" [title]="_games.currentGame.name"
+    [genres]="_games.currentGame.genres"></game-footer>
+</div>
