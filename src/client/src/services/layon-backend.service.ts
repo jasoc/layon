@@ -17,12 +17,6 @@ export class LayonBackendService {
         );
     }
 
-    // public getGamesFromMachine() {
-    //     return this.http.get<apiResult>(
-    //         `${this.BASE_URL}/getinfo/returngames`
-    //     );
-    // }
-
     public openGame(path: string) {
         return this.http.post(
             `${this.BASE_URL}/exec/openexecutable`,

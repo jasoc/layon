@@ -34,7 +34,8 @@ export class GamesListComponent {
             });
 
             this.games.toArray()[index].isSelected = true;
-            this._games.currentGame = this._games.games[this.index];
+            if(this._games.games)
+                this._games.currentGame = this._games.games[this.index];
         }
     }
 
@@ -52,8 +53,9 @@ export class GamesListComponent {
     highlightPreviousGame(): void {
         
         if (!this.games) return;
+
         if(this.index < 1) 
-        this.index = this.games.length;
+            this.index = this.games.length;
 
         this.index--;
         this.highlightAtIndex(this.index);

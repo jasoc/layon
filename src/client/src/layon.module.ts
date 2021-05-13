@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
+import { SpotifyRoutingModule } from './modules/spotify/spotify-routing.module';
+import { GamesModule } from 'modules/games/games.module';
+import { SpotifyModule } from 'modules/spotify/spotify.module';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -10,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 
 import { GamesMainComponent } from './modules/games/pages/games-main/games-main.component';
-import { SpotifyComponent } from './modules/spotify/spotify.component';
+import { SpotifyMainComponent } from './modules/spotify/pages/spotify-main/spotify-main.component';
 
 import {
     MainComponent,
@@ -29,6 +33,7 @@ import {
 
 
 
+
 @NgModule({
   declarations: [
     MainComponent,
@@ -41,15 +46,18 @@ import {
     FlatButtonComponent,
     CircularButtonComponent,
     GamesMainComponent,
-    SpotifyComponent
+    SpotifyMainComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SpotifyRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    GamesModule,
+    SpotifyModule
   ],
   providers: [],
   bootstrap: [MainComponent]

@@ -18,6 +18,8 @@ export class GamesMainComponent implements OnInit {
       public _layon: LayonService
   ) { }
 
+  public fetched: boolean = false;
+
   ngOnInit(): void {
       this._layonBackend.getLocalUserName().subscribe(
           (response: apiResult) => {
@@ -26,6 +28,9 @@ export class GamesMainComponent implements OnInit {
       );
 
       this._layonBackend.getLocalGames().subscribe((games) => {
+
+          if(this._games.games) return;
+          this._games.games = [];
           games.data.forEach((game: game) => {
 
               
@@ -35,13 +40,13 @@ export class GamesMainComponent implements OnInit {
                   this._layonBackend.getPathLogoOfGame(game.name)
                       .subscribe(data => {
                           game.icon = data;
-                          this._games.games.push(game);
+                          if(this._games.games)
+                            this._games.games.push(game);
                           this.gamesList?.highlightAtIndex(0);
                       });
               });
 
           });
-
 
       });
 

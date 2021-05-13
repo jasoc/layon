@@ -7,7 +7,7 @@ import { game } from 'models';
 })
 export class GamesService {
 
-    public games: game[] = [];
+    public games?: game[];
     public currentGame?: game;
 
     //https://api.rawg.io/api/games/minecraft?key=c1e833f49e1d4c90b041380a305d1ce5

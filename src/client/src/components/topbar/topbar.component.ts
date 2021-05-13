@@ -15,7 +15,13 @@ export class TopbarComponent implements OnInit {
     public router: Router) { }
 
   ngOnInit(): void {
+    // this.navBar.forEach( (button) => {
+    //   if(button.value) {
+    //     this.router.navigate([button.name.toLocaleLowerCase()]);
+    //   }
+    // })
   }
+  
   // This is the header/navbar, when its value is true
   // the specific button corresponding on its index will
   // be highlighted, only one value should be true.
