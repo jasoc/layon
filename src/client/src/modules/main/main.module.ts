@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ComponentsModule } from 'components/components.module';
-import { GamesModule } from 'modules/games/games.module';
 
 import { TopbarComponent } from './components/topbar/topbar.component';
 
@@ -27,7 +26,6 @@ import { MainRoutingModule } from './main-routing.module';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    GamesModule,
     ComponentsModule,
     MainRoutingModule
   ],
