@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
-import { GamesService } from 'services';
-import { LayonBackendService } from 'services';
-import { ActivatedRoute, Router } from '@angular/router';
+import { GamesService } from 'core/services';
+import { LayonBackendService } from 'core/services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'topbar',
@@ -11,15 +11,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TopbarComponent implements OnInit {
 
-  constructor(public _gamesService: GamesService, 
-    public router: Router) { }
+    constructor(
+        public _gamesService: GamesService, 
+        public router: Router
+    ) { }
 
   ngOnInit(): void {
-    // this.navBar.forEach( (button) => {
-    //   if(button.value) {
-    //     this.router.navigate([button.name.toLocaleLowerCase()]);
-    //   }
-    // })
+    this.navBar.forEach( (button) => {
+      if(button.value) {
+        this.router.navigate([button.name.toLocaleLowerCase()]);
+      }
+    })
   }
   
   // This is the header/navbar, when its value is true
@@ -37,7 +39,7 @@ export class TopbarComponent implements OnInit {
   // active(highlighted)
   setActive(index: number): void {
     for(let i of this.navBar) i.value = false;
-    this.navBar[index].value = true;
+        this.navBar[index].value = true;
   }
 
   route(index: number) {

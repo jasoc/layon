@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LayonService } from 'services';
+import { LayonService } from 'core/services';
 
 @Component({
   selector: 'user-box',

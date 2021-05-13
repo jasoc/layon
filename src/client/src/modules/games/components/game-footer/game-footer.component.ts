@@ -1,10 +1,10 @@
 import { Component, Input, NgModule } from '@angular/core';
-import { LayonBackendService } from 'services';
+import { LayonBackendService } from 'core/services';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import {
   trigger,
-  state,
   style,
   animate,
   transition
@@ -32,7 +32,7 @@ export class GameFooterComponent {
     @Input() public title?: string;
     @Input() public genres?: string[];
 
-    constructor(public _layonBackend: LayonBackendService, public http: HttpClient) { }
+    constructor(public _layonBackend: LayonBackendService, public http: HttpClient, public router: Router) { }
 
     public add: boolean = false;
 
@@ -54,6 +54,10 @@ export class GameFooterComponent {
 
     bruteforce() {
       this._layonBackend.bruteforce().subscribe();
+    }
+
+    discover() {
+      this.router.navigate(["games/ciao"]);
     }
 
 }

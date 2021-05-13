@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { trigger, state, style, animate, transition, query, animateChild, group } from '@angular/animations';
-import { game } from 'models';
-import { UtilsService } from 'services';
+import { game } from 'core/models';
+import { UtilsService } from 'core/services';
 
 @Component({
     selector: 'game-box',
@@ -76,7 +76,7 @@ export class GameBoxComponent {
 
     public isSelected: boolean = false;
 
-    constructor(private sanitizer: DomSanitizer, private _utils: UtilsService) { }
+        constructor(private sanitizer: DomSanitizer, private _utils: UtilsService) { }
 
     background() {
         return (this.game ?? <game> {}).mainPicture ?? "";
