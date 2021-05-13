@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { GamesService, LayonBackendService, LayonService } from 'services';
-import { apiResult, game, rawgGame } from 'models';
+import { GamesService, LayonBackendService, LayonService } from 'core/services';
+import { apiResult, game, rawgGame } from 'core/models';
 import { GamesListComponent } from 'modules/games';
 
 @Component({

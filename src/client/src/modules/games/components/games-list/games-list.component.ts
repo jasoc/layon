@@ -1,7 +1,7 @@
 import { Component, ViewChildren, QueryList, ElementRef, Input, AfterViewInit } from '@angular/core';
 import { GameBoxComponent } from 'modules/games/components/game-box/game-box.component';
-import { GamesService } from 'services';
-import { game } from 'models';
+import { GamesService } from 'core/services';
+import { game } from 'core/models';
 
 @Component({
   selector: 'games-list',

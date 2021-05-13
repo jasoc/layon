@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LayonBackendService } from 'services';
+import { LayonBackendService } from 'core/services';
 
 @Injectable({
   providedIn: 'root'
