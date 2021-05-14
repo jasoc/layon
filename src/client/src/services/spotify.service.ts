@@ -24,4 +24,9 @@ export class SpotifyService {
     .post(`${this.BASE_URL}/spotify/fetchtoken`, { code: code });
   }
 
+  // public callAuthorizationApi() {
+  //   return this.http
+  //   .post(`${this.BASE_URL}/spotify/authorizationapi`, {});
+  // }
+
 }

@@ -17,11 +17,11 @@ export class TopbarComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.navBar.forEach( (button) => {
-      if(button.value) {
-        this.router.navigate([button.name.toLocaleLowerCase()]);
-      }
-    })
+    // this.navBar.forEach( (button) => {
+    //   if(button.value) {
+    //     this.router.navigate([button.name.toLocaleLowerCase()]);
+    //   }
+    // })
   }
   
   // This is the header/navbar, when its value is true

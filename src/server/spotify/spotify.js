@@ -1,5 +1,7 @@
 const Express = require('express');
 let router = Express.Router();
+const fetch = require('node-fetch');
+const btoa = require('btoa');
 
 
 const clientId = '3dd07fa581fb42c09cda795fb0fd2af6';
@@ -21,21 +23,35 @@ router.get('/authorize', (req, res) => {
 
 });
 
-router.post('/fetchtoken', (req, res) => {
+router.post('/fetchtoken', async (req, res) => {
 
-    const token = `https://accounts.spotify.com/api/token
-                            &code=${req.body.code}
-                            &redirect_uri=${encodeURI("http://localhost:4200/spotify")}
-                            &client_id=${clientId}
-                            &client_secret=${clientSecret}`;
+    // const token = `https://accounts.spotify.com/api/token
+    //                         &code=${req.body.code}
+    //                         &redirect_uri=${encodeURI("http://localhost:4200/spotify")}
+    //                         &client_id=${clientId}
+    //                         &client_secret=${clientSecret}`;
 
-    console.log(token.split(' ').join(''));
+    // console.log(token.split(' ').join(''));
+    const result = await fetch('https://accounts.spotify.com/api/token', {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/x-www-form-urlencoded',
+            'Authorization' : 'Basic ' + btoa(clientId + ':' + clientSecret)
+        },
+        body: 'grant_type=client_credentials'
+    });
+
+    const data = await result.json();
+
+    /* Se ritorna STATUS CODE 200, allora ha funzionato
+     * https://developer.spotify.com/documentation/web-api/
+     * per sapere gli altri status codes
+     */
 
     res.json({
         success: true,
-        data: token.split(' ').join('')
+        data: data.access_token
     });
 });
-
 
 module.exports = router;

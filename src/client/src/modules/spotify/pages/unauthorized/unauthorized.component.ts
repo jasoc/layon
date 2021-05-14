@@ -12,16 +12,19 @@ export class UnauthorizedComponent implements OnInit {
   constructor(public _spotify: SpotifyService) { }
 
   ngOnInit(): void {
-    if(window.location.href.includes('code')) {
+    // if(window.location.href.includes('code')) {
 
-      this._spotify.fetchToken(window.location.href.split('=')[1]).subscribe();
-    }
+    // }
+    this._spotify.fetchToken(window.location.href.split('=')[1]).subscribe( (token: apiResult) => {
+      console.log(token);
+    });
   }
 
   authorize(): void {
     this._spotify.authorize().subscribe( (res: apiResult) => {
 
       window.location.href = res.data; // Da cambiare 
+      console.log(window.location.href.split('=')[1]);
     });
   }
 
