@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from 'services/spotify.service';
-import { apiResult } from 'models';
+import { apiResult } from 'core/models';
 
 @Component({
   selector: 'unauthorized',

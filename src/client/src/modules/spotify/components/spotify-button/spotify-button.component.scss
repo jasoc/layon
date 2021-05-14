@@ -1,0 +1,49 @@
+@import 'styles/fonts';
+
+#spotify-button {
+
+    user-select: none;
+
+    button {
+
+        $PADDING-H: 10px;
+        $PADDING-V: 25px;
+    
+        padding: $PADDING-H $PADDING-V $PADDING-H $PADDING-V;
+    
+        font-size: 21px;
+    
+        font-family: Roboto;
+
+        border-radius: 50px;
+
+        background: transparent;
+        border: 2px solid #00ff59;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .small {
+        $PADDING-H: 10px;
+        $PADDING-V: 25px;
+
+        padding: $PADDING-H $PADDING-V $PADDING-H $PADDING-V;
+    }
+
+    .medium {
+        $PADDING-H: 13px;
+        $PADDING-V: 30px;
+        font-size: 20px;
+
+        padding: $PADDING-H $PADDING-V $PADDING-H $PADDING-V;
+    }
+
+    .big {
+        $PADDING-H: 17px;
+        $PADDING-V: 35px;
+        font-size: 23px;
+
+        padding: $PADDING-H $PADDING-V $PADDING-H $PADDING-V;
+    }
+
+}

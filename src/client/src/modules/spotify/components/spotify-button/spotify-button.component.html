@@ -1,0 +1,14 @@
+<div id="spotify-button">
+    <button [ngStyle]="{
+        'background': background,
+        'color': color
+    }"
+    [ngClass]="{
+        'small': size == 'small',
+        'medium': size == 'medium',
+        'big': size == 'big'
+    }">
+        <ng-content></ng-content>
+    </button>
+</div>
+    
