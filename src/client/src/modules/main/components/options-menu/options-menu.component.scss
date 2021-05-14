@@ -1,0 +1,47 @@
+@import 'styles/fonts';
+
+#games-options {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 50px;
+    position: relative;
+    
+    mat-icon {
+        cursor: pointer;
+        font-size: 35px;
+        color: white;
+        position: absolute;
+    }
+
+    #menu {
+        z-index: 3000;
+        position: absolute;
+        background: #1a1a1a;
+        top: 35px;
+        right: 0;
+        padding: 10px;
+        border-radius: 7px;
+
+        .option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+
+            label {
+                font-family: Roboto-medium;
+                color: white;
+                clear: both;
+                display: inline-block;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+
+            flat-button {
+                margin-left: 50px;    
+            }
+        }
+    }
+}

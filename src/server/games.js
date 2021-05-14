@@ -1,5 +1,5 @@
 const Express = require('express');
-const fs = require('fs');
+const exec = require('child_process').execFile;
 const router = Express.Router();
 const Executables = require('./local/executables');
 const Storage = require('./local/storage');
@@ -23,9 +23,12 @@ router.get('/', (req, res) => {
 
 });
 
-router.post('/start', (req, res) => {
+router.get('/start', (req, res) => {
+    
+    const game = req.query.name;
+    let storage = new Storage();
 
-    // Not implemented
+    exec(game, (err) => { });
 
     res.json({
         success: true

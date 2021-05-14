@@ -1,13 +1,13 @@
-import { Component, Input, NgModule } from '@angular/core';
-import { LayonBackendService } from 'core/services';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import {Component, Input} from '@angular/core';
+import {LayonBackendService, UtilsService, GamesService} from 'core/services';
+import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 import {
   trigger,
   style,
   animate,
-  transition
+  transition,
 } from '@angular/animations';
 
 @Component({
@@ -18,30 +18,31 @@ import {
     trigger('open', [
       transition(':enter', [
         style({
-          opacity: 0
+          opacity: 0,
         }),
         animate('0.1s', style({
-          opacity: 1
-        }))
+          opacity: 1,
+        })),
       ]),
-    ])
-  ]
+    ]),
+  ],
 })
 export class GameFooterComponent {
-
     @Input() public title?: string;
     @Input() public genres?: string[];
 
-    constructor(public _layonBackend: LayonBackendService, public http: HttpClient, public router: Router) { }
+    constructor(
+      public _layonBackend: LayonBackendService,
+      public _utils: UtilsService,
+      public _games: GamesService,
+      public http: HttpClient,
+      public router: Router,
+    ) { }
 
     public add: boolean = false;
 
-    public gameName: string = "";
-
-    public gamePath: string = "";
-
     openGame() {
-      this._layonBackend.openGame("C:\\Program Files\\Process Lasso\\ProcessLasso.exe").subscribe();
+      this._layonBackend.openGame(this._games.currentGame.path).subscribe();
     }
 
     openFileExplorer(): void {
@@ -49,7 +50,10 @@ export class GameFooterComponent {
     }
 
     addGame() {
-      this._layonBackend.writeGamesIntoJson(this.gameName, this.gamePath).subscribe();
+      this._layonBackend.writeGamesIntoJson(
+        this._games.currentGame.name,
+        this._games.currentGame.path)
+        .subscribe();
     }
 
     bruteforce() {
@@ -57,7 +61,6 @@ export class GameFooterComponent {
     }
 
     discover() {
-      this.router.navigate(["games/ciao"]);
+      this.router.navigate(['games/ciao']);
     }
-
 }
