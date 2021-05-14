@@ -1,7 +1,14 @@
 <div id="topbar">
-    <user-box></user-box>
-    <topbar-button *ngFor="let button of navBar; let i = index"
-    (click)="setActive(i); route(i)" [active]="navBar[i].value">
-        {{ button.name }}
-    </topbar-button>
+    <div id="topbar__left">
+        <user-box></user-box>
+        <topbar-button
+            *ngFor="let button of navBar; let i = index"
+            (click)="setActive(i); route(i)"
+            [active]="navBar[i].value">
+            {{ button.name }}
+        </topbar-button>
+    </div>
+    <div id="topbar__right">
+        <options-menu></options-menu>
+    </div>
 </div>

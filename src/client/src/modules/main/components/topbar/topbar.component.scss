@@ -2,19 +2,27 @@
 
 #topbar {
 
-    font-family: Roboto-medium;
-
-    width: 100%;
-    height: 10vh;
-    background: transparent;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 
-    topbar-button {
-        margin: 5px;
-    }
+    #topbar__left {
+    
+        font-family: Roboto-medium;
+    
+        width: 100%;
+        height: 10vh;
+        background: transparent;
+        display: flex;
+        align-items: center;
+    
+        topbar-button {
+            margin: 5px;
+        }
+    
+        user-box {
+            margin: 10px;
+        }
 
-    user-box {
-        margin: 10px;
     }
 }

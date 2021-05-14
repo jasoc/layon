@@ -2,7 +2,7 @@ import os
 from subprocess import Popen
 
 def npm_start():
-    p = Popen(['npm.cmd', 'start'])
+    os.system('start npm.cmd start')
 
 root_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..")
 srv_path = os.path.join(root_path, 'src')
