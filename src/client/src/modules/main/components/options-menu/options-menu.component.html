@@ -1,13 +1,19 @@
 <div id="games-options">
-    <mat-icon>settings</mat-icon>
-    <div id="menu">
-        <div class="option">
+    <mat-icon
+        class="button"
+        (click)="onMenuCLick()"
+        [@mainButton]="buttonAnimated ? 'rotated' : 'normal'"
+        (mouseover)="onMenuHover()" (mouseout)="onMenuUnHover()">
+        settings
+    </mat-icon>
+    <div id="menu" [@openMenu]="menuOpened ? 'opened' : 'closed'">
+        <div class="option" (click)="onGameAddOptionClick()">
+            <mat-icon>note_add</mat-icon>
             <label>Add new game</label>
-            <flat-button background="#e81010">Add</flat-button>
         </div>
         <div class="option">
-            <label>Return to desktop</label>
-            <flat-button background="#ff801f" color="black">Quit</flat-button>
+            <mat-icon>table-view</mat-icon>
+            <label>Switch view</label>
         </div>
     </div>
 </div>

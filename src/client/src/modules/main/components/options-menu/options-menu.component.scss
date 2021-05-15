@@ -1,4 +1,5 @@
 @import 'styles/fonts';
+@import 'styles/colors';
 
 #games-options {
     display: flex;
@@ -8,39 +9,59 @@
     margin-right: 50px;
     position: relative;
     
-    mat-icon {
+    .button {
         cursor: pointer;
         font-size: 35px;
         color: white;
         position: absolute;
+        $SIZE: 35px;
+        height: $SIZE;
+        width: $SIZE;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     #menu {
         z-index: 3000;
         position: absolute;
-        background: #1a1a1a;
+        background: $LAYON-BLACK;
         top: 35px;
         right: 0;
-        padding: 10px;
         border-radius: 7px;
+        display: flex;
+        flex-direction: column;
 
         .option {
             display: flex;
-            justify-content: space-between;
             align-items: center;
             padding: 10px;
+            height: 50px;
+            cursor: pointer;
+            border-radius: 7px;
+
+            * {
+                cursor: pointer;
+            }
+
+            &:hover {
+                background: #333333;
+            }
 
             label {
                 font-family: Roboto-medium;
                 color: white;
                 clear: both;
-                display: inline-block;
                 overflow: hidden;
+                display: outline;
                 white-space: nowrap;
+                margin-right: 25px;
             }
 
-            flat-button {
-                margin-left: 50px;    
+            mat-icon {
+                color: white;
+                margin-right: 15px;
+                margin-left: 15px;
             }
         }
     }

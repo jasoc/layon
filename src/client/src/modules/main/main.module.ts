@@ -6,19 +6,19 @@ import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {ComponentsModule} from 'components/components.module';
+import {MainRoutingModule} from './main-routing.module';
 
 import {TopbarComponent} from './components/topbar/topbar.component';
 import {OptionsMenuComponent} from './components/options-menu/options-menu.component';
-
+import {AddGamePopupComponent} from './components/add-game-popup/add-game-popup.component';
 import {MainViewComponent} from './pages/main-view/main-view.component';
-
-import {MainRoutingModule} from './main-routing.module';
 
 @NgModule({
   declarations: [
     MainViewComponent,
     TopbarComponent,
     OptionsMenuComponent,
+    AddGamePopupComponent,
   ],
   exports: [
     MainViewComponent,

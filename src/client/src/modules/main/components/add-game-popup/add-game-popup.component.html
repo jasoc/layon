@@ -1,0 +1,15 @@
+<div id="add-game-popup" *ngIf='_games.onGameAddPopupOpen' @openClosePopup>
+    <div id="add-game-popup__inner">
+        <mat-icon id="close" (click)="onCloseClick()">close</mat-icon>
+        <div id="left-img">
+            <mat-icon>new_label</mat-icon>
+        </div>
+        <div id="right-content">
+            <div id="texts">
+                <label>Add a game</label>
+                <p>Choose a game from your system</p>
+            </div>
+            <flat-button background="#ed8115" color="black">Add</flat-button>
+        </div>
+    </div>
+</div>

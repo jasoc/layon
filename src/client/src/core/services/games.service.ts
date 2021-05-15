@@ -9,6 +9,7 @@ export class GamesService {
     public games?: game[];
     public currentGame?: game;
     public gameToUploadGame?: game;
+    public onGameAddPopupOpen: boolean = false;
 
     public readonly BASE_RAWG_URL = 'https://api.rawg.io/api';
     public readonly API_FOOTER = '?key=c1e833f49e1d4c90b041380a305d1ce5';
