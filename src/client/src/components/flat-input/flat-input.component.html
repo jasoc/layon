@@ -1,0 +1,8 @@
+<div id="flat-input" [style]="'border: 2px solid ' + color">
+    <div id="main-content">
+        <input [placeholder]="getPlaceholder()" type="text" [(ngModel)]="text" (focus)="onFocus($event)" (focusout)="onFocusOut($event)"/>
+        <mat-icon [style]="'color:' + color">{{icon}}</mat-icon>
+    </div>
+    <label id="placeholder" [style]="'color:' + color" [@placeholderAnimated] = "placeholderAnimated ? 'moved' : 'static'">{{placeholder}}</label>
+</div>
+<label id="hint" [style]="'color:' + color" *ngIf="hint">{{hint}}</label>

@@ -1,26 +1,25 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'flat-button',
   templateUrl: './flat-button.component.html',
-  styleUrls: ['./flat-button.component.scss']
+  styleUrls: ['./flat-button.component.scss'],
 })
 export class FlatButtonComponent {
+    @Input()
+    background: string = 'royalblue';
 
     @Input()
-    background: string = "royalblue";
+    color: string = 'white';
 
     @Input()
-    color: string = "white";
+    size: string = 'small' || 'medium' || 'big';
 
     @Input()
-    size: string = "small" || "medium" || "big";
+    border: string = 'none' || 'thin' || 'thick';
 
-    @Input()
-    border: string = "none" || "thin" || "thick";
-
-    @Input("border-color")
-    borderColor: string = "grey";
+    @Input('border-color')
+    borderColor: string = 'grey';
 
     constructor() { }
 }

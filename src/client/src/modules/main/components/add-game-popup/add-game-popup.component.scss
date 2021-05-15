@@ -73,3 +73,42 @@
         }
     }
 }
+
+#add-game-popup-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 800;
+    background: $LAYON-BLACK;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px;
+
+    label {
+        font-family: roboto;
+        color: white;
+        font-size: 25px;
+    }
+
+    p {
+        font-family: roboto;
+        margin-top: 20px;
+        color: white;
+    }
+
+    flat-input {
+        margin-top: 50px;
+    }
+    flat-button {
+        margin-top: 30px;
+    }
+}
+
+#file-upload {
+    position: absolute;
+    visibility: hidden;
+}

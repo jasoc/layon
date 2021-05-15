@@ -2,8 +2,6 @@ const Express = require('express');
 const fetch = require('node-fetch');
 const btoa = require('btoa');
 let router = Express.Router();
-const fetch = require('node-fetch');
-const btoa = require('btoa');
 
 
 const clientId = '3dd07fa581fb42c09cda795fb0fd2af6';
@@ -52,17 +50,6 @@ router.get('/fetchtoken', async (req, res) => {
      * per sapere gli altri status codes
      */
 
-    const result = await fetch('https://accounts.spotify.com/api/token', {
-        method: 'POST',
-        headers: {
-            'Content-Type' : 'application/x-www-form-urlencoded',
-            'Authorization' : 'Basic ' + btoa(clientId + ':' + clientSecret)
-        },
-        body: 'grant_type=client_credentials'
-    });
-    
-    const data = await result.json();
-    
     console.log(data);
     
     res.json({
