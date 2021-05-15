@@ -1,0 +1,30 @@
+<div id="player">
+
+    <div id="current">
+
+    </div>
+
+    <div id="buttons">
+        <button class="buttons">
+            <mat-icon>replay</mat-icon>
+        </button>
+
+        <button class="buttons">
+            <mat-icon>skip_previous</mat-icon>
+        </button>
+
+        <button id="play-pause" (click)="isPause = !isPause">
+            <mat-icon *ngIf="!isPause">play_arrow</mat-icon>
+            <mat-icon *ngIf="isPause">pause</mat-icon>
+        </button>
+
+        <button class="buttons">
+            <mat-icon>skip_next</mat-icon>
+        </button>
+
+        <button class="buttons">
+            <mat-icon>repeat_one</mat-icon>
+        </button>
+    </div>
+
+</div>
