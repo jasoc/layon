@@ -11,6 +11,8 @@ export class SpotifyService {
 
   private BASE_URL = 'http://localhost:3000';
 
+  public isAuthorized: boolean = false;
+
   // Richiede l'autorizzazione per avere l'accesso ai dati
   public authorize() {
     return this.http

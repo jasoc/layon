@@ -1,8 +1,6 @@
 <div id="player">
 
-    <div id="current">
-
-    </div>
+    <div id="current"></div>
 
     <div id="buttons">
         <button class="buttons">
@@ -22,8 +20,8 @@
             <mat-icon>skip_next</mat-icon>
         </button>
 
-        <button class="buttons">
-            <mat-icon>repeat_one</mat-icon>
+        <button class="buttons" (click)="repeat = !repeat">
+            <mat-icon [ngClass]=" { 'active' : repeat } ">repeat_one</mat-icon>
         </button>
     </div>
 
