@@ -18,7 +18,7 @@ import {MainRoutingModule} from './main-routing.module';
   declarations: [
     MainViewComponent,
     TopbarComponent,
-    OptionsMenuComponent,
+    OptionsMenuComponent
   ],
   exports: [
     MainViewComponent,

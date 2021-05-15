@@ -6,6 +6,7 @@ const btoa = require('btoa');
 
 const clientId = '3dd07fa581fb42c09cda795fb0fd2af6';
 const clientSecret = '7c5f6f524a684787bc7e6cda44aebf08';
+let TOKEN;
 
 
 router.get('/authorize', (req, res) => {
@@ -23,7 +24,7 @@ router.get('/authorize', (req, res) => {
 
 });
 
-router.post('/fetchtoken', async (req, res) => {
+router.get('/fetchtoken', async (req, res) => {
 
     // const token = `https://accounts.spotify.com/api/token
     //                         &code=${req.body.code}
@@ -43,6 +44,7 @@ router.post('/fetchtoken', async (req, res) => {
 
     const data = await result.json();
 
+    TOKEN = data.access_token;
     /* Se ritorna STATUS CODE 200, allora ha funzionato
      * https://developer.spotify.com/documentation/web-api/
      * per sapere gli altri status codes

@@ -12,16 +12,15 @@ export class SpotifyService {
 
   private BASE_URL = "http://localhost:3000";
 
-
   // Richiede l'autorizzazione per avere l'accesso ai dati
   public authorize() {
     return this.http
     .get(`${this.BASE_URL}/spotify/authorize`);
   }
 
-  public fetchToken(code: string) {
+  public fetchToken() {
     return this.http
-    .post(`${this.BASE_URL}/spotify/fetchtoken`, { code: code });
+    .get(`${this.BASE_URL}/spotify/fetchtoken`);
   }
 
   // public callAuthorizationApi() {

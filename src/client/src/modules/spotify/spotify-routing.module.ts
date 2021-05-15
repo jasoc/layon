@@ -4,7 +4,8 @@ import { SpotifyMainComponent } from './pages/spotify-main/spotify-main.componen
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 
 const routes: Routes = [
-  { path: '', component: UnauthorizedComponent }
+  { path: '', component: UnauthorizedComponent },
+  { path: 'player', component: SpotifyMainComponent }
 ];
 
 @NgModule({

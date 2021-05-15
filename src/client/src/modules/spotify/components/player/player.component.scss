@@ -1,0 +1,45 @@
+#player {
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+
+    #current {
+        width: 200px;
+        height: 200px;
+        margin: 25px;
+        background: url("https://img.discogs.com/1zs2Ft2b1I82SK4_ZukCmDiyYA0=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-3090667-1315260205.jpeg.jpg") no-repeat center/cover;
+    }
+
+    #buttons {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #181818;
+
+        #play-pause {
+            width: 40px;
+            height: 40px;
+            background: #ffffff;
+            border: none;
+            border-radius: 50%;
+            outline: none;
+            margin: 0px 10px 0px 10px;
+        }
+
+        .buttons {
+            width: 45px;
+            height: 45px;
+            border: none;
+            color: #b3b3b3;
+            background: transparent;
+            border-radius: 50%;
+            outline: none;
+            margin: 0px 10px 0px 10px;
+        }
+    }
+}
