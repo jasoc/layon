@@ -13,12 +13,6 @@ export class SpotifyButtonComponent implements OnInit {
   }
 
   @Input()
-  background: string = "transparent";
-
-  @Input()
-  color: string = "black";
-
-  @Input()
   size: string = "small" || "medium" || "big";
 
 }

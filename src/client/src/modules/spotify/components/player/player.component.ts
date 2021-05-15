@@ -14,4 +14,6 @@ export class PlayerComponent implements OnInit {
 
   public isPause: boolean = true;
 
+  public repeat: boolean = false;
+
 }
