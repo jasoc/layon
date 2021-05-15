@@ -1,4 +1,5 @@
-<div id="add-game-popup" *ngIf='_games.onGameAddPopupOpen' @openClosePopup>
+<input type="file" id="file-upload" (change)="onFileSelected($event)">
+<div id="add-game-popup" *ngIf='_games.onGameAddPopupOpen && !pathInserted' @openClosePopup>
     <div id="add-game-popup__inner">
         <mat-icon id="close" (click)="onCloseClick()">close</mat-icon>
         <div id="left-img">
@@ -9,7 +10,13 @@
                 <label>Add a game</label>
                 <p>Choose a game from your system</p>
             </div>
-            <flat-button background="#ed8115" color="black">Add</flat-button>
+            <flat-button background="#ed8115" color="black" (click)="onAdd()">Add</flat-button>
         </div>
     </div>
+</div>
+<div id="add-game-popup-name" *ngIf='_games.onGameAddPopupOpen && pathInserted'>
+    <label>Enter the name of this game</label>
+    <p>This name will be used to obtain all the game informations</p>
+    <flat-input [(text)]="name" placeholder="Game name" color="#f5c133" icon="style" hint="Enter a valid name ;)"></flat-input>
+    <flat-button *ngIf="true" (click)="onNameAdded()">Confirm</flat-button>
 </div>

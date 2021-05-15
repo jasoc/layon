@@ -1,7 +1,5 @@
 const Express = require('express');
 let router = Express.Router();
-const fetch = require('node-fetch');
-const btoa = require('btoa');
 
 
 const clientId = '3dd07fa581fb42c09cda795fb0fd2af6';
