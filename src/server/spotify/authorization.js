@@ -6,7 +6,6 @@ const btoa = require('btoa');
 
 const clientId = '3dd07fa581fb42c09cda795fb0fd2af6';
 const clientSecret = '7c5f6f524a684787bc7e6cda44aebf08';
-let TOKEN;
 
 
 router.get('/authorize', (req, res) => {
@@ -50,12 +49,11 @@ router.get('/fetchtoken', async (req, res) => {
     
     const data = await result.json();
 
-    TOKEN = data.access_token;
-
     res.json({
         success: true,
         data: data.access_token
     });
+
 });
 
 module.exports = router;

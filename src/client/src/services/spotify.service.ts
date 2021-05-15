@@ -24,6 +24,11 @@ export class SpotifyService {
     .get(`${this.BASE_URL}/spotify/fetchtoken`);
   }
 
+  public getGenres() {
+    return this.http
+    .get(`${this.BASE_URL}/spotify/getgenres`);
+  }
+
   // public callAuthorizationApi() {
   //   return this.http
   //   .post(`${this.BASE_URL}/spotify/authorizationapi`, {});

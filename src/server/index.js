@@ -17,7 +17,10 @@ appl.use('/exec', cors(corsOptions), require('./exec'));
 appl.use('/exe', cors(corsOptions), require('./exe'));
 appl.use('/getinfo', cors(corsOptions), require('./getinfo'));
 appl.use('/games', cors(corsOptions), require('./games'));
-appl.use('/spotify', cors(corsOptions), require('./spotify/spotify'));
+
+// Spotify section
+appl.use('/spotify', cors(corsOptions), require('./spotify/authorization'));
+appl.use('/spotify', cors(corsOptions), require('./spotify/music'));
 
 appl.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
