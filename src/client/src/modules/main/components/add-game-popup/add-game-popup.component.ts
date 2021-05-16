@@ -34,17 +34,26 @@ export class AddGamePopupComponent {
   public gameToAdd: game = {};
   public pathInserted: boolean = false;
   public name: string = '';
-  constructor(public _games: GamesService, public _layonBackend: LayonBackendService) {}
+
+  constructor(
+    public _games: GamesService,
+    public _layonBackend: LayonBackendService
+  ) {}
+
   onCloseClick() {
+    this.pathInserted = false;
     this._games.onGameAddPopupOpen = false;
   }
+
   onAdd() {
     document.getElementById('file-upload').click();
   }
+
   onFileSelected(event) {
     this.gameToAdd.path = event.target.files[0].path;
     this.pathInserted = true;
   }
+
   onNameAdded() {
     this._layonBackend.writeGamesIntoJson(this.name, this.gameToAdd.path).subscribe();
     this._games.onGameAddPopupOpen = false;

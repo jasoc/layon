@@ -14,9 +14,13 @@
         </div>
     </div>
 </div>
-<div id="add-game-popup-name" *ngIf='_games.onGameAddPopupOpen && pathInserted'>
+<div id="add-game-popup-name" *ngIf='_games.onGameAddPopupOpen && pathInserted' @openClosePopup>
     <label>Enter the name of this game</label>
     <p>This name will be used to obtain all the game informations</p>
     <flat-input [(text)]="name" placeholder="Game name" color="#f5c133" icon="style" hint="Enter a valid name ;)"></flat-input>
-    <flat-button *ngIf="true" (click)="onNameAdded()">Confirm</flat-button>
+    <div id="buttons">
+        <flat-button *ngIf="true" (click)="onNameAdded()">Confirm</flat-button>
+        <span [style.margin-left]="'10px'" [style.background]="'transparent'"></span>
+        <flat-button *ngIf="true" (click)="onCloseClick()" background="#ed2b2b">Cancel</flat-button>
+    </div>
 </div>
