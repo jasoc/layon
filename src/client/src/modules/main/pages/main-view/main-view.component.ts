@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras } from '@angular/router';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-main',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainViewComponent implements OnInit {
 
-    constructor() { }
+    constructor(public router: Router) { }
 
     ngOnInit() { }
 }

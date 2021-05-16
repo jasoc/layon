@@ -1,0 +1,82 @@
+@import 'styles/fonts';
+
+
+#global-player {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    background: #181818;
+    bottom: 0;
+
+
+    #song-info {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        #song-image {
+            width: 55px;
+            height: 50px;
+            margin: 0px 10px 0px 10px;
+            background: url("https://img.discogs.com/1zs2Ft2b1I82SK4_ZukCmDiyYA0=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-3090667-1315260205.jpeg.jpg") no-repeat center/cover;
+        }
+
+        p {
+            color: white;
+            font-family: Roboto-medium;
+        }
+
+    }
+
+    #buttons {
+        width: 100%;
+        height: 55px;
+        display: flex;
+        align-items: center;
+        border-top: 1px solid #b3b3b31e;
+        justify-content: center;
+        user-select: none;
+
+        #play-pause {
+            width: 40px;
+            height: 40px;
+            background: #ffffff;
+            border: none;
+            border-radius: 50%;
+            outline: none;
+            margin: 0px 10px 0px 10px;
+        }
+
+        .buttons {
+            width: 45px;
+            height: 45px;
+            border: none;
+            color: #b3b3b3;
+            background: transparent;
+            border-radius: 50%;
+            outline: none;
+            margin: 0px 10px 0px 10px;
+        }
+    }
+
+    #volume {
+        width: 100%;
+        height: 100%;
+        user-select: none;
+    }
+
+    .active {
+        color: rgb(30 215 96);
+    }
+
+    .rotate {
+        transition: 500ms;
+
+        &:active {
+            transform: rotate(-360deg);
+        }
+    }
+}

@@ -10,6 +10,10 @@ export class SpotifyService {
 
   private BASE_URL = 'http://localhost:3000';
 
+  public isPause: boolean = true;
+
+  public repeat: boolean = false;
+
   public isAuthorized: boolean = false;
 
   // Richiede l'autorizzazione per avere l'accesso ai dati
