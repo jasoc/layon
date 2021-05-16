@@ -1,6 +1,7 @@
 <div id="flat-input" [style]="'border: 2px solid ' + color">
     <div id="main-content">
-        <input [placeholder]="getPlaceholder()" type="text" [(ngModel)]="text" (focus)="onFocus($event)" (focusout)="onFocusOut($event)"/>
+        <input [placeholder]="getPlaceholder()" type="text" [(ngModel)]="text" (focus)="onFocus($event)" (focusout)="onFocusOut($event)"
+        (ngModelChange)="textChange.emit(text)"/>
         <mat-icon [style]="'color:' + color">{{icon}}</mat-icon>
     </div>
     <label id="placeholder" [style]="'color:' + color" [@placeholderAnimated] = "placeholderAnimated ? 'moved' : 'static'">{{placeholder}}</label>

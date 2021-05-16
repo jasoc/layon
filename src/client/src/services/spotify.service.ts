@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {apiResult} from 'core/models';
 
 
 @Injectable({
@@ -21,17 +20,16 @@ export class SpotifyService {
 
   public fetchToken() {
     return this.http
-    .get(`${this.BASE_URL}/spotify/fetchtoken`);
+      .get(`${this.BASE_URL}/spotify/fetchtoken`);
   }
 
   public getGenres() {
     return this.http
-    .get(`${this.BASE_URL}/spotify/getgenres`);
+      .get(`${this.BASE_URL}/spotify/getgenres`);
   }
 
   // public callAuthorizationApi() {
   //   return this.http
   //   .post(`${this.BASE_URL}/spotify/authorizationapi`, {});
   // }
-
 }

@@ -17,7 +17,7 @@ router.post('/writejson', (req, res) => {
     let JS = new jw(documents, "/games.json");
 
     let game = {
-        name : req.body.data.name,
+        name : req.body.data.name.split(' ').join('-'),
         path : req.body.data.path
     }
     

@@ -5,7 +5,7 @@ import {
   animate,
   transition}
   from '@angular/animations';
-import {GamesService} from 'core/services';
+import {GamesService, LayonBackendService} from 'core/services';
 import {game} from 'core';
 
 @Component({
@@ -34,7 +34,7 @@ export class AddGamePopupComponent {
   public gameToAdd: game = {};
   public pathInserted: boolean = false;
   public name: string = '';
-  constructor(public _games: GamesService) {}
+  constructor(public _games: GamesService, public _layonBackend: LayonBackendService) {}
   onCloseClick() {
     this._games.onGameAddPopupOpen = false;
   }
@@ -46,6 +46,7 @@ export class AddGamePopupComponent {
     this.pathInserted = true;
   }
   onNameAdded() {
-    console.log(this.name);
+    this._layonBackend.writeGamesIntoJson(this.name, this.gameToAdd.path).subscribe();
+    this._games.onGameAddPopupOpen = false;
   }
 }
