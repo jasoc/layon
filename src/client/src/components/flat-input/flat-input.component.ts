@@ -37,7 +37,7 @@ export class FlatInputComponent {
     @Input()
     color: string = 'royalblue';
     @Input()
-    icon: string = 'account_circle';
+    icon: string;
     @Input()
     hint: string;
     @Input()

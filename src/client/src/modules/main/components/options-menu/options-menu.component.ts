@@ -60,6 +60,7 @@ export class OptionsMenuComponent {
   }
   onGameAddOptionClick() {
     this._games.onGameAddPopupOpen = true;
+    this.buttonAnimated = false;
     this.menuOpened = false;
   }
 }

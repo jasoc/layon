@@ -1,9 +1,17 @@
-<div id="flat-input" [style]="'border: 2px solid ' + color">
+<div id="flat-input" [ngStyle]="{
+        'border': placeholderAnimated ? '2px solid ' + color : '1px solid grey',
+        'padding': placeholderAnimated ? '0px ' : '1px',
+        'margin-bottom': hint ? '10px' : '0px'
+    }">
     <div id="main-content">
         <input [placeholder]="getPlaceholder()" type="text" [(ngModel)]="text" (focus)="onFocus($event)" (focusout)="onFocusOut($event)"
         (ngModelChange)="textChange.emit(text)"/>
-        <mat-icon [style]="'color:' + color">{{icon}}</mat-icon>
+        <mat-icon [style.color]="color" *ngIf="icon">{{icon}}</mat-icon>
     </div>
-    <label id="placeholder" [style]="'color:' + color" [@placeholderAnimated] = "placeholderAnimated ? 'moved' : 'static'">{{placeholder}}</label>
+    <label id="placeholder" [ngStyle]="{
+        'color': placeholderAnimated ? color : 'grey'
+    }" [@placeholderAnimated] = "placeholderAnimated ? 'moved' : 'static'">{{placeholder}}</label>
 </div>
-<label id="hint" [style]="'color:' + color" *ngIf="hint">{{hint}}</label>
+<label id="hint" *ngIf="hint" [ngStyle]="{
+    'color': placeholderAnimated ? color : 'grey'
+}">{{hint}}</label>

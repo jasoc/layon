@@ -86,25 +86,32 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding: 50px;
 
+    $PADDING: 30px;
     label {
         font-family: roboto;
         color: white;
         font-size: 25px;
+        padding: $PADDING $PADDING 0 $PADDING;
     }
 
     p {
         font-family: roboto;
-        margin-top: 20px;
+        margin-top: $PADDING;
+        padding: 0 $PADDING 0 $PADDING;
         color: white;
     }
 
     flat-input {
         margin-top: 50px;
     }
-    flat-button {
+
+    #buttons {
         margin-top: 30px;
+        width: -webkit-fill-available;
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 20px 20px 0;
     }
 }
 
