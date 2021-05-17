@@ -12,7 +12,7 @@ export class GamesService {
     public onGameAddPopupOpen: boolean = false;
 
     public readonly BASE_RAWG_URL = 'https://api.rawg.io/api';
-    public readonly API_FOOTER = '?key=3a80d264e0104c68ac01e30043770106';
+    public readonly API_FOOTER = '?key=' + '3a80d264e0104c68ac01e30043770106';
 
     constructor(public http: HttpClient) { }
 

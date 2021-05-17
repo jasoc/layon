@@ -42,6 +42,8 @@ export class FlatInputComponent {
     hint: string;
     @Input()
     text: string;
+    @Input()
+    size: string = 'big' || 'medium' || 'small';;
     @Output()
     textChange = new EventEmitter<string>();
     public placeholderAnimated: boolean = false;

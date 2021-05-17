@@ -11,17 +11,17 @@
             <mat-icon>skip_previous</mat-icon>
         </button>
 
-        <button id="play-pause" (click)="isPause = !isPause">
-            <mat-icon *ngIf="!isPause">play_arrow</mat-icon>
-            <mat-icon *ngIf="isPause">pause</mat-icon>
+        <button id="play-pause" (click)="_spotify.isPause = !_spotify.isPause">
+            <mat-icon *ngIf="!_spotify.isPause">play_arrow</mat-icon>
+            <mat-icon *ngIf="_spotify.isPause">pause</mat-icon>
         </button>
 
         <button class="buttons">
             <mat-icon>skip_next</mat-icon>
         </button>
 
-        <button class="buttons" (click)="repeat = !repeat">
-            <mat-icon [ngClass]=" { 'active' : repeat } ">repeat_one</mat-icon>
+        <button class="buttons" (click)="_spotify.repeat = !_spotify.repeat">
+            <mat-icon [ngClass]=" { 'active' : _spotify.repeat } ">repeat_one</mat-icon>
         </button>
     </div>
 

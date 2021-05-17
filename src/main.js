@@ -19,10 +19,14 @@ app.on('ready', () => {
     });
 
     mainWindow.maximize();
+
+    // Removes menu bar
+    mainWindow.setMenuBarVisibility(false);
+    // mainWindow.setMenu(null);
     
     if (development) {
         mainWindow.loadURL('http://localhost:4200');
-        //mainWindow.webContents.openDevTools();
+        // mainWindow.webContents.openDevTools();
         
     } else {
         mainWindow.loadURL(url.format({

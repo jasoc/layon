@@ -12,6 +12,7 @@ import {TopbarComponent} from './components/topbar/topbar.component';
 import {OptionsMenuComponent} from './components/options-menu/options-menu.component';
 import {AddGamePopupComponent} from './components/add-game-popup/add-game-popup.component';
 import {MainViewComponent} from './pages/main-view/main-view.component';
+import {GlobalPlayerComponent} from './global-player/global-player.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {MainViewComponent} from './pages/main-view/main-view.component';
     TopbarComponent,
     OptionsMenuComponent,
     AddGamePopupComponent,
+    GlobalPlayerComponent,
   ],
   exports: [
     MainViewComponent,

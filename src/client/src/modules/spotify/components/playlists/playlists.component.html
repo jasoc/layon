@@ -1,0 +1,17 @@
+<div id="playlists">
+
+    <div id="playlist-list" *ngIf="playlists">
+        <div id="single-playlist" *ngFor="let playlist of playlists" 
+        [ngStyle]="{'background-image': 'url(' + playlist.images[0].url + ')' }">
+
+            <div>
+                {{playlist.name}}
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="!playlists">
+        <h1>No playlists found.</h1>
+    </div>
+
+</div>

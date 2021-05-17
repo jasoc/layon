@@ -1,0 +1,46 @@
+<div id="global-player">
+
+    <div id="master" [@openClose]="_spotify.showGlobalPlayer">
+
+        <div id="song-info">
+            <div id="song-image"></div>
+            <p>Space RockerZ & Tania Zygar - Puzzle Piece (Daniel Heatcliff's Farewell Remix)</p>
+        </div>
+
+        <div id="buttons">
+            <button class="buttons">
+                <mat-icon>replay</mat-icon>
+            </button>
+
+            <button class="buttons">
+                <mat-icon>skip_previous</mat-icon>
+            </button>
+
+            <button id="play-pause" (click)="_spotify.isPause = !_spotify.isPause">
+                <mat-icon *ngIf="!_spotify.isPause">play_arrow</mat-icon>
+                <mat-icon *ngIf="_spotify.isPause">pause</mat-icon>
+            </button>
+
+            <button class="buttons">
+                <mat-icon>skip_next</mat-icon>
+            </button>
+
+            <button class="buttons" (click)="_spotify.repeat = !_spotify.repeat">
+                <mat-icon [ngClass]=" { 'active' : _spotify.repeat } ">repeat_one</mat-icon>
+            </button>
+        </div>
+
+        <div id="volume">
+
+        </div>
+
+    </div>
+
+    <div id="show-button">
+        <button (click)="_spotify.showGlobalPlayer = !_spotify.showGlobalPlayer">
+            <mat-icon *ngIf="!_spotify.showGlobalPlayer">expand_more</mat-icon>
+            <mat-icon *ngIf="_spotify.showGlobalPlayer">keyboard_arrow_up</mat-icon>
+        </button>
+    </div>
+
+</div>

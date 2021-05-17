@@ -3,6 +3,7 @@ import {SpotifyService} from 'services/spotify.service';
 import {Router} from '@angular/router';
 import {apiResult} from 'core/models';
 
+
 @Component({
   selector: 'unauthorized',
   templateUrl: './unauthorized.component.html',
@@ -11,6 +12,7 @@ import {apiResult} from 'core/models';
 export class UnauthorizedComponent implements OnInit {
   constructor(public _spotify: SpotifyService,
     public router: Router) {
+    // this.router.navigate(['spotify/player']); // <------- RIMUOVERE STA LINEA
     if (this._spotify.isAuthorized) {
       this.router.navigate(['spotify/player']);
     }
@@ -18,11 +20,10 @@ export class UnauthorizedComponent implements OnInit {
 
   ngOnInit(): void {
     if (window.location.href.includes('code')) {
-      this._spotify.fetchToken().subscribe( (res: apiResult) => {
-        if (res.success) {
-          this._spotify.isAuthorized = true;
-          this.router.navigate(['spotify/player']);
-        }
+      this._spotify.fetchToken(window.location.href.split('=')[1]).subscribe( (res: apiResult) => {
+        this._spotify.isAuthorized = true;
+        localStorage.setItem('APP_TOKEN', res.data);
+        this.router.navigate(['spotify/player']);
       });
     }
   }

@@ -2,7 +2,6 @@
 
 #flat-input {
     position: relative;
-    width: 300px;
     border: 2px solid yellow;
     border-radius: 5px;
     
@@ -50,4 +49,16 @@
     font-size: 12px;
     transform: translate(0, -50%);
     pointer-events: none;
+}
+
+.small {
+    width: 150px;
+}
+
+.medium {
+    width: 200px;
+}
+
+.big {
+    width: 300px;
 }

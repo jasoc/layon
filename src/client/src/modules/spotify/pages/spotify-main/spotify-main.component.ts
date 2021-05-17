@@ -8,11 +8,12 @@ import {SpotifyService} from 'services/spotify.service';
 })
 export class SpotifyMainComponent implements OnInit {
   constructor(public _spotify: SpotifyService) {
-    this._spotify.getGenres().subscribe( (res: any) => {
-      console.log(res.data.categories.items[5]);
-    });
   }
 
   ngOnInit(): void {
+    const TOKEN = localStorage.getItem('APP_TOKEN');
+    this._spotify.currentPlaying(TOKEN).subscribe( (res) => {
+      console.log(res);
+    });
   }
 }

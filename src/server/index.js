@@ -21,6 +21,7 @@ appl.use('/games', cors(corsOptions), require('./games'));
 // Spotify section
 appl.use('/spotify', cors(corsOptions), require('./spotify/authorization'));
 appl.use('/spotify', cors(corsOptions), require('./spotify/music'));
+appl.use('/spotify', cors(corsOptions), require('./spotify/player'));
 
 appl.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
