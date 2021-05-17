@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {SpotifyService} from 'services/spotify.service';
 
 @Component({
   selector: 'spotify-main',
@@ -6,9 +7,13 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./spotify-main.component.scss'],
 })
 export class SpotifyMainComponent implements OnInit {
-  constructor() {
+  constructor(public _spotify: SpotifyService) {
   }
 
   ngOnInit(): void {
+    const TOKEN = localStorage.getItem('APP_TOKEN');
+    this._spotify.currentPlaying(TOKEN).subscribe( (res) => {
+      console.log(res);
+    });
   }
 }

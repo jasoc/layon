@@ -39,6 +39,11 @@ export class SpotifyService {
       .post(`${this.BASE_URL}/spotify/getplaylists`, {TOKEN: TOKEN});
   }
 
+  public currentPlaying(TOKEN: string) {
+    return this.http
+      .post(`${this.BASE_URL}/spotify/currentplaying`, {TOKEN: TOKEN});
+  }
+
   // public callAuthorizationApi() {
   //   return this.http
   //   .post(`${this.BASE_URL}/spotify/authorizationapi`, {});
