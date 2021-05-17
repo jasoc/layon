@@ -8,9 +8,6 @@ const jw = require('./jsonwriter');
 
 let router = Express.Router();
 
-
-
-
 router.post('/writejson', (req, res) => {
     let documents = `C:/Users/${os.userInfo().username}/Documents/Layon`;
 

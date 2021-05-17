@@ -16,12 +16,12 @@ export class TopbarComponent {
   // This is the header/navbar, when its value is true
   // the specific button corresponding on its index will
   // be highlighted, only one value should be true.
-  public navBar: {name: string, value: boolean}[] = [
-    {name: 'Home', value: false},
-    {name: 'Apps', value: false},
-    {name: 'Games', value: true},
-    {name: 'Settings', value: false},
-    {name: 'Spotify', value: false},
+  public navBar: {name: string, value: boolean, icon: string}[] = [
+    {name: 'Home', value: false, icon: 'home'},
+    {name: 'Apps', value: false, icon: 'dashboard'},
+    {name: 'Games', value: true, icon: 'grade'},
+    {name: 'Settings', value: false, icon: 'settings'},
+    {name: 'Spotify', value: false, icon: 'style'},
   ]
 
   // This function will set only one item/button

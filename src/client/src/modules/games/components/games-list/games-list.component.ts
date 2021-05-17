@@ -19,14 +19,57 @@ export class GamesListComponent {
 
     constructor(
         public _games: GamesService,
-    ) { }
+    ) {
+      // window.addEventListener('gamepadconnected', function(e) {
+      //   console.log('joypad connected');
+      //   setInterval(function gameLoop() {
+      //     const gamepad = navigator.getGamepads()[0]; // get the first controller.
+      //     if (gamepad && gamepad.connected) {
+      //       // check if direction buttons (UP, DOWN, LEFT, RIGHT) was pressed
+      //       const axes = gamepad.axes;
+      //       for (const i in axes) {
+      //           if (axes[i] != 0) {
+      //             console.log('axes[%s] value is: %s', i, axes[i]);
+      //           };
+      //       };
+      //       // to check if other buttons(A,B,C,D,OK,Exit...) was pressed
+      //       const buttons = gamepad.buttons;
+      //       for (const i in buttons) {
+      //           if (buttons[i].pressed == true) {
+      //             console.log('buttons[%s] pressed', i);
+      //           };
+      //       };
+      //     };
+      //   }, 50);
+      // });
+      window.addEventListener('keydown', (event: KeyboardEvent) => {
+        if (event.code == 'ArrowRight') {
+          this.highlightNextGame();
+        }
+
+        if (event.code == 'ArrowLeft') {
+          this.highlightPreviousGame();
+        }
+      });
+    }
 
     public highlightAtIndex(index: number): void {
-      this.gamesNative?.toArray()[index]
-        .nativeElement
-        .scrollIntoView({behavior: 'smooth', block: 'end', inline: 'center'});
-
       if (this.games) {
+        setTimeout(() => {
+          /**
+           * This is a work around for a very strange (and stupid) bug.
+           * If the above function is executed outside of this setTimeout,
+           * Angular, for misterious reasons, decide not to execute it.
+           * Another strange behavior is that if you put a breakpoint in the
+           * above line, it works.
+           * So i found out that if I use a setTimeout with a timeout of 0 ms
+           * averything start to work. You didn't see nothing.
+           */
+          this.gamesNative.toArray()[index]
+            .nativeElement
+            .scrollIntoView({behavior: 'smooth', block: 'end', inline: 'center'});
+        }, 0);
+
         this.gamesNative?.forEach((_, j) => {
           if (index != j && this.games) {
             this.games.toArray()[j].isSelected = false;
@@ -34,6 +77,7 @@ export class GamesListComponent {
         });
 
         this.games.toArray()[index].isSelected = true;
+
         if (this._games.games) {
           this._games.currentGame = this._games.games[this.index];
         }

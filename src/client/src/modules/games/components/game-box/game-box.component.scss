@@ -30,6 +30,11 @@
         z-index: 20;
         position: relative;
 
+        @media (max-height: 820px) {
+            height: 200px;
+            width: 380px;
+        }
+
         $MARGIN: 25px;
         margin-bottom: $MARGIN;
         margin-top: $MARGIN;

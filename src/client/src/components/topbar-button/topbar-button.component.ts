@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 import {
   trigger,
   state,
   style,
   animate,
-  transition
+  transition,
 } from '@angular/animations';
 
 @Component({
@@ -16,32 +16,23 @@ import {
     trigger('stayFocus', [
       state('open', style({
         background: '#0e1112be',
-        margin: '0px 10px 0px 10px',
-        fontSize: '20px'
+        width: '200px',
+        fontSize: '20px',
       })),
       state('closed', style({
         background: 'transparent',
-        margin: '0px',
-        fontSize: '*'
+        width: '100px',
+        fontSize: '*',
       })),
-      transition('open => closed', [
-        animate('0.2s')
+      transition('open <=> closed', [
+        animate('130ms'),
       ]),
-      transition('closed => open', [
-        animate('0.2s')
-      ])
-    ])
-  ]
+    ]),
+  ],
 })
-export class TopbarButtonComponent implements OnInit {
+export class TopbarButtonComponent {
+  @Input() public active: boolean;
+  @Input() public icon: string;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  @Input() public active!: boolean;
-
-  
-
 }

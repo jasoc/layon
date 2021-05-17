@@ -1,17 +1,10 @@
 <div id="games-list">
     <div id="controls">
-        <div id="left" (click)="highlightPreviousGame()">
-            <mat-icon>chevron_left</mat-icon>
-            <mat-icon style="visibility: hidden;">chevron_left</mat-icon>
-            <mat-icon style="visibility: hidden;">chevron_left</mat-icon>
-            <mat-icon style="visibility: hidden;">chevron_left</mat-icon>
+        <div id="control-left" (click)="highlightPreviousGame()">
+            <button><mat-icon>chevron_left</mat-icon></button>
         </div>
-
-        <div id="right" (click)="highlightNextGame()">
-            <mat-icon style="visibility: hidden;">chevron_right</mat-icon>
-            <mat-icon style="visibility: hidden;">chevron_right</mat-icon>
-            <mat-icon style="visibility: hidden;">chevron_right</mat-icon>
-            <mat-icon>chevron_right</mat-icon>
+        <div id="control-right" (click)="highlightNextGame()">
+            <button><mat-icon>chevron_right</mat-icon></button>
         </div>
     </div>
     <div id="games-list__flexbox">

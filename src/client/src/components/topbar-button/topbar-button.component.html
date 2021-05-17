@@ -2,4 +2,7 @@
     [@stayFocus]="active ? 'open' : 'closed' " (click)="active = true"
     [style]="active ? 'font-size: 24px;' : '' ">
      <ng-content></ng-content>
+     <mat-icon [ngClass]="{
+         'active': active
+     }">{{icon}}</mat-icon>
 </div>

@@ -1,12 +1,12 @@
 @import 'styles/fonts';
+@import 'styles/queries';
 
 #game-footer {
     display: grid;
     align-items: center;
-    position: absolute;
     user-select: none;
     bottom: 0;
-    height: 350px;
+    height: 200px;
     width: 100%;
     font-family: Roboto-medium;
 

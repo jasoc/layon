@@ -4,7 +4,8 @@
         <topbar-button
             *ngFor="let button of navBar; let i = index"
             (click)="setActive(i); route(i)"
-            [active]="navBar[i].value">
+            [active]="button.value"
+            [icon]="button.icon">
             {{ button.name }}
         </topbar-button>
     </div>

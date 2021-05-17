@@ -1,15 +1,44 @@
 #main {
-
-    position: absolute;
+    position: relative;
     overflow: hidden;
     height: 100%;
     width: 100%;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 
     -webkit-box-shadow: inset 0px 50px 50px -30px rgb(0,0,0,0.5);
     box-shadow: inset 0px 50px 1000px rgb(0,0,0,0.5);
 
-    .g {
-        margin-top: 200px;
+    #game-background {
+        position: absolute;
+        height: 100%;
+        width: 100%;
     }
+
+    #bw-gradient {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(32,32,32,0.7875525210084033) 21%, rgba(156,156,156,0.4514180672268907) 61%, rgba(255,255,255,0.8015581232492998) 100%);
+    }
+
+    #carousel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        games-list {
+            width: 100%;
+            position: absolute;
+        }
+    }
+
+    game-footer {
+        z-index: 1;
+        width: 100%;
+    }
+
 }
