@@ -1,29 +1,33 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
-import { ComponentsModule } from 'components/components.module';
-import { SpotifyRoutingModule } from './spotify-routing.module';
-import { SpotifyButtonComponent } from './components/spotify-button/spotify-button.component';
-import { PlayerComponent } from './components/player/player.component';
+import {ComponentsModule} from 'components/components.module';
+import {SpotifyRoutingModule} from './spotify-routing.module';
+import {SpotifyButtonComponent} from './components/spotify-button/spotify-button.component';
+import {PlayerComponent} from './components/player/player.component';
+import {LeftSideBarComponent} from './components/left-side-bar/left-side-bar.component';
+import {PlaylistsComponent} from './components/playlists/playlists.component';
 
-import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
-import { SpotifyMainComponent } from './pages/spotify-main/spotify-main.component';
+import {UnauthorizedComponent} from './pages/unauthorized/unauthorized.component';
+import {SpotifyMainComponent} from './pages/spotify-main/spotify-main.component';
 
 @NgModule({
   declarations: [
     SpotifyButtonComponent,
     UnauthorizedComponent,
     SpotifyMainComponent,
-    PlayerComponent
+    PlayerComponent,
+    LeftSideBarComponent,
+    PlaylistsComponent,
   ],
-  imports: [ 
+  imports: [
     ComponentsModule,
     CommonModule,
     FormsModule,
-    SpotifyRoutingModule
+    SpotifyRoutingModule,
   ],
   providers: [],
-  bootstrap: [UnauthorizedComponent]
+  bootstrap: [UnauthorizedComponent],
 })
 export class SpotifyModule { }

@@ -1,0 +1,51 @@
+@import 'styles/fonts';
+
+#left-side-bar {
+    width: 250px;
+    height: 100%;
+    background: black;
+    flex-direction: column;
+    font-family: Roboto;
+
+    #top-bar-spacer {
+        width: 100%;
+        height: 100px;
+    }
+
+    #logo-hero {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #b3b3b31e;
+
+        h1 {
+            font-size: 18px;
+            color: white;
+        }
+
+        #logo {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            border-radius: 50%;
+            background: url(/assets/png/spotify-logo.png) no-repeat center/cover;
+        }
+
+        #beta {
+            width: 50px;
+            height: 50px;
+            background: url(/assets/png/beta.png) no-repeat center/cover;
+        }
+    }
+
+    #search {
+        display: flex;
+        justify-content: center;
+    }
+
+    flat-input {
+        margin: 25px;
+    }
+}

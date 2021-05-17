@@ -2,6 +2,10 @@
         'border': placeholderAnimated ? '2px solid ' + color : '1px solid grey',
         'padding': placeholderAnimated ? '0px ' : '1px',
         'margin-bottom': hint ? '10px' : '0px'
+    }" [ngClass]="{
+        'small': size == 'small',
+        'medium': size == 'medium',
+        'big': size == 'big'
     }">
     <div id="main-content">
         <input [placeholder]="getPlaceholder()" type="text" [(ngModel)]="text" (focus)="onFocus($event)" (focusout)="onFocusOut($event)"

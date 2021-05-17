@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {SpotifyService} from 'services/spotify.service';
 
 @Component({
   selector: 'spotify-main',
@@ -7,10 +6,7 @@ import {SpotifyService} from 'services/spotify.service';
   styleUrls: ['./spotify-main.component.scss'],
 })
 export class SpotifyMainComponent implements OnInit {
-  constructor(public _spotify: SpotifyService) {
-    this._spotify.getGenres().subscribe( (res: any) => {
-      console.log(res.data.categories.items[5]);
-    });
+  constructor() {
   }
 
   ngOnInit(): void {
