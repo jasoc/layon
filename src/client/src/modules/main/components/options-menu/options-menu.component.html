@@ -6,7 +6,7 @@
         (mouseover)="onMenuHover()" (mouseout)="onMenuUnHover()">
         settings
     </mat-icon>
-    <div id="menu" [@openMenu]="menuOpened ? 'opened' : 'closed'">
+    <div *ngIf="menuOpened" id="menu" [@openMenu]="menuOpened ? 'opened' : 'closed'">
         <div class="option" (click)="onGameAddOptionClick()">
             <mat-icon>note_add</mat-icon>
             <label>Add new game</label>

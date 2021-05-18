@@ -23,7 +23,10 @@ router.post('/getplaylists', async (req, res) => {
 
     const result = await fetch(`https://api.spotify.com/v1/me/playlists`, {
         method: 'GET',
-        headers: { 'Authorization' : 'Bearer ' + req.body.TOKEN }
+        headers: { 
+            'Content-Type' : 'application/json',
+            'Authorization' : 'Bearer ' + req.body.TOKEN
+         }
     });
 
     const data = await result.json();
@@ -52,6 +55,7 @@ router.post('/currentplaying', async (req, res) => {
     const result = await fetch('https://api.spotify.com/v1/me/player?market=IT', {
         method: 'GET',
         headers: { 
+            'Accept': 'application/json',
             'Content-Type' : 'application/json',
             'Authorization' : 'Bearer ' + req.body.TOKEN
         }
