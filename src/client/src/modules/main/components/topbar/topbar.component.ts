@@ -19,9 +19,9 @@ export class TopbarComponent {
   public navBar: {name: string, value: boolean, icon: string}[] = [
     {name: 'Home', value: false, icon: 'home'},
     {name: 'Apps', value: false, icon: 'dashboard'},
-    {name: 'Games', value: true, icon: 'grade'},
+    {name: 'Games', value: true, icon: 'sports_esports'},
     {name: 'Settings', value: false, icon: 'settings'},
-    {name: 'Spotify', value: false, icon: 'style'},
+    {name: 'Spotify', value: false, icon: 'headphones'},
   ]
 
   // This function will set only one item/button
