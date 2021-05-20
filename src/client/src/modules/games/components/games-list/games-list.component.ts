@@ -2,6 +2,7 @@ import {Component, ViewChildren, QueryList, ElementRef, Input} from '@angular/co
 import {GameBoxComponent} from 'modules/games/components/game-box/game-box.component';
 import {GamesService} from 'core/services';
 import {game} from 'core/models';
+import {LayonBackendService} from 'core/services/layon-backend.service';
 
 @Component({
   selector: 'games-list',
@@ -19,6 +20,7 @@ export class GamesListComponent {
 
     constructor(
         public _games: GamesService,
+        public _layonBackend: LayonBackendService,
     ) {
       // window.addEventListener('gamepadconnected', function(e) {
       //   console.log('joypad connected');
@@ -49,6 +51,10 @@ export class GamesListComponent {
 
         if (event.code == 'ArrowLeft') {
           this.highlightPreviousGame();
+        }
+
+        if (event.code == 'Enter') {
+          this._layonBackend.openGame(this._games.currentGame.path).subscribe();
         }
       });
     }

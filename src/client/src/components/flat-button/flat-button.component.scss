@@ -6,6 +6,13 @@
     display: inline-block;
 
     button {
+        display: flex;
+        align-items: center;
+        outline: none;
+
+        mat-icon {
+            margin-right: 5px;
+        }
 
         $PADDING-H: 10px;
         $PADDING-V: 25px;

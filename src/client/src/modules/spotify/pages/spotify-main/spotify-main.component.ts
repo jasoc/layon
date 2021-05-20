@@ -11,9 +11,11 @@ export class SpotifyMainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const TOKEN = localStorage.getItem('APP_TOKEN');
-    this._spotify.currentPlaying(TOKEN).subscribe( (res) => {
-      console.log(res);
+    this._spotify.currentPlaying().subscribe( (res: any) => {
+      this._spotify.currentTrack = [];
+      console.log(res.data);
+      // console.log(res.data.item.name);
+      // this._spotify.currentTrack.push(res.item);
     });
   }
 }

@@ -21,7 +21,10 @@
         position: absolute;
         height: 100%;
         width: 100%;
-        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(32,32,32,0.7875525210084033) 21%, rgba(156,156,156,0.4514180672268907) 61%, rgba(255,255,255,0.8015581232492998) 100%);
+        // backdrop-filter: blur(5px);
+        animation: zoom 10s;
+        animation-fill-mode: forwards;
+        // background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(32,32,32,0.7875525210084033) 21%, rgba(156,156,156,0.4514180672268907) 61%, rgba(255,255,255,0.8015581232492998) 100%);
     }
 
     #carousel {
@@ -41,4 +44,12 @@
         width: 100%;
     }
 
+    @keyframes zoom {
+        0% {
+            backdrop-filter: blur(0px);
+        }
+        100% {
+            backdrop-filter: blur(5px);
+        }
+    }
 }

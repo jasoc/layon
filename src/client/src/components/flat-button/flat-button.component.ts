@@ -21,5 +21,8 @@ export class FlatButtonComponent {
     @Input('border-color')
     borderColor: string = 'grey';
 
+    @Input()
+    icon: string;
+
     constructor() { }
 }

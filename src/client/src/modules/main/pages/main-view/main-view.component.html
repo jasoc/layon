@@ -1,6 +1,6 @@
 <body>
     <topbar></topbar>
     <router-outlet></router-outlet>
-    <add-game-popup *ngIf="router.url != '/spotify' "></add-game-popup>
-    <global-player *ngIf="router.url != '/spotify' && _spotify.isAuthorized"></global-player>
+    <add-game-popup *ngIf="!router.url.includes('spotify')"></add-game-popup>
+    <global-player *ngIf="!router.url.includes('spotify') && _spotify.isAuthorized"></global-player>
 </body>

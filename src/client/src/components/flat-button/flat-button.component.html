@@ -11,6 +11,7 @@
                 'border-thick': border == 'thick',
                 'border-thin': border == 'thin'
             }">
+        <mat-icon *ngIf="icon">{{icon}}</mat-icon>
         <ng-content></ng-content>
     </button>
 </div>

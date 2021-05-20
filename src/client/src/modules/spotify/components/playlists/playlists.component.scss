@@ -5,7 +5,7 @@
     height: 30vh;
     display: flex;
     align-items: center;
-    font-family: Roboto-medium;
+    font-family: Roboto-bold;
 
     h1 {
         color: white;
@@ -32,9 +32,32 @@
             box-shadow: 1px 9px 23px 0px rgba(0,0,0,0.55);
             transition: 250ms;
 
+            div {
+                // overflow-x: auto;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                
+                p {
+                    margin-top: 125px;
+                    color: white;
+                    
+                    &:hover {
+                        animation: moveText 5s linear infinite;
+                    }
+                }
+            }
+
+
             &:hover {
                 margin-bottom: 15px;
             }
         }
     }
+
 }
+
+
+@keyframes moveText {
+    to {text-indent:-200%;}
+  }

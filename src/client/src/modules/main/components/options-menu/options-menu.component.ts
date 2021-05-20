@@ -30,9 +30,11 @@ import {GamesService} from 'core/services';
     trigger('openMenu', [
       state('opened', style({
         opacity: '1',
+        visibility: 'visible',
       })),
       state('closed', style({
         opacity: '0',
+        visibility: 'hidden',
       })),
       transition('* <=> *', [
         animate('200ms ease-in-out'),
