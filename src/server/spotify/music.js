@@ -47,5 +47,21 @@ router.post('/currentplaying', async (req, res) => {
 });
 
 
+router.post('/getplaylisttracks', async (req, res) => {
+
+    const data = await FetchData.callApi(`https://api.spotify.com/v1/playlists/${req.body.playlistID}/tracks?market=IT`, 'GET', { 
+        'Accept' : 'application/json',
+        'Content-Type' : 'application/json', 
+        'Authorization' : 'Bearer ' + req.body.TOKEN 
+    }, null);
+
+
+    res.json({
+        success: true,
+        data: data
+    });
+
+});
+
 
 module.exports = router;

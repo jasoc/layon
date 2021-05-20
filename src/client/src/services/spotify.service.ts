@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {playlist} from 'modules/spotify/models/playlist.model';
+import {track} from 'modules/spotify/models/tracks.model';
 
 
 @Injectable({
@@ -11,7 +12,11 @@ export class SpotifyService {
 
   private BASE_URL = 'http://localhost:3000';
 
+  private TOKEN = localStorage.getItem('APP_TOKEN');
+
   public playlists?: playlist[];
+
+  public tracks?: track[];
 
   public currentTrack?;
 
@@ -34,19 +39,25 @@ export class SpotifyService {
       .post(`${this.BASE_URL}/spotify/fetchtoken`, {code: code});
   }
 
-  public getGenres(TOKEN: string) {
+  public getGenres() {
     return this.http
-      .post(`${this.BASE_URL}/spotify/getgenres`, {TOKEN: TOKEN});
+      .post(`${this.BASE_URL}/spotify/getgenres`, {TOKEN: this.TOKEN});
   }
 
-  public getPlaylists(TOKEN: string) {
+  public getPlaylists() {
     return this.http
-      .post(`${this.BASE_URL}/spotify/getplaylists`, {TOKEN: TOKEN});
+      .post(`${this.BASE_URL}/spotify/getplaylists`, {TOKEN: this.TOKEN});
   }
 
-  public currentPlaying(TOKEN: string) {
+  public currentPlaying() {
     return this.http
-      .post(`${this.BASE_URL}/spotify/currentplaying`, {TOKEN: TOKEN});
+      .post(`${this.BASE_URL}/spotify/currentplaying`, {TOKEN: this.TOKEN});
+  }
+
+  public getPlaylistTracks(playlistID: string) {
+    return this.http
+      .post(`${this.BASE_URL}/spotify/getplaylisttracks`,
+        {TOKEN: this.TOKEN, playlistID: playlistID});
   }
 
   // public callAuthorizationApi() {

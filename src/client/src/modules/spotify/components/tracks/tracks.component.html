@@ -1,0 +1,38 @@
+<div id="track-list" *ngIf="_spotify.tracks">
+
+    <div id="data">
+        <div>
+            <p>#</p>
+            <div id="spacer"></div>
+            <p>Title</p>
+        </div>
+
+        <div>
+            <p>Duration</p>
+        </div>
+    </div>
+
+    <div id="track" *ngFor="let track of _spotify.tracks; let i = index">
+        
+        <div>
+            <p>{{i+1}}</p>
+            <mat-icon>play_circle_filled</mat-icon>
+            
+            <div id="track-image" 
+            [ngStyle]="{'background-image': 'url(' + _spotify.playlists[0].image + ')' }"></div>
+
+            <p>{{track.name}}</p>
+        </div>
+
+        <div>
+            <p>{{track.artists[i]}}</p>
+        </div>
+
+        <div id="time">
+            <mat-icon>timer</mat-icon>
+            <p>{{track.duration}}</p>
+        </div>
+
+    </div>
+
+</div>

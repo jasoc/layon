@@ -1,21 +1,18 @@
 <div id="playlists">
 
     <div id="playlist-list" *ngIf="_spotify.playlists">
-        <div id="single-playlist" *ngFor="let playlist of _spotify.playlists"
-        [ngStyle]="{'background-image': 'url(' + playlist.image + ')' }">
+        <div id="single-playlist" *ngFor="let playlist of _spotify.playlists; let i = index"
+        [ngStyle]="{'background-image': 'url(' + playlist.image + ')' }"
+        (click)="getPlaylistTracks(i)">
 
             <div>
                 <p>{{playlist.name}}</p>
             </div>
         </div>
     </div>
-
-    <div id="track-list">
-
-    </div>
-
+    
     <div *ngIf="!_spotify.playlists">
         <h1>No playlists found.</h1>
     </div>
-
+    
 </div>

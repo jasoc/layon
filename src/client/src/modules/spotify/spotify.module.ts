@@ -11,6 +11,7 @@ import {PlaylistsComponent} from './components/playlists/playlists.component';
 
 import {UnauthorizedComponent} from './pages/unauthorized/unauthorized.component';
 import {SpotifyMainComponent} from './pages/spotify-main/spotify-main.component';
+import {TracksComponent} from './components/tracks/tracks.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {SpotifyMainComponent} from './pages/spotify-main/spotify-main.component'
     PlayerComponent,
     LeftSideBarComponent,
     PlaylistsComponent,
+    TracksComponent,
   ],
   imports: [
     ComponentsModule,
