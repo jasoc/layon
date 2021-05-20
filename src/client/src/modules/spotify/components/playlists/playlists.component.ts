@@ -13,9 +13,15 @@ export class PlaylistsComponent implements OnInit {
   ngOnInit(): void {
     const TOKEN = localStorage.getItem('APP_TOKEN');
     this._spotify.getPlaylists(TOKEN).subscribe((res: apiResult) => {
-      this.playlists.push(...res.data.items);
+      console.log(res);
+      this._spotify.playlists = [];
+      res.data.items.forEach( (playlist) => {
+        this._spotify.playlists.push({
+          name: playlist.name,
+          id: playlist.id,
+          image: playlist.images[0].url,
+        });
+      });
     });
   }
-
-  public playlists = [];
 }

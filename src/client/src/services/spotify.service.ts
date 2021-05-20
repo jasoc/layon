@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {playlist} from 'modules/spotify/models/playlist.model';
 
 
 @Injectable({
@@ -9,6 +10,10 @@ export class SpotifyService {
   constructor(public http: HttpClient) { }
 
   private BASE_URL = 'http://localhost:3000';
+
+  public playlists?: playlist[];
+
+  public currentTrack?;
 
   public isPause: boolean = false;
 
