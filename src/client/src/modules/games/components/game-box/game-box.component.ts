@@ -20,41 +20,37 @@ import {UtilsService} from 'core/services';
   animations: [
     trigger('icon', [
       state('side', style({
-        position: 'absolute',
+        transform: 'scale(1,1)',
         opacity: 1,
-        left: '52%',
       })),
       state('centered', style({
+        transform: 'scale(1,0)',
         opacity: 0,
-        left: '100%',
       })),
       transition('* <=> *', [
-        animate('250ms ease-in-out'),
+        animate('430ms ease-in-out'),
       ]),
     ]),
     trigger('title', [
       state('visible', style({
-        position: 'absolute',
-        opacity: 1,
-        right: '52%',
+        transform: 'scale(1)',
       })),
       state('hide', style({
-        opacity: 0,
-        right: '100%',
+        transform: 'scale(0.6)',
       })),
       transition('* <=> *', [
-        animate('250ms ease-in-out'),
+        animate('430ms ease-in-out'),
       ]),
     ]),
     trigger('background', [
       state('lucid', style({
-        opacity: 1,
-      })),
-      state('black', style({
         opacity: 0.5,
       })),
+      state('black', style({
+        opacity: 1,
+      })),
       transition('* <=> *', [
-        animate('200ms ease-in-out'),
+        animate('430ms ease-in-out'),
       ]),
     ]),
     trigger('select', [
@@ -62,11 +58,13 @@ import {UtilsService} from 'core/services';
         transform: 'scale(1.2)',
         marginLeft: '60px',
         marginRight: '60px',
+        boxShadow: '0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)',
       })),
       state('unselected', style({
         transform: '*',
         marginLeft: '*',
         marginRight: '*',
+        boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
       })),
       transition('unselected <=> selected', [
         group([

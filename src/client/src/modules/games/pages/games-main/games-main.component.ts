@@ -32,6 +32,7 @@ export class GamesMainComponent implements OnInit {
       games.data.forEach((game: game) => {
         this._games.getAllGameInfo(game.name).subscribe((res: rawgGame) => {
           game.mainPicture = res.background_image;
+          game.description = res.description_raw;
           game.background = res.background_image;
           this._layonBackend.getPathLogoOfGame(game.name)
             .subscribe((data) => {

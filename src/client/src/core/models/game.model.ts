@@ -7,4 +7,5 @@ export interface game {
   background?: string;
   icon?: Blob;
   path?: string;
+  description?: string;
 }
