@@ -12,8 +12,14 @@ import {apiResult} from 'core/models';
 export class UnauthorizedComponent implements OnInit {
   constructor(public _spotify: SpotifyService,
     public router: Router) {
-    // this.router.navigate(['spotify/player']); // <------- RIMUOVERE STA LINEA
-    if (this._spotify.isAuthorized || localStorage.getItem('APP_TOKEN')) {
+    // if (localStorage.getItem('APP_TOKEN')) {
+    //   this._spotify.isTokenValid().subscribe((res: apiResult) => {
+    //     localStorage.setItem('APP_TOKEN', res.data);
+    //     this._spotify.isAuthorized = true;
+    //     this.router.navigate(['spotify/player']);
+    //   });
+    // }
+    if (this._spotify.isAuthorized) {
       this.router.navigate(['spotify/player']);
     }
   }
@@ -22,7 +28,16 @@ export class UnauthorizedComponent implements OnInit {
     if (window.location.href.includes('code')) {
       this._spotify.fetchToken(window.location.href.split('=')[1]).subscribe( (res: apiResult) => {
         this._spotify.isAuthorized = true;
-        localStorage.setItem('APP_TOKEN', res.data);
+        localStorage.setItem('APP_TOKEN', res.data.access_token);
+        localStorage.setItem('REFRESH_TOKEN', res.data.refresh_token);
+        console.log(res.data);
+        this._spotify.currentUser = {
+          name: res.data.profile.display_name,
+          email: res.data.profile.email,
+          id: res.data.profile.id,
+          country: res.data.profile.country,
+          image: res.data.profile.images[0].url,
+        };
         this.router.navigate(['spotify/player']);
       });
     }
@@ -30,8 +45,7 @@ export class UnauthorizedComponent implements OnInit {
 
   authorize(): void {
     this._spotify.authorize().subscribe( (res: apiResult) => {
-      window.location.href = res.data; // Da cambiare
-      // console.log(window.location.href.split('=')[1]);
+      window.location.href = res.data;
     });
   }
 }

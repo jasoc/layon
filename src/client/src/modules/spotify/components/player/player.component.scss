@@ -1,3 +1,5 @@
+@import 'styles/fonts';
+
 #player {
     width: 100%;
     height: 300px;
@@ -6,12 +8,24 @@
     flex-direction: column;
     align-items: center;
     user-select: none;
+    font-family: Roboto;
 
-    #current {
-        width: 200px;
-        height: 200px;
-        margin: 25px;
-        background: url("https://img.discogs.com/1zs2Ft2b1I82SK4_ZukCmDiyYA0=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-3090667-1315260205.jpeg.jpg") no-repeat center/cover;
+    #song-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        #current {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+        }
+
+        p {
+            color: white;
+            margin: 5px;
+        }
     }
 
     #buttons {

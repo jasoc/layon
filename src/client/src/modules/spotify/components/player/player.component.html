@@ -1,6 +1,10 @@
 <div id="player">
 
-    <div id="current"></div>
+    <div *ngIf="_spotify.currentTrack" id="song-info">
+        <img [src]="_spotify.currentTrack.image" id="current">
+    
+        <p>{{_spotify.currentTrack.name}}</p>
+    </div>
 
     <div id="buttons">
         <button class="buttons">

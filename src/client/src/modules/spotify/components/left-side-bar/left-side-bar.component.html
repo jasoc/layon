@@ -12,13 +12,17 @@
         <div id="beta"></div>
     </div>
 
+    <div id="spotify-profile" *ngIf="_spotify.currentUser">
+        <img [src]="_spotify.currentUser.image">
+        <p>{{_spotify.currentUser.name}}</p>
+    </div>
+
     <div id="search">
         <flat-input [(text)]="songName" placeholder="Search a track" color="#f5c133" icon="search" size="medium"></flat-input>
     </div>
 
     <div id="buttons">
         <flat-button background="transparent" icon="add_box">Create Playlist</flat-button>
-
     </div>
 
 </div>

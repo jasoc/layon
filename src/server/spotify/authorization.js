@@ -41,43 +41,55 @@ router.post('/fetchtoken', async (req, res) => {
         }, 
         body.replace(/(\r\n|\n|\r)/gm, "").split(' ').join('')
     );
-
+    
+    const profileData = await FetchData.callApi(`https://api.spotify.com/v1/me`, 'GET', {
+            'Accept' : 'application/json',
+            'Content-Type' : 'application/json',
+            'Authorization' : 'Bearer ' + data.access_token
+        }, 
+        null
+    );
+    
     /* Se ritorna STATUS CODE 200, allora ha funzionato
      * https://developer.spotify.com/documentation/web-api/
      * per sapere gli altri status codes
      */
-
-    console.log(data);
-
+    
+    // console.log(profileData);
 
     res.json({
         success: true,
-        data: data.access_token
+        data: {
+            access_token: data.access_token,
+            refresh_token: data.refresh_token,
+            profile: profileData
+        }
     });
 
 });
 
 router.post('/istokenvalid', async (req, res) => {
 
-    // const body = `grant_type=authorization_code
-    //                         &code=${req.body.code}
-    //                         &redirect_uri=${encodeURI(redirectUri)}
-    //                         &client_id=${clientId}
-    //                         &client_secret=${clientSecret}`;
+    // console.log(req.body.refreshToken);
 
-    // const data = await FetchData.callApi(`https://accounts.spotify.com/api/token`, 'POST', {
-    //         'Content-Type' : 'application/x-www-form-urlencoded',
-    //         'Authorization' : 'Basic ' + btoa(clientId + ':' + clientSecret)
-    //     }, 
-    //     body.replace(/(\r\n|\n|\r)/gm, "").split(' ').join('')
-    // );
+    const body = `grant_type=refresh_token
+                            &refresh_token=${req.body.refreshToken}
+                            &client_id=${clientId}`;
 
+    const data = await FetchData.callApi(`https://accounts.spotify.com/api/token`, 'POST', {
+            'Content-Type' : 'application/x-www-form-urlencoded',
+            'Authorization' : 'Basic ' + btoa(clientId + ':' + clientSecret)
+        }, 
+        body.replace(/(\r\n|\n|\r)/gm, "").split(' ').join('')
+    );
+
+    // console.log("Is token valid?");
     // console.log(data);
 
-    // res.json({
-    //     success: true,
-    //     data: data
-    // });
+    res.json({
+        success: true,
+        data: data.access_token
+    });
 
 });
 

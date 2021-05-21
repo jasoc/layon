@@ -3,8 +3,8 @@
     <div id="master" [@openClose]="_spotify.showGlobalPlayer">
 
         <div id="song-info">
-            <div id="song-image"></div>
-            <p>Space RockerZ & Tania Zygar - Puzzle Piece (Daniel Heatcliff's Farewell Remix)</p>
+            <img [src]="_spotify.currentTrack.image" id="song-image">
+            <p>{{_spotify.currentTrack.name}}</p>
         </div>
 
         <div id="buttons">

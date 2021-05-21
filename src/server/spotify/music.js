@@ -32,13 +32,16 @@ router.post('/getplaylists', async (req, res) => {
 
 router.post('/currentplaying', async (req, res) => {
     
-    
-    const data = await FetchData.callApi(`https://api.spotify.com/v1/me/player`, 'GET', { 
+    console.log(req.body.TOKEN);
+
+    const data = await FetchData.callApi(`https://api.spotify.com/v1/me/player/currently-playing?market=IT`, 'GET', { 
         'Accept' : 'application/json',
         'Content-Type' : 'application/json', 
         'Authorization' : 'Bearer ' + req.body.TOKEN 
     }, null);
 
+
+    console.log(data);
 
     res.json({
         success: true,
