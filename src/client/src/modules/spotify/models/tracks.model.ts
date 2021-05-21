@@ -2,6 +2,6 @@ export interface track {
     name: string;
     id: string;
     image?: string;
-    duration: number;
+    duration: string;
     artists: Array<string>;
 }

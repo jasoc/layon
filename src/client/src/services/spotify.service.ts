@@ -16,6 +16,8 @@ export class SpotifyService {
 
   public playlists?: playlist[];
 
+  public currentPlaylist: number;
+
   public tracks?: track[];
 
   public currentTrack?;

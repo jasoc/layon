@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {SpotifyService} from 'services/spotify.service';
 // import {apiResult} from 'core';
 

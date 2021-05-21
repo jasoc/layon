@@ -13,7 +13,7 @@ export class UnauthorizedComponent implements OnInit {
   constructor(public _spotify: SpotifyService,
     public router: Router) {
     // this.router.navigate(['spotify/player']); // <------- RIMUOVERE STA LINEA
-    if (this._spotify.isAuthorized) {
+    if (this._spotify.isAuthorized || localStorage.getItem('APP_TOKEN')) {
       this.router.navigate(['spotify/player']);
     }
   }

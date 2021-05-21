@@ -47,10 +47,37 @@ router.post('/fetchtoken', async (req, res) => {
      * per sapere gli altri status codes
      */
 
+    console.log(data);
+
+
     res.json({
         success: true,
         data: data.access_token
     });
+
+});
+
+router.post('/istokenvalid', async (req, res) => {
+
+    // const body = `grant_type=authorization_code
+    //                         &code=${req.body.code}
+    //                         &redirect_uri=${encodeURI(redirectUri)}
+    //                         &client_id=${clientId}
+    //                         &client_secret=${clientSecret}`;
+
+    // const data = await FetchData.callApi(`https://accounts.spotify.com/api/token`, 'POST', {
+    //         'Content-Type' : 'application/x-www-form-urlencoded',
+    //         'Authorization' : 'Basic ' + btoa(clientId + ':' + clientSecret)
+    //     }, 
+    //     body.replace(/(\r\n|\n|\r)/gm, "").split(' ').join('')
+    // );
+
+    // console.log(data);
+
+    // res.json({
+    //     success: true,
+    //     data: data
+    // });
 
 });
 

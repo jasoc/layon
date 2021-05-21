@@ -32,11 +32,12 @@ export class PlaylistsComponent implements OnInit {
           this._spotify.tracks.push({
             name: track.track.name,
             id: track.track.id,
-            duration: track.track.duration_ms,
-            artists: [...track.track.artists],
+            duration: Math.floor(track.track.duration_ms / 60000).toString() + 'm ' + 
+              ((track.track.duration_ms % 60000) / 1000).toString().split('.')[0] + 's',
+            artists: track.track.artists[0].name,
           });
-          console.log(track.track.artists);
         });
+        this._spotify.currentPlaylist = index;
         // console.log(this._spotify.tracks[0].artists);
       });
   }
