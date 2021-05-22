@@ -17,8 +17,8 @@
             </button>
 
             <button id="play-pause" (click)="_spotify.isPause = !_spotify.isPause">
-                <mat-icon *ngIf="!_spotify.isPause">play_arrow</mat-icon>
-                <mat-icon *ngIf="_spotify.isPause">pause</mat-icon>
+                <mat-icon *ngIf="_spotify.isPause">play_arrow</mat-icon>
+                <mat-icon *ngIf="!_spotify.isPause">pause</mat-icon>
             </button>
 
             <button class="buttons">

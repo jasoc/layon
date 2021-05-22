@@ -21,4 +21,9 @@ export class PlayerComponent implements OnInit {
       };
     });
   }
+
+  play() {
+    console.log("IN play");
+    this._spotify.play().subscribe();
+  }
 }

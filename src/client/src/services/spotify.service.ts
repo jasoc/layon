@@ -71,6 +71,11 @@ export class SpotifyService {
       .post(`${this.BASE_URL}/spotify/istokenvalid`, {refresh_token: this.refreshToken});
   }
 
+  public play() {
+    return this.http
+      .post(`${this.BASE_URL}/spotify/play`, {TOKEN: this.TOKEN});
+  }
+
   // public callAuthorizationApi() {
   //   return this.http
   //   .post(`${this.BASE_URL}/spotify/authorizationapi`, {});

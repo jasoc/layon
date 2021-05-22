@@ -12,6 +12,7 @@ import {SpotifyService} from 'services/spotify.service';
 export class MainViewComponent implements OnInit {
   constructor(public router: Router,
     public _spotify: SpotifyService) {
+      // this.router.navigate(['/games']);
   }
 
   ngOnInit() { }

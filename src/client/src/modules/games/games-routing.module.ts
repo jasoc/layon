@@ -6,7 +6,7 @@ import { GameViewComponent } from './pages/game-view/game-view.component';
 
 const routes: Routes = [
   { path: '', component: GamesMainComponent },
-  { path: 'details/:game', component: GameViewComponent }
+  { path: 'details/:game', component: GameViewComponent },
 ];
 
 @NgModule({

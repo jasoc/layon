@@ -11,7 +11,7 @@ const redirectUri = 'http://localhost:4200/spotify';
 
 router.get('/authorize', (req, res) => {
 
-    const scope = 'playlist-read-private user-read-private user-read-email user-read-private user-read-email user-read-currently-playing user-read-playback-state';
+    const scope = 'playlist-read-private user-read-private user-read-email user-read-private user-read-email user-read-currently-playing user-read-playback-state user-modify-playback-state';
 
     const authorization = `https://accounts.spotify.com/authorize
                             ?client_id=${clientId}
