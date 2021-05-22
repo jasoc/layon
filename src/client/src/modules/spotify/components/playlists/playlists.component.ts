@@ -8,10 +8,11 @@ import {SpotifyService} from 'services/spotify.service';
   styleUrls: ['./playlists.component.scss'],
 })
 export class PlaylistsComponent implements OnInit {
-  constructor(public _spotify: SpotifyService) { }
+  constructor(public _spotify: SpotifyService) {}
 
   ngOnInit(): void {
-    this._spotify.getPlaylists().subscribe((res: apiResult) => {
+    const TOKEN = localStorage.getItem('APP_TOKEN');
+    this._spotify.getPlaylists(TOKEN).subscribe((res: apiResult) => {
       this._spotify.playlists = [];
       res.data.items.forEach( (playlist) => {
         this._spotify.playlists.push({
@@ -24,7 +25,8 @@ export class PlaylistsComponent implements OnInit {
   }
 
   getPlaylistTracks(index: number) {
-    this._spotify.getPlaylistTracks(this._spotify.playlists[index].id)
+    const TOKEN = localStorage.getItem('APP_TOKEN');
+    this._spotify.getPlaylistTracks(TOKEN, this._spotify.playlists[index].id)
       .subscribe((res: apiResult) => {
         console.log(res);
         this._spotify.tracks = [];

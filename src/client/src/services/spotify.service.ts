@@ -12,9 +12,9 @@ export class SpotifyService {
 
   private BASE_URL = 'http://localhost:3000';
 
-  private TOKEN = localStorage.getItem('APP_TOKEN');
+  // private TOKEN = localStorage.getItem('APP_TOKEN');
 
-  private refreshToken = localStorage.getItem('REFRESH_TOKEN');
+  // private refreshToken = localStorage.getItem('REFRESH_TOKEN');
 
   public currentUser?: user;
 
@@ -47,40 +47,40 @@ export class SpotifyService {
       .post(`${this.BASE_URL}/spotify/fetchtoken`, {code: code});
   }
 
-  public getGenres() {
+  public getGenres(TOKEN: string) {
     return this.http
-      .post(`${this.BASE_URL}/spotify/getgenres`, {TOKEN: this.TOKEN});
+      .post(`${this.BASE_URL}/spotify/getgenres`, {TOKEN: TOKEN});
   }
 
-  public getPlaylists() {
+  public getPlaylists(TOKEN: string) {
     return this.http
-      .post(`${this.BASE_URL}/spotify/getplaylists`, {TOKEN: this.TOKEN});
+      .post(`${this.BASE_URL}/spotify/getplaylists`, {TOKEN: TOKEN});
   }
 
-  public currentPlaying() {
+  public currentPlaying(TOKEN: string) {
     return this.http
-      .post(`${this.BASE_URL}/spotify/currentplaying`, {TOKEN: this.TOKEN});
+      .post(`${this.BASE_URL}/spotify/currentplaying`, {TOKEN: TOKEN});
   }
 
-  public getPlaylistTracks(playlistID: string) {
+  public getPlaylistTracks(TOKEN: string, playlistID: string) {
     return this.http
       .post(`${this.BASE_URL}/spotify/getplaylisttracks`,
-        {TOKEN: this.TOKEN, playlistID: playlistID});
+        {TOKEN: TOKEN, playlistID: playlistID});
   }
 
-  public isTokenValid() {
+  public isTokenValid(refreshToken: string) {
     return this.http
-      .post(`${this.BASE_URL}/spotify/istokenvalid`, {refresh_token: this.refreshToken});
+      .post(`${this.BASE_URL}/spotify/istokenvalid`, {refresh_token: refreshToken});
   }
 
-  public play(trackID: string) {
+  public play(TOKEN: string, trackID: string) {
     return this.http
-      .post(`${this.BASE_URL}/spotify/play`, {TOKEN: this.TOKEN, trackID: trackID});
+      .post(`${this.BASE_URL}/spotify/play`, {TOKEN: TOKEN, trackID: trackID});
   }
 
-  public pause() {
+  public pause(TOKEN: string) {
     return this.http
-      .post(`${this.BASE_URL}/spotify/pause`, {TOKEN: this.TOKEN});
+      .post(`${this.BASE_URL}/spotify/pause`, {TOKEN: TOKEN});
   }
 
   // public callAuthorizationApi() {

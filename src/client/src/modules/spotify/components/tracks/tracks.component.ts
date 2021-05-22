@@ -14,7 +14,8 @@ export class TracksComponent implements OnInit {
   }
 
   playSong(trackID: string, index: number) {
-    this._spotify.play(trackID).subscribe();
+    const TOKEN = localStorage.getItem('APP_TOKEN');
+    this._spotify.play(TOKEN, trackID).subscribe();
     this._spotify.currentTrackIndex = index;
   }
 }

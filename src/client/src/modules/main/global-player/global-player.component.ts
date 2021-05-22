@@ -32,11 +32,13 @@ export class GlobalPlayerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  TOKEN = localStorage.getItem('APP_TOKEN');
+
   replay() {
-    this._spotify.play(this._spotify.currentTrack.id).subscribe();
+    this._spotify.play(this.TOKEN, this._spotify.currentTrack.id).subscribe();
   }
 
   pause() {
-    this._spotify.pause().subscribe();
+    this._spotify.pause(this.TOKEN).subscribe();
   }
 }

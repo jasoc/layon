@@ -11,7 +11,8 @@ export class PlayerComponent implements OnInit {
   constructor(public _spotify: SpotifyService) { }
 
   ngOnInit(): void {
-    this._spotify.currentPlaying().subscribe( (res: apiResult) => {
+    const TOKEN = localStorage.getItem('APP_TOKEN');
+    this._spotify.currentPlaying(TOKEN).subscribe( (res: apiResult) => {
       this._spotify.currentTrack = {
         name: res.data.item.name,
         id: res.data.item.id,
@@ -20,19 +21,23 @@ export class PlayerComponent implements OnInit {
     });
   }
 
+  TOKEN = localStorage.getItem('APP_TOKEN');
+
   replay() {
-    this._spotify.play(this._spotify.currentTrack.id).subscribe();
+    this._spotify.play(this.TOKEN, this._spotify.currentTrack.id).subscribe();
   }
 
   previous() {
-    this._spotify.play(this._spotify.tracks[this._spotify.currentTrackIndex-1].id).subscribe();
+    this._spotify.play(this.TOKEN, this._spotify.tracks[this._spotify.currentTrackIndex-1].id)
+      .subscribe();
   }
 
   next() {
-    this._spotify.play(this._spotify.tracks[this._spotify.currentTrackIndex+1].id).subscribe();
+    this._spotify.play(this.TOKEN, this._spotify.tracks[this._spotify.currentTrackIndex+1].id)
+      .subscribe();
   }
 
   pause() {
-    this._spotify.pause().subscribe();
+    this._spotify.pause(this.TOKEN).subscribe();
   }
 }
