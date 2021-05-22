@@ -13,6 +13,7 @@ class FetchData {
             });
     
             const data = await result.json();
+            data.status = result.status;
 
             return data;
 

@@ -73,7 +73,7 @@ router.post('/istokenvalid', async (req, res) => {
     // console.log(req.body.refreshToken);
 
     const body = `grant_type=refresh_token
-                            &refresh_token=${req.body.refreshToken}
+                            &refresh_token=${req.body.refresh_token}
                             &client_id=${clientId}`;
 
     const data = await FetchData.callApi(`https://accounts.spotify.com/api/token`, 'POST', {

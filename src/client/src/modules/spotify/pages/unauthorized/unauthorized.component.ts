@@ -12,13 +12,13 @@ import {apiResult} from 'core/models';
 export class UnauthorizedComponent implements OnInit {
   constructor(public _spotify: SpotifyService,
     public router: Router) {
-    // if (localStorage.getItem('APP_TOKEN')) {
-    //   this._spotify.isTokenValid().subscribe((res: apiResult) => {
-    //     localStorage.setItem('APP_TOKEN', res.data);
-    //     this._spotify.isAuthorized = true;
-    //     this.router.navigate(['spotify/player']);
-    //   });
-    // }
+    if (localStorage.getItem('APP_TOKEN')) {
+      this._spotify.isTokenValid().subscribe((res: apiResult) => {
+        localStorage.setItem('APP_TOKEN', res.data);
+        this._spotify.isAuthorized = true;
+        this.router.navigate(['spotify/player']);
+      });
+    }
     if (this._spotify.isAuthorized) {
       this.router.navigate(['spotify/player']);
     }
