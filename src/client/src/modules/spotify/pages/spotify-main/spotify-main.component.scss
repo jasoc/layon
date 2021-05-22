@@ -5,6 +5,9 @@
     background: linear-gradient(360deg, rgba(18,18,18,1) 4%, rgba(0,217,90,1) 100%);;
     display: flex;
     align-items: center;
+    user-select: none;
+    animation-fill-mode: forwards;
+    animation: loadPage 0.5s;
 
     left-side-bar {
         height: 100%;
@@ -25,5 +28,11 @@
         width: 100%;
         position: absolute;
         bottom: 0;
+        z-index: 10;
     }
+}
+
+@keyframes loadPage {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
 }

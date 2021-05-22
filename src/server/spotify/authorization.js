@@ -11,7 +11,7 @@ const redirectUri = 'http://localhost:4200/spotify';
 
 router.get('/authorize', (req, res) => {
 
-    const scope = 'playlist-read-private user-read-private user-read-email user-read-private user-read-email user-read-currently-playing user-read-playback-state';
+    const scope = 'playlist-read-private user-read-private user-read-email user-read-private user-read-email user-read-currently-playing user-read-playback-state user-modify-playback-state';
 
     const authorization = `https://accounts.spotify.com/authorize
                             ?client_id=${clientId}
@@ -41,11 +41,50 @@ router.post('/fetchtoken', async (req, res) => {
         }, 
         body.replace(/(\r\n|\n|\r)/gm, "").split(' ').join('')
     );
-
+    
+    const profileData = await FetchData.callApi(`https://api.spotify.com/v1/me`, 'GET', {
+            'Accept' : 'application/json',
+            'Content-Type' : 'application/json',
+            'Authorization' : 'Bearer ' + data.access_token
+        }, 
+        null
+    );
+    
     /* Se ritorna STATUS CODE 200, allora ha funzionato
      * https://developer.spotify.com/documentation/web-api/
      * per sapere gli altri status codes
      */
+    
+    // console.log(profileData);
+
+    res.json({
+        success: true,
+        data: {
+            access_token: data.access_token,
+            refresh_token: data.refresh_token,
+            profile: profileData
+        }
+    });
+
+});
+
+router.post('/istokenvalid', async (req, res) => {
+
+    // console.log(req.body.refreshToken);
+
+    const body = `grant_type=refresh_token
+                            &refresh_token=${req.body.refreshToken}
+                            &client_id=${clientId}`;
+
+    const data = await FetchData.callApi(`https://accounts.spotify.com/api/token`, 'POST', {
+            'Content-Type' : 'application/x-www-form-urlencoded',
+            'Authorization' : 'Basic ' + btoa(clientId + ':' + clientSecret)
+        }, 
+        body.replace(/(\r\n|\n|\r)/gm, "").split(' ').join('')
+    );
+
+    // console.log("Is token valid?");
+    // console.log(data);
 
     res.json({
         success: true,

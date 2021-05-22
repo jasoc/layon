@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {playlist} from 'modules/spotify/models/playlist.model';
 import {track} from 'modules/spotify/models/tracks.model';
-
+import {user} from 'modules/spotify/models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,11 +14,19 @@ export class SpotifyService {
 
   private TOKEN = localStorage.getItem('APP_TOKEN');
 
+  private refreshToken = localStorage.getItem('REFRESH_TOKEN');
+
+  public currentUser?: user;
+
   public playlists?: playlist[];
+
+  public currentPlaylistIndex: number;
+
+  public currentTrackIndex: number;
 
   public tracks?: track[];
 
-  public currentTrack?;
+  public currentTrack?: track;
 
   public isPause: boolean = false;
 
@@ -58,6 +66,21 @@ export class SpotifyService {
     return this.http
       .post(`${this.BASE_URL}/spotify/getplaylisttracks`,
         {TOKEN: this.TOKEN, playlistID: playlistID});
+  }
+
+  public isTokenValid() {
+    return this.http
+      .post(`${this.BASE_URL}/spotify/istokenvalid`, {refresh_token: this.refreshToken});
+  }
+
+  public play(trackID: string) {
+    return this.http
+      .post(`${this.BASE_URL}/spotify/play`, {TOKEN: this.TOKEN, trackID: trackID});
+  }
+
+  public pause() {
+    return this.http
+      .post(`${this.BASE_URL}/spotify/pause`, {TOKEN: this.TOKEN});
   }
 
   // public callAuthorizationApi() {

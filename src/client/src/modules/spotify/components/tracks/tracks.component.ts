@@ -12,4 +12,9 @@ export class TracksComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  playSong(trackID: string, index: number) {
+    this._spotify.play(trackID).subscribe();
+    this._spotify.currentTrackIndex = index;
+  }
 }

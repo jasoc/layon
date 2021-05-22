@@ -19,7 +19,7 @@ router.post('/getgenres', async (req, res) => {
 router.post('/getplaylists', async (req, res) => {
 
 
-    const data = await FetchData.callApi(`https://api.spotify.com/v1/me/playlists?offset=0&limit=20`, 'GET', 
+    const data = await FetchData.callApi(`https://api.spotify.com/v1/me/playlists?offset=0`, 'GET', 
         { 'Content-Type' : 'application/json', 'Authorization' : 'Bearer ' + req.body.TOKEN }, null
     );
 
@@ -32,13 +32,15 @@ router.post('/getplaylists', async (req, res) => {
 
 router.post('/currentplaying', async (req, res) => {
     
-    
-    const data = await FetchData.callApi(`https://api.spotify.com/v1/me/player`, 'GET', { 
+
+    const data = await FetchData.callApi(`https://api.spotify.com/v1/me/player/currently-playing?market=IT`, 'GET', { 
         'Accept' : 'application/json',
         'Content-Type' : 'application/json', 
         'Authorization' : 'Bearer ' + req.body.TOKEN 
     }, null);
 
+
+    console.log(data);
 
     res.json({
         success: true,

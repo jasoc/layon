@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {SpotifyService} from 'services/spotify.service';
+
 
 @Component({
   selector: 'left-side-bar',
@@ -6,7 +8,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./left-side-bar.component.scss'],
 })
 export class LeftSideBarComponent implements OnInit {
-  constructor() { }
+  constructor(public _spotify: SpotifyService) { }
 
   ngOnInit(): void {}
 
