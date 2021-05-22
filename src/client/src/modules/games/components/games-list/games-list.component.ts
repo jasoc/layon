@@ -73,7 +73,7 @@ export class GamesListComponent {
            */
           this.gamesNative.toArray()[index]
             .nativeElement
-            .scrollIntoView({behavior: 'smooth', block: 'end', inline: 'center'});
+            .scrollIntoView({behavior: 'smooth', inline: 'center', block: 'end'});
         }, 0);
 
         this.gamesNative?.forEach((_, j) => {
