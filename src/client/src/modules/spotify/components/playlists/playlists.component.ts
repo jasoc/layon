@@ -37,7 +37,7 @@ export class PlaylistsComponent implements OnInit {
             artists: track.track.artists[0].name,
           });
         });
-        this._spotify.currentPlaylist = index;
+        this._spotify.currentPlaylistIndex = index;
         // console.log(this._spotify.tracks[0].artists);
       });
   }

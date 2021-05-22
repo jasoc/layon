@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SpotifyService} from 'services/spotify.service';
 // import {apiResult} from 'core';
 
@@ -11,5 +11,10 @@ export class TracksComponent implements OnInit {
   constructor(public _spotify: SpotifyService) { }
 
   ngOnInit(): void {
+  }
+
+  playSong(trackID: string, index: number) {
+    this._spotify.play(trackID).subscribe();
+    this._spotify.currentTrackIndex = index;
   }
 }

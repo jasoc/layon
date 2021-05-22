@@ -4,28 +4,25 @@ const FetchData = require('./fetchdata');
 
 router.post('/play', async (req, res) => {
 
-    console.log("IN PUT!");
 
-    const data = await FetchData.callApi(`https://api.spotify.com/v1/me/player/play`, 'PUT', { 
+    FetchData.callApi(`https://api.spotify.com/v1/me/player/play`, 'PUT', { 
             'Accept' : 'application/json',
             'Content-Type' : 'application/json', 
             'Authorization' : 'Bearer ' + req.body.TOKEN 
         }, JSON.stringify({
-            "context_uri": "spotify:playlist" + req.body.playlistID,
-            "offset": {
-              "position": req.body.index
-            },
-            "position_ms": 0
+            'uris': ["spotify:track:" + req.body.trackID]
         })
     );
-    
-    console.log('Fine');
-    console.log(data);
+});
 
-    res.json({
-        success: true,
-        data: null
-    });
+router.post('/pause', (req, res) => {
+
+    
+    FetchData.callApi(`https://api.spotify.com/v1/me/player/pause`, 'PUT', {
+        'Accept' : 'application/json',
+        'Content-Type' : 'application/json', 
+        'Authorization' : 'Bearer ' + req.body.TOKEN
+    }, null);
 });
 
 

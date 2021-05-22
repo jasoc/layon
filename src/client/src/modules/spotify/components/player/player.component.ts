@@ -12,8 +12,6 @@ export class PlayerComponent implements OnInit {
 
   ngOnInit(): void {
     this._spotify.currentPlaying().subscribe( (res: apiResult) => {
-      console.log(res.data.item.name);
-      console.log(res.data.item.album.images[0].url);
       this._spotify.currentTrack = {
         name: res.data.item.name,
         id: res.data.item.id,
@@ -22,8 +20,19 @@ export class PlayerComponent implements OnInit {
     });
   }
 
-  play() {
-    console.log("IN play");
-    this._spotify.play().subscribe();
+  replay() {
+    this._spotify.play(this._spotify.currentTrack.id).subscribe();
+  }
+
+  previous() {
+    this._spotify.play(this._spotify.tracks[this._spotify.currentTrackIndex-1].id).subscribe();
+  }
+
+  next() {
+    this._spotify.play(this._spotify.tracks[this._spotify.currentTrackIndex+1].id).subscribe();
+  }
+
+  pause() {
+    this._spotify.pause().subscribe();
   }
 }

@@ -20,7 +20,9 @@ export class SpotifyService {
 
   public playlists?: playlist[];
 
-  public currentPlaylist: number;
+  public currentPlaylistIndex: number;
+
+  public currentTrackIndex: number;
 
   public tracks?: track[];
 
@@ -71,9 +73,14 @@ export class SpotifyService {
       .post(`${this.BASE_URL}/spotify/istokenvalid`, {refresh_token: this.refreshToken});
   }
 
-  public play() {
+  public play(trackID: string) {
     return this.http
-      .post(`${this.BASE_URL}/spotify/play`, {TOKEN: this.TOKEN});
+      .post(`${this.BASE_URL}/spotify/play`, {TOKEN: this.TOKEN, trackID: trackID});
+  }
+
+  public pause() {
+    return this.http
+      .post(`${this.BASE_URL}/spotify/pause`, {TOKEN: this.TOKEN});
   }
 
   // public callAuthorizationApi() {

@@ -13,14 +13,14 @@
         </div>
     </div>
 
-    <div id="track" *ngFor="let track of _spotify.tracks; let i = index">
+    <div id="track" *ngFor="let track of _spotify.tracks; let i = index" (click)="playSong(_spotify.tracks[i].id, i)">
         
         <div id="info">
             <p>{{i+1}}</p>
             <mat-icon>play_circle_filled</mat-icon>
             
             <div id="track-image" 
-            [ngStyle]="{'background-image': 'url(' + _spotify.playlists[_spotify.currentPlaylist].image + ')' }"></div>
+            [ngStyle]="{'background-image': 'url(' + _spotify.playlists[_spotify.currentPlaylistIndex].image + ')' }"></div>
 
             <div id="track-info">
                 <p id="name">{{track.name}}</p>
