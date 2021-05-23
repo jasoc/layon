@@ -20,8 +20,6 @@ router.get('/returngames', (req, res) => {
 
     let JS = new jw(documents, "/games.json");
 
-    console.log(JS.readData());
-
     res.json({
         success: true,
         data: JS.readData()

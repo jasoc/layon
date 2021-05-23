@@ -12,17 +12,13 @@ export class SpotifyService {
 
   private BASE_URL = 'http://localhost:3000';
 
-  // private TOKEN = localStorage.getItem('APP_TOKEN');
-
-  // private refreshToken = localStorage.getItem('REFRESH_TOKEN');
-
   public currentUser?: user;
 
   public playlists?: playlist[];
 
   public currentPlaylistIndex: number;
 
-  public currentTrackIndex: number;
+  public currentTrackIndex?: number;
 
   public tracks?: track[];
 
@@ -35,6 +31,7 @@ export class SpotifyService {
   public isAuthorized: boolean = false;
 
   public showGlobalPlayer: boolean = true;
+
 
   // Richiede l'autorizzazione per avere l'accesso ai dati
   public authorize() {
@@ -73,15 +70,26 @@ export class SpotifyService {
       .post(`${this.BASE_URL}/spotify/istokenvalid`, {refresh_token: refreshToken});
   }
 
-  public play(TOKEN: string, trackID: string) {
+  public play(TOKEN: string, trackID: string, deviceID: string) {
+    this.isPause = false;
     return this.http
-      .post(`${this.BASE_URL}/spotify/play`, {TOKEN: TOKEN, trackID: trackID});
+      .post(`${this.BASE_URL}/spotify/play`, {
+        TOKEN: TOKEN,
+        trackID: trackID,
+        device_id: deviceID,
+      });
   }
 
-  public pause(TOKEN: string) {
+  public pause(TOKEN: string, deviceID: string) {
     return this.http
-      .post(`${this.BASE_URL}/spotify/pause`, {TOKEN: TOKEN});
+      .post(`${this.BASE_URL}/spotify/pause`, {TOKEN: TOKEN, device_id: deviceID});
   }
+
+  public getUserProfile(TOKEN: string) {
+    return this.http
+      .post(`${this.BASE_URL}/spotify/userprofile`, {TOKEN: TOKEN});
+  }
+
 
   // public callAuthorizationApi() {
   //   return this.http

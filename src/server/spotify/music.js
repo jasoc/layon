@@ -39,9 +39,6 @@ router.post('/currentplaying', async (req, res) => {
         'Authorization' : 'Bearer ' + req.body.TOKEN 
     }, null);
 
-
-    console.log(data);
-
     res.json({
         success: true,
         data: data

@@ -1,11 +1,11 @@
 {
   "name": "layon",
   "version": "1.0.0",
-  "description": "\"npm i\", \"npm start\"\r These two commands run the app in Electron and Browser side. The Electron app is configured to work in live reload.",
+  "description": "\"npm i\", \"npm start\"\r",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electromon . --inspect=9229 --remote-debugging-port=9222"
+    "start": "node main.js"
   },
   "repository": {
     "type": "git",
@@ -22,9 +22,6 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "electromon": "^1.0.10",
-    "electron": "^12.0.6",
-    "electron-packager": "^15.2.0",
-    "electron-reload": "^1.5.0",
     "express": "^4.17.1",
     "fetch": "^1.1.0",
     "file-icon-info": "^1.1.1",

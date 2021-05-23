@@ -64,6 +64,10 @@
                 border-radius: 50%;
                 outline: none;
                 margin: 0px 10px 0px 10px;
+
+                &:hover {
+                    color: lighten($color: #b3b3b3, $amount: 50%);
+                }
             }
         }
     

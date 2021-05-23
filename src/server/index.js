@@ -12,7 +12,6 @@ var corsOptions = {
 
 appl.use(Express.json());
 
-appl.use('/tests', cors(corsOptions), require('./test'));
 appl.use('/exec', cors(corsOptions), require('./exec'));
 appl.use('/exe', cors(corsOptions), require('./exe'));
 appl.use('/getinfo', cors(corsOptions), require('./getinfo'));

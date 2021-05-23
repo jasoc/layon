@@ -13,6 +13,8 @@ import {OptionsMenuComponent} from './components/options-menu/options-menu.compo
 import {AddGamePopupComponent} from './components/add-game-popup/add-game-popup.component';
 import {MainViewComponent} from './pages/main-view/main-view.component';
 import {GlobalPlayerComponent} from './global-player/global-player.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,12 @@ import {GlobalPlayerComponent} from './global-player/global-player.component';
     FormsModule,
     ComponentsModule,
     MainRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [],
   bootstrap: [MainViewComponent],

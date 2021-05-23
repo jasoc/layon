@@ -33,12 +33,13 @@ export class GlobalPlayerComponent implements OnInit {
   }
 
   TOKEN = localStorage.getItem('APP_TOKEN');
+  deviceID = localStorage.getItem('DEVICE_ID');
 
   replay() {
-    this._spotify.play(this.TOKEN, this._spotify.currentTrack.id).subscribe();
+    this._spotify.play(this.TOKEN, this._spotify.currentTrack.id, this.deviceID).subscribe();
   }
 
   pause() {
-    this._spotify.pause(this.TOKEN).subscribe();
+    this._spotify.pause(this.TOKEN, this.deviceID).subscribe();
   }
 }

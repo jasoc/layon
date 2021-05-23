@@ -11,8 +11,7 @@ export class PlaylistsComponent implements OnInit {
   constructor(public _spotify: SpotifyService) {}
 
   ngOnInit(): void {
-    const TOKEN = localStorage.getItem('APP_TOKEN');
-    this._spotify.getPlaylists(TOKEN).subscribe((res: apiResult) => {
+    this._spotify.getPlaylists(this.TOKEN).subscribe((res: apiResult) => {
       this._spotify.playlists = [];
       res.data.items.forEach( (playlist) => {
         this._spotify.playlists.push({
@@ -24,23 +23,22 @@ export class PlaylistsComponent implements OnInit {
     });
   }
 
+  TOKEN = localStorage.getItem('APP_TOKEN');
+
   getPlaylistTracks(index: number) {
-    const TOKEN = localStorage.getItem('APP_TOKEN');
-    this._spotify.getPlaylistTracks(TOKEN, this._spotify.playlists[index].id)
+    this._spotify.getPlaylistTracks(this.TOKEN, this._spotify.playlists[index].id)
       .subscribe((res: apiResult) => {
-        console.log(res);
         this._spotify.tracks = [];
         res.data.items.forEach( (track) => {
           this._spotify.tracks.push({
             name: track.track.name,
             id: track.track.id,
-            duration: Math.floor(track.track.duration_ms / 60000).toString() + 'm ' +
-              ((track.track.duration_ms % 60000) / 1000).toString().split('.')[0] + 's',
+            duration: Math.floor(track.track.duration_ms / 60000).toString() + ':' +
+              ((track.track.duration_ms % 60000) / 1000).toString().split('.')[0],
             artists: track.track.artists[0].name,
           });
         });
         this._spotify.currentPlaylistIndex = index;
-        // console.log(this._spotify.tracks[0].artists);
       });
   }
 }

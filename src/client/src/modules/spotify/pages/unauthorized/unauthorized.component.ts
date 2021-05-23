@@ -31,14 +31,6 @@ export class UnauthorizedComponent implements OnInit {
         this._spotify.isAuthorized = true;
         localStorage.setItem('APP_TOKEN', res.data.access_token);
         localStorage.setItem('REFRESH_TOKEN', res.data.refresh_token);
-        console.log(res.data);
-        this._spotify.currentUser = {
-          name: res.data.profile.display_name,
-          email: res.data.profile.email,
-          id: res.data.profile.id,
-          country: res.data.profile.country,
-          image: res.data.profile.images[0].url,
-        };
         this.router.navigate(['spotify/player']);
       });
     }

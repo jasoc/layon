@@ -7,8 +7,73 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    </head>
+      <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
+</head>
     <body>
         <app-main></app-main>
-    </body>
+
+        <script src="https://sdk.scdn.co/spotify-player.js"></script>
+        <script>
+            handleScriptLoad = () => {
+                return new Promise((resolve) => {
+                    if (window.Spotify) {
+                    resolve();
+                    } else {
+                    window.onSpotifyWebPlaybackSDKReady = resolve;
+                    }
+                });
+            };
+
+            window.onSpotifyWebPlaybackSDKReady = () => {
+            const token = localStorage.getItem('APP_TOKEN');
+            const player = new Spotify.Player({
+                name: 'Layon Player',
+                getOAuthToken: (cb) => {
+                cb(token);
+                },
+            });
+
+            // Error handling
+            player.addListener('initialization_error', ({message}) => {
+                console.error(message);
+            });
+            player.addListener('authentication_error', ({message}) => {
+                console.error(message);
+            });
+            player.addListener('account_error', ({message}) => {
+                console.error(message);
+            });
+            player.addListener('playback_error', ({message}) => {
+                console.error(message);
+            });
+
+            // Playback status updates
+            player.addListener('player_state_changed', (state) => {
+                console.log(state);
+            });
+
+            // Ready
+            player.addListener('ready', ({device_id}) => {
+                localStorage.setItem('DEVICE_ID', device_id);
+                console.log('Ready with Device ID', device_id);
+            });
+
+            // Not Ready
+            player.addListener('not_ready', ({device_id}) => {
+                console.log('Device ID has gone offline', device_id);
+            });
+
+            // Connect to the player!
+            player.connect();
+            };
+        </script>
+      <noscript>Please enable JavaScript to continue using this application.</noscript>
+</body>
 </html>
