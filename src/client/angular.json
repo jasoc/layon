@@ -25,13 +25,9 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest",
-              "src/manifest.webmanifest",
-              "src/manifest.webmanifest",
               "src/manifest.webmanifest"
             ],
             "styles": [
@@ -39,7 +35,13 @@
             ],
             "scripts": [],
             "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json"
+            "ngswConfigPath": "ngsw-config.json",
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -98,9 +100,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest",
-              "src/manifest.webmanifest",
-              "src/manifest.webmanifest",
               "src/manifest.webmanifest"
             ],
             "styles": [
