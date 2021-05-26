@@ -6,4 +6,4 @@ In order to open Layon we've made some Python scripts that allows you to do that
 python layon.py
 If you're trying to open Layon for the very first time you'll need the node modules, so run the command python install_dependencies.py and the script will do it for you.
 
-![Alt text](/screenshots/Layon-games.png?raw=true)
+![Alt text](./screenshots/Layon-games.png?raw=true)
