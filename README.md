@@ -1,5 +1,5 @@
 # Layon
-What is Layon? Layon is a PWA made using Angular 12 and Express JS. Its purpose is to make the Desktop environment big picture just like a Fire TV. With Layon you will be able to execute your games via a carousel interface which shows you game wallpapers thanks to RAWG API. The project is still a BETA and we're still working on it, actually you can find just the "Games" section and "Spotify" which is a remake of the Spotify client, it actually works but there still are fix to do.
+What is Layon? Layon is a PWA made using Angular 12 and Express JS. Its purpose is to make the Desktop environment big picture just like a Fire TV. With Layon you will be able to execute your games via a carousel interface which shows you game wallpapers thanks to RAWG API. The project is still a BETA and we're still working on it, actually you can find just the "Games" section and "Spotify" which is a remake of the Spotify client, it actually works but there still are some fixes to do.
 
 # How to execute Layon?
 In order to open Layon we've made some Python scripts that allows you to do that very easily, just go in the "Scripts" folder and the run layon.py using the following command:
