@@ -9,5 +9,8 @@ If you're trying to open Layon for the very first time you'll need the node modu
 # Screenshots
 Games section
 ![Alt text](https://github.com/jasoc/layon/blob/main/screenshots/Layon-games.PNG?raw=true)
+
+![Alt text](https://github.com/jasoc/layon/blob/main/screenshots/Layon-games.gif?raw=true)
+
 Spotify Client
 ![Alt text](https://github.com/jasoc/layon/blob/main/screenshots/Layon-spotify.PNG?raw=true)
