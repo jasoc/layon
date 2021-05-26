@@ -5,3 +5,9 @@ What is Layon? Layon is a PWA made using Angular 12 and Express JS. Its purpose 
 In order to open Layon we've made some Python scripts that allows you to do that very easily, just go in the "Scripts" folder and the run layon.py using the following command:
 python layon.py
 If you're trying to open Layon for the very first time you'll need the node modules, so run the command python install_dependencies.py and the script will do it for you.
+
+# Screenshots
+Games section
+![Alt text](https://github.com/jasoc/layon/blob/main/screenshots/Layon-games.PNG?raw=true)
+Spotify Client
+![Alt text](https://github.com/jasoc/layon/blob/main/screenshots/Layon-spotify.PNG?raw=true)
