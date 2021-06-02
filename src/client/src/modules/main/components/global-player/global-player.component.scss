@@ -27,7 +27,7 @@
                 width: 55px;
                 height: 50px;
                 margin: 0px 10px 0px 10px;
-                background: url("https://img.discogs.com/1zs2Ft2b1I82SK4_ZukCmDiyYA0=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-3090667-1315260205.jpeg.jpg") no-repeat center/cover;
+                background: no-repeat center/cover;
             }
     
             p {
@@ -68,6 +68,20 @@
                 &:hover {
                     color: lighten($color: #b3b3b3, $amount: 50%);
                 }
+            }
+
+        }
+
+        #slider {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            slider {
+                right: 0;
+                margin-right: 40px;
+                position: absolute;
             }
         }
     

@@ -25,12 +25,27 @@ export class PlaylistsComponent implements OnInit {
 
   TOKEN = localStorage.getItem('APP_TOKEN');
 
+  public selectedPlaylist: string = '';
+
   getPlaylistTracks(index: number) {
+    /*
+     * This if is required in order to save API calls, this will reduce
+     * the amount of calls, if the tracks are already loaded then it won't ask
+     * again to load but it will just load the tracks already in memory.
+     */
+    if (this._spotify.playlists[index].tracks) {
+      this.selectedPlaylist = `${this._spotify.playlists[index].name},
+       ${this._spotify.playlists[index].tracks.length} tracks`;
+      this._spotify.currentPlaylistIndex = index;
+      return;
+    }
+    let cnt = 0;
     this._spotify.getPlaylistTracks(this.TOKEN, this._spotify.playlists[index].id)
       .subscribe((res: apiResult) => {
-        this._spotify.tracks = [];
+        this._spotify.playlists[index].tracks = []; // !!!
         res.data.items.forEach( (track) => {
-          this._spotify.tracks.push({
+          cnt++;
+          this._spotify.playlists[index].tracks.push({
             name: track.track.name,
             id: track.track.id,
             duration: Math.floor(track.track.duration_ms / 60000).toString() + ':' +
@@ -39,6 +54,7 @@ export class PlaylistsComponent implements OnInit {
           });
         });
         this._spotify.currentPlaylistIndex = index;
+        this.selectedPlaylist = `${this._spotify.playlists[index].name}, ${cnt} tracks`;
       });
   }
 }

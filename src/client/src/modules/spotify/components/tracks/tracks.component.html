@@ -1,4 +1,5 @@
-<div id="track-list" *ngIf="_spotify.tracks">
+<div id="track-list" *ngIf="_spotify.playlists && 
+_spotify.playlists[_spotify.currentPlaylistIndex].tracks">
 
     <div id="data">
         <div>
@@ -13,27 +14,30 @@
         </div>
     </div>
 
-    <div id="track" *ngFor="let track of _spotify.tracks; let i = index" (click)="playSong(_spotify.tracks[i].id, i)">
-        
-        <div id="info">
-            <p>{{i+1}}</p>
-            <mat-icon>play_circle_filled</mat-icon>
+    <div id="master-track">
+        <div id="track" *ngFor="let track of _spotify.playlists[_spotify.currentPlaylistIndex].tracks; let i = index" 
+        (click)="playSong(_spotify.playlists[_spotify.currentPlaylistIndex].tracks[i].id, i)">
             
-            <div id="track-image" 
-            [ngStyle]="{'background-image': 'url(' + _spotify.playlists[_spotify.currentPlaylistIndex].image + ')' }"></div>
+            <div id="info">
+                <p>{{i+1}}</p>
+                <mat-icon>play_circle_filled</mat-icon>
 
-            <div id="track-info">
-                <p id="name">{{track.name}}</p>
+                <div id="track-image" 
+                [ngStyle]="{'background-image': 'url(' + _spotify.playlists[_spotify.currentPlaylistIndex].image + ')' }"></div>
 
-                <p id="artist">{{track.artists}}</p>
+                <div id="track-info">
+                    <p id="name">{{track.name}}</p>
+
+                    <p id="artist">{{track.artists}}</p>
+                </div>
+
+            </div>
+
+            <div id="time">
+                <p>{{track.duration}}</p>
             </div>
 
         </div>
-
-        <div id="time">
-            <p>{{track.duration}}</p>
-        </div>
-
     </div>
 
 </div>

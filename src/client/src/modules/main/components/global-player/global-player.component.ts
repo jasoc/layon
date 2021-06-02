@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {SpotifyService} from 'services/spotify.service';
 import {
   trigger,
@@ -26,11 +26,8 @@ import {
     ]),
   ],
 })
-export class GlobalPlayerComponent implements OnInit {
+export class GlobalPlayerComponent {
   constructor(public _spotify: SpotifyService) { }
-
-  ngOnInit(): void {
-  }
 
   TOKEN = localStorage.getItem('APP_TOKEN');
   deviceID = localStorage.getItem('DEVICE_ID');
@@ -41,5 +38,9 @@ export class GlobalPlayerComponent implements OnInit {
 
   pause() {
     this._spotify.pause(this.TOKEN, this.deviceID).subscribe();
+  }
+
+  changeVolume() {
+    this._spotify.changeVolume(this.TOKEN, this._spotify.volume).subscribe();
   }
 }

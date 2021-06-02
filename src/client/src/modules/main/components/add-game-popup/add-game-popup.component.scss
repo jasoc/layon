@@ -11,6 +11,7 @@
     height: 200px;
     background: $LAYON-BLACK;
     border-radius: 7px;
+    user-select: none;
     
     #add-game-popup__inner {
         height: 100%;

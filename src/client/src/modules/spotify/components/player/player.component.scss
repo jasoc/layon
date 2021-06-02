@@ -52,6 +52,7 @@
             height: 45px;
             border: none;
             color: #b3b3b3;
+            position: relative;
             background: transparent;
             border-radius: 50%;
             outline: none;
@@ -60,6 +61,12 @@
             &:hover {
                 color: lighten($color: #b3b3b3, $amount: 50%);
             }
+        }
+
+        slider {
+            right: 0;
+            margin: 20px;
+            position: absolute;
         }
     }
 

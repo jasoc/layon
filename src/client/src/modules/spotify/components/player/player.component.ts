@@ -1,3 +1,4 @@
+// import { ThisReceiver } from '@angular/compiler';
 import {Component, OnInit} from '@angular/core';
 import {apiResult} from 'core';
 import {SpotifyService} from 'services/spotify.service';
@@ -24,6 +25,11 @@ export class PlayerComponent implements OnInit {
 
   TOKEN = localStorage.getItem('APP_TOKEN');
   deviceID = localStorage.getItem('DEVICE_ID');
+
+  changeVolume() {
+    this._spotify.changeVolume(this.TOKEN, this._spotify.volume).subscribe();
+  }
+
 
   replay() {
     this._spotify.play(this.TOKEN, this._spotify.currentTrack.id, this.deviceID).subscribe();

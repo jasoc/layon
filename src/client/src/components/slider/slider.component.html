@@ -1,0 +1,5 @@
+<div id="volume">
+    <input id="slider" type="range" min="0" max="100" [(ngModel)]="value" (ngModelChange)="valueChange.emit(value)">
+    <div id="slider-space" [style.width.px]="value + 15" ></div>
+    <p>{{value}}</p>
+</div>

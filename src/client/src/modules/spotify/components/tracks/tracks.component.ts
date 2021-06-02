@@ -19,13 +19,18 @@ export class TracksComponent implements OnInit {
     const deviceID = localStorage.getItem('DEVICE_ID');
     this._spotify.play(TOKEN, trackID, deviceID).subscribe((res: apiResult) => {
       if (res.success) {
-        this._spotify.currentPlaying(TOKEN).subscribe( (response: apiResult) => {
-          this._spotify.currentTrack = {
-            name: response.data.item.name,
-            id: response.data.item.id,
-            image: response.data.item.album.images[0].url,
-          };
-        });
+        /* Bisogna subito sistemare, il setTimeout è una soluzione assolutamente
+         * temporanea, per risolvere la currentTrack non aggiornata nel player
+         */
+        setTimeout( () => {
+          this._spotify.currentPlaying(TOKEN).subscribe( (response: apiResult) => {
+            this._spotify.currentTrack = {
+              name: response.data.item.name,
+              id: response.data.item.id,
+              image: response.data.item.album.images[0].url,
+            };
+          });
+        }, 500);
       }
     });
     this._spotify.currentTrackIndex = index;

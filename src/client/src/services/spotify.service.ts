@@ -16,7 +16,7 @@ export class SpotifyService {
 
   public playlists?: playlist[];
 
-  public currentPlaylistIndex: number;
+  public currentPlaylistIndex: number = 0;
 
   public currentTrackIndex?: number;
 
@@ -27,6 +27,8 @@ export class SpotifyService {
   public isPause: boolean = false;
 
   public repeat: boolean = false;
+
+  public volume: number = 30;
 
   public isAuthorized: boolean = false;
 
@@ -90,6 +92,10 @@ export class SpotifyService {
       .post(`${this.BASE_URL}/spotify/userprofile`, {TOKEN: TOKEN});
   }
 
+  public changeVolume(TOKEN: string, volume: number) {
+    return this.http
+      .post(`${this.BASE_URL}/spotify/volume`, {TOKEN: TOKEN, volume: volume});
+  }
 
   // public callAuthorizationApi() {
   //   return this.http

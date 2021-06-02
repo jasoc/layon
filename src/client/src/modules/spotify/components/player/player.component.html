@@ -27,10 +27,9 @@
         <button class="buttons" (click)="_spotify.repeat = !_spotify.repeat">
             <mat-icon [ngClass]=" { 'active' : _spotify.repeat } ">repeat_one</mat-icon>
         </button>
+
+        <slider [(value)]="_spotify.volume" (click)="changeVolume()"></slider>
     </div>
 
-    <div>
-        
-    </div>
 
 </div>

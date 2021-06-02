@@ -7,6 +7,7 @@ import {FlatInputComponent} from 'components/flat-input/flat-input.component';
 import {CircularButtonComponent} from 'components/circular-button/circular-button.component';
 import {TopbarButtonComponent} from 'components/topbar-button/topbar-button.component';
 import {UserBoxComponent} from 'components/user-box/user-box.component';
+import {SliderComponent} from 'components/slider/slider.component';
 
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -18,6 +19,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     CircularButtonComponent,
     TopbarButtonComponent,
     UserBoxComponent,
+    SliderComponent,
   ],
   exports: [
     FlatInputComponent,
@@ -27,6 +29,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     UserBoxComponent,
     MatIconModule,
     MatFormFieldModule,
+    SliderComponent,
   ],
   imports: [
     MatFormFieldModule,

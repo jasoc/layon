@@ -1,0 +1,43 @@
+@import 'styles/fonts';
+
+#volume {
+    display: flex;
+    align-items: center;
+    font-family: Roboto;
+
+    input {
+        height: 10px;
+        -webkit-appearance: none;
+        outline: none;
+        border-radius: 25px;
+        // background: #00d95a;
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: black;
+            position: relative;
+            z-index: 10;
+
+            &:hover {
+                background: lighten($color: #000000, $amount: 50%);
+            }
+        }
+    }
+
+    #slider-space {
+        position: absolute;
+        height: 10px;
+        background: #00d95a;
+        pointer-events: none;
+        border-radius: 25px;
+        z-index: 1;
+    }
+
+    p {
+        color: white;
+        margin: 10px;
+    }
+}

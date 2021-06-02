@@ -12,7 +12,7 @@ import {TopbarComponent} from './components/topbar/topbar.component';
 import {OptionsMenuComponent} from './components/options-menu/options-menu.component';
 import {AddGamePopupComponent} from './components/add-game-popup/add-game-popup.component';
 import {MainViewComponent} from './pages/main-view/main-view.component';
-import {GlobalPlayerComponent} from './global-player/global-player.component';
+import {GlobalPlayerComponent} from './components/global-player/global-player.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from 'environments/environment';
 
