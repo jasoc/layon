@@ -20,7 +20,8 @@ _spotify.playlists[_spotify.currentPlaylistIndex].tracks">
             
             <div id="info">
                 <p>{{i+1}}</p>
-                <mat-icon>play_circle_filled</mat-icon>
+                <mat-icon *ngIf="_spotify.playlists[_spotify.currentPlaylistIndex].currentPlaying != i">play_circle_filled</mat-icon>
+                <mat-icon *ngIf="_spotify.playlists[_spotify.currentPlaylistIndex].currentPlaying == i">pause_circle_filled</mat-icon>
 
                 <div id="track-image" 
                 [ngStyle]="{'background-image': 'url(' + _spotify.playlists[_spotify.currentPlaylistIndex].image + ')' }"></div>

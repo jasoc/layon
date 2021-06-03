@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     font-family: Roboto-bold;
     border-bottom: 1px solid #b3b3b31e;
 
@@ -56,6 +57,11 @@
                 margin-bottom: 15px;
             }
         }
+    }
+
+    #left {
+        position: absolute;
+        left: 0;
     }
 
     #current-playlist {

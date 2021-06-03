@@ -5,4 +5,5 @@ export interface playlist {
     id: string;
     tracks?: Array<track>;
     image: string;
+    currentPlaying?: number;
 }

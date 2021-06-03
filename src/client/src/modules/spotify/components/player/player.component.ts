@@ -36,26 +36,30 @@ export class PlayerComponent implements OnInit {
   }
 
   previous() {
-    if (this._spotify.currentTrackIndex == 0) {
-      this._spotify.currentTrackIndex = this._spotify.tracks.length;
+    if (this._spotify.playlists[this._spotify.currentPlaylistIndex].currentPlaying == 0) {
+      // eslint-disable-next-line max-len
+      this._spotify.playlists[this._spotify.currentPlaylistIndex].currentPlaying = this._spotify.playlists[this._spotify.currentPlaylistIndex].tracks.length;
     }
 
-    this._spotify.currentTrackIndex--;
+    this._spotify.playlists[this._spotify.currentPlaylistIndex].currentPlaying--;
 
     this._spotify.play(this.TOKEN,
-      this._spotify.tracks[this._spotify.currentTrackIndex].id, this.deviceID)
+      // eslint-disable-next-line max-len
+      this._spotify.playlists[this._spotify.currentPlaylistIndex].tracks[this._spotify.playlists[this._spotify.currentPlaylistIndex].currentPlaying].id, this.deviceID)
       .subscribe();
   }
 
   next() {
-    if (this._spotify.currentTrackIndex+1 > this._spotify.tracks.length-1) {
-      this._spotify.currentTrackIndex = 0;
+    // eslint-disable-next-line max-len
+    if (this._spotify.playlists[this._spotify.currentPlaylistIndex].currentPlaying+1 > this._spotify.playlists[this._spotify.currentPlaylistIndex].tracks.length-1) {
+      this._spotify.playlists[this._spotify.currentPlaylistIndex].currentPlaying = 0;
     }
 
-    this._spotify.currentTrackIndex++;
+    this._spotify.playlists[this._spotify.currentPlaylistIndex].currentPlaying++;
 
     this._spotify.play(this.TOKEN,
-      this._spotify.tracks[this._spotify.currentTrackIndex].id, this.deviceID)
+      // eslint-disable-next-line max-len
+      this._spotify.playlists[this._spotify.currentPlaylistIndex].tracks[this._spotify.playlists[this._spotify.currentPlaylistIndex].currentPlaying].id, this.deviceID)
       .subscribe();
   }
 

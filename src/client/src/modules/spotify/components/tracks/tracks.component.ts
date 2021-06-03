@@ -34,5 +34,9 @@ export class TracksComponent implements OnInit {
       }
     });
     this._spotify.currentTrackIndex = index;
+    for (let i = 0; i < this._spotify.playlists.length; i++) {
+      this._spotify.playlists[i].currentPlaying = undefined;
+    }
+    this._spotify.playlists[this._spotify.currentPlaylistIndex].currentPlaying = index;
   }
 }

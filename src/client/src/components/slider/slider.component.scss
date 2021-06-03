@@ -1,6 +1,7 @@
 @import 'styles/fonts';
 
 #volume {
+    position: relative;
     display: flex;
     align-items: center;
     font-family: Roboto;
@@ -9,6 +10,7 @@
         height: 10px;
         -webkit-appearance: none;
         outline: none;
+        margin-right: 50px;
         border-radius: 25px;
         // background: #00d95a;
 
@@ -37,6 +39,8 @@
     }
 
     p {
+        position: absolute;
+        right: 0;
         color: white;
         margin: 10px;
     }
